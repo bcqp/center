@@ -274,5 +274,11 @@ window.BIQEP_PAGES = [
 "t": "Reserves and external vulnerability in Bangladesh",
 "d": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for reserves, exports, imports, debt service and the exchange rate. Bangladesh is below the peer median and worsening on 4 of 5 indicators judged.",
 "s": "Policy briefs"
+},
+{
+"u": "briefs/trade-and-export-concentration-2026-11-14.html",
+"t": "Trade openness and export performance in Bangladesh",
+"d": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for exports, imports, manufacturing and growth. Bangladesh is below the peer median and worsening on 2 of 4 indicators judged.",
+"s": "Policy briefs"
 }
 ];

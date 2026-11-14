@@ -170,6 +170,15 @@ window.BIQEP = {
       "type": "Statistical report",
       "status": "published",
       "summary": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for money, credit, interest rates, prices and growth. Bangladesh is below the peer median and worsening on 4 of 4 indicators judged."
+    },
+    {
+      "slug": "savings-and-investment-gap-2026-11-14",
+      "title": "Domestic savings and the investment gap in Bangladesh",
+      "date": "2026-11-14",
+      "topic": "Growth and structure",
+      "type": "Statistical report",
+      "status": "published",
+      "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for savings, investment, deposits and growth. Bangladesh is below the peer median and worsening on 2 of 5 indicators judged."
     }
   ],
   "topics": [

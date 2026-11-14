@@ -1,0 +1,39 @@
+name: Weekly report release
+on:
+  schedule:
+    - cron: "0 1 * * 1"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Release now even if less than a week has passed"
+        type: boolean
+        default: false
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/checkout@v4
+        with:
+          ref: queue
+          path: _queue
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Release next reports
+        run: |
+          python3 tools/release_next.py _queue ${{ inputs.force && '--force' || '' }}
+          python3 tools/build_data.py
+          python3 tools/build_site.py
+          python3 tools/stamp.py "$(date +%Y%m%d)"
+          rm -rf _queue
+      - name: Commit and push
+        run: |
+          git config user.name "Tuhin G. M. Al Mamun"
+          git config user.email "noreply@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then echo "nothing to publish"; else git commit -m "Weekly release of reports" && git push; fi

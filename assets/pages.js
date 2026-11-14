@@ -258,93 +258,9 @@ window.BIQEP_PAGES = [
 "s": "Policy briefs"
 },
 {
-"u": "briefs/growth-and-investment-2026-11-14.html",
-"t": "Growth and investment in Bangladesh: how far does capital formation carry output?",
-"d": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for investment, savings, FDI and growth. Bangladesh is below the peer median and worsening on 2 of 5 indicators judged.",
-"s": "Policy briefs"
-},
-{
-"u": "briefs/private-credit-and-banking-2026-11-14.html",
-"t": "Private credit and the banking system in Bangladesh: depth, cost and growth",
-"d": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for private credit, broad money, interest rates and growth. Bangladesh is below the peer median and worsening on 3 of 4 indicators judged.",
-"s": "Policy briefs"
-},
-{
-"u": "briefs/reserves-and-external-vulnerability-2026-11-14.html",
-"t": "Reserves and external vulnerability in Bangladesh",
-"d": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for reserves, exports, imports, debt service and the exchange rate. Bangladesh is below the peer median and worsening on 4 of 5 indicators judged.",
-"s": "Policy briefs"
-},
-{
-"u": "briefs/trade-and-export-concentration-2026-11-14.html",
-"t": "Trade openness and export performance in Bangladesh",
-"d": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for exports, imports, manufacturing and growth. Bangladesh is below the peer median and worsening on 2 of 4 indicators judged.",
-"s": "Policy briefs"
-},
-{
-"u": "briefs/foreign-direct-investment-2026-11-14.html",
-"t": "Foreign direct investment in Bangladesh: is the economy attracting capital?",
-"d": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for FDI, investment, exports and growth. Bangladesh is below the peer median and worsening on 4 of 5 indicators judged.",
-"s": "Policy briefs"
-},
-{
-"u": "briefs/external-debt-and-debt-service-2026-11-14.html",
-"t": "External debt and debt service in Bangladesh",
-"d": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for external debt, debt service, reserves and growth. Bangladesh is below the peer median and worsening on 4 of 5 indicators judged.",
-"s": "Policy briefs"
-},
-{
-"u": "briefs/growth-and-jobs-2026-11-14.html",
-"t": "Growth, unemployment and youth jobs in Bangladesh",
-"d": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for unemployment, youth jobs, participation and growth. Bangladesh is below the peer median and worsening on 1 of 4 indicators judged.",
-"s": "Policy briefs"
-},
-{
-"u": "briefs/female-labour-force-participation-2026-11-14.html",
-"t": "Women in the labour force in Bangladesh",
-"d": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for female participation, structure and growth. Bangladesh is above the peer median on 4 of 5 indicators judged.",
-"s": "Policy briefs"
-},
-{
-"u": "briefs/manufacturing-and-structural-change-2026-11-14.html",
-"t": "Manufacturing and structural change in Bangladesh",
-"d": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for sector shares, exports, investment and growth. Bangladesh is above the peer median on 2 of 3 indicators judged.",
-"s": "Policy briefs"
-},
-{
-"u": "briefs/agriculture-and-food-security-2026-11-14.html",
-"t": "Agriculture, food production and prices in Bangladesh",
-"d": "Peer benchmarks and 5 model specifications on 12 variables (1991–2024) for food production, yields, prices and growth. Bangladesh is below the peer median and worsening on 1 of 4 indicators judged.",
-"s": "Policy briefs"
-},
-{
-"u": "briefs/energy-and-electricity-2026-11-14.html",
-"t": "Energy use and electricity in Bangladesh",
-"d": "Peer benchmarks and 5 model specifications on 12 variables (1991–2024) for electricity, energy mix, imports and growth. Bangladesh is below the peer median and worsening on 3 of 5 indicators judged.",
-"s": "Policy briefs"
-},
-{
 "u": "briefs/money-and-prices-2026-11-14.html",
 "t": "Money growth and prices in Bangladesh",
 "d": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for money, credit, interest rates, prices and growth. Bangladesh is below the peer median and worsening on 4 of 4 indicators judged.",
-"s": "Policy briefs"
-},
-{
-"u": "briefs/savings-and-investment-gap-2026-11-14.html",
-"t": "Domestic savings and the investment gap in Bangladesh",
-"d": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for savings, investment, deposits and growth. Bangladesh is below the peer median and worsening on 2 of 5 indicators judged.",
-"s": "Policy briefs"
-},
-{
-"u": "briefs/urbanisation-and-growth-2026-11-14.html",
-"t": "Urbanisation and growth in Bangladesh",
-"d": "Peer benchmarks and 5 model specifications on 12 variables (1991–2024) for urbanisation, structure and growth. Bangladesh is below the peer median and worsening on 1 of 3 indicators judged.",
-"s": "Policy briefs"
-},
-{
-"u": "briefs/growth-and-health-outcomes-2026-11-14.html",
-"t": "Income growth and health outcomes in Bangladesh",
-"d": "Peer benchmarks and 5 model specifications on 12 variables (1991–2024) for income, mortality, life expectancy and structure. Bangladesh is below the peer median and worsening on 3 of 5 indicators judged.",
 "s": "Policy briefs"
 }
 ];

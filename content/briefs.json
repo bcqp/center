@@ -106,5 +106,14 @@
   "type": "Statistical report",
   "status": "published",
   "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2024) for electricity, energy mix, imports and growth. Bangladesh is below the peer median and worsening on 3 of 5 indicators judged."
+ },
+ {
+  "slug": "money-and-prices-2026-11-14",
+  "title": "Money growth and prices in Bangladesh",
+  "date": "2026-11-14",
+  "topic": "Monetary policy",
+  "type": "Statistical report",
+  "status": "published",
+  "summary": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for money, credit, interest rates, prices and growth. Bangladesh is below the peer median and worsening on 4 of 4 indicators judged."
  }
 ]

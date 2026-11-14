@@ -322,5 +322,11 @@ window.BIQEP_PAGES = [
 "t": "Energy use and electricity in Bangladesh",
 "d": "Peer benchmarks and 5 model specifications on 12 variables (1991–2024) for electricity, energy mix, imports and growth. Bangladesh is below the peer median and worsening on 3 of 5 indicators judged.",
 "s": "Policy briefs"
+},
+{
+"u": "briefs/money-and-prices-2026-11-14.html",
+"t": "Money growth and prices in Bangladesh",
+"d": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for money, credit, interest rates, prices and growth. Bangladesh is below the peer median and worsening on 4 of 4 indicators judged.",
+"s": "Policy briefs"
 }
 ];

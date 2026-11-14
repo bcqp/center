@@ -256,5 +256,11 @@ window.BIQEP_PAGES = [
 "t": "Inflation, the Taka and the stance of policy in Bangladesh, 1992–2025",
 "d": "Inflation rose to 10.5% in 2024 while lending rates stayed below it in each of the four years from 2022 to 2025. Nine econometric estimates, using 13 official macro variables, find a positive but imprecisely estimated pass-through from Taka depreciation to inflation.",
 "s": "Policy briefs"
+},
+{
+"u": "briefs/growth-and-investment-2026-11-14.html",
+"t": "Growth and investment in Bangladesh: how far does capital formation carry output?",
+"d": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for investment, savings, FDI and growth. Bangladesh is below the peer median and worsening on 2 of 5 indicators judged.",
+"s": "Policy briefs"
 }
 ];

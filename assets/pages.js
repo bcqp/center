@@ -286,5 +286,11 @@ window.BIQEP_PAGES = [
 "t": "Foreign direct investment in Bangladesh: is the economy attracting capital?",
 "d": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for FDI, investment, exports and growth. Bangladesh is below the peer median and worsening on 4 of 5 indicators judged.",
 "s": "Policy briefs"
+},
+{
+"u": "briefs/external-debt-and-debt-service-2026-11-14.html",
+"t": "External debt and debt service in Bangladesh",
+"d": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for external debt, debt service, reserves and growth. Bangladesh is below the peer median and worsening on 4 of 5 indicators judged.",
+"s": "Policy briefs"
 }
 ];

@@ -116,6 +116,15 @@ window.BIQEP = {
       "type": "Statistical report",
       "status": "published",
       "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for external debt, debt service, reserves and growth. Bangladesh is below the peer median and worsening on 4 of 5 indicators judged."
+    },
+    {
+      "slug": "growth-and-jobs-2026-11-14",
+      "title": "Growth, unemployment and youth jobs in Bangladesh",
+      "date": "2026-11-14",
+      "topic": "Labor and wages",
+      "type": "Statistical report",
+      "status": "published",
+      "summary": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for unemployment, youth jobs, participation and growth. Bangladesh is below the peer median and worsening on 1 of 4 indicators judged."
     }
   ],
   "topics": [

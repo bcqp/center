@@ -13,10 +13,9 @@ SITE = "https://tuhingm.github.io/biqep-policy/"
 PERSON = {"@type": "Person", "@id": SITE + "tuhin-al-mamun/#tuhin", "name": "Tuhin G. M. Al Mamun", "honorificPrefix": "Dr.",
           "alternateName": ["Tuhin Al Mamun", "Tuhin GM Al Mamun", "Tuhin G. Al Mamun", "T. G. M. Al Mamun"],
           "jobTitle": "Economist; Founder and Executive Director, BIQEP", "url": SITE + "tuhin-al-mamun/", "mainEntityOfPage": SITE + "tuhin-al-mamun/",
-          "alumniOf": {"@type": "CollegeOrUniversity", "name": "Hannam University"},
           "nationality": {"@type": "Country", "name": "Bangladesh"},
           "knowsAbout": ["Monetary policy transmission", "Bayesian econometrics", "Time-series econometrics", "DSGE and heterogeneous-agent models", "Bangladesh economy"],
-          "image": SITE + "assets/og-image.png", "description": "Tuhin Al Mamun (Tuhin G. M. Al Mamun) is a Bangladeshi economist with a PhD from Hannam University, working on monetary policy transmission, Bayesian and time-series econometrics and structural macroeconomic models.",
+          "image": SITE + "assets/og-image.png", "description": "Tuhin Al Mamun (Tuhin G. M. Al Mamun) is a Bangladeshi economist with a PhD in economics, working on monetary policy transmission, Bayesian and time-series econometrics and structural macroeconomic models.",
           "sameAs": ["https://tuhingm.github.io/almamun/", "https://github.com/tuhingm", "https://tuhingm.github.io/almamun/oes/"]}
 ORG = {"@type": "Organization", "@id": SITE + "#org", "name": "Bangladesh Institute of Quantitative Economics and Public Policy",
        "alternateName": ["BIQEP", "BIQEP Policy Briefs"], "url": SITE, "logo": SITE + "assets/og-image.png",
@@ -250,7 +249,7 @@ std("about/research-philosophy/index.html","About","about/index.html","Research 
 std("about/leadership/index.html","About","about/index.html","Leadership","About","The person responsible for the series.",
  '''<div class="person"><div class="avatar">TA</div><div>
 <h2 style="margin-bottom:.2em">Dr. Tuhin G. M. Al Mamun</h2><p class="muted" style="margin-bottom:.8em">Founder and Executive Director</p>
-<p>Dr. Al Mamun holds a PhD in Economics from Hannam University. His research covers monetary policy transmission, heterogeneous-agent and structural macroeconomic models, Bayesian and time-series econometrics, and applied machine-learning methods.</p>
+<p>Dr. Al Mamun holds a PhD in Economics. His research covers monetary policy transmission, heterogeneous-agent and structural macroeconomic models, Bayesian and time-series econometrics, and applied machine-learning methods.</p>
 <p>He is responsible for the topics chosen, the data validated, the models run and every brief published in the series.</p>
 <p><a class="link-arrow" href="https://tuhingm.github.io/almamun/" rel="noopener">Academic website</a></p></div></div>''',
  "Leadership of BIQEP Policy Briefs: Dr. Tuhin G. M. Al Mamun, Founder and Executive Director.")
@@ -497,7 +496,7 @@ for s,t,d,items in PCY:
 std("people/index.html","People","people/index.html","People","People","Who is responsible for the series.",
  '''<div class="person"><div class="avatar">TA</div><div>
 <h2 style="margin-bottom:.2em">Dr. Tuhin G. M. Al Mamun</h2><p class="muted" style="margin-bottom:.8em">Founder and Executive Director</p>
-<p>PhD in Economics, Hannam University. Research on monetary policy transmission, structural and heterogeneous-agent macroeconomic models, Bayesian and time-series econometrics, and applied machine-learning methods.</p>
+<p>PhD in Economics. Research on monetary policy transmission, structural and heterogeneous-agent macroeconomic models, Bayesian and time-series econometrics, and applied machine-learning methods.</p>
 <p><a class="link-arrow" href="../tuhin-al-mamun/index.html">Full profile</a> &nbsp; <a class="link-arrow" href="../about/leadership/index.html">Leadership</a> &nbsp; <a class="link-arrow" href="https://tuhingm.github.io/almamun/" rel="noopener">Academic website</a></p></div></div>''',
  "People behind BIQEP Policy Briefs.", siblings=False)
 
@@ -506,7 +505,7 @@ prof = head("tuhin-al-mamun/index.html", [("Tuhin Al Mamun", None)], "Economist"
   "Tuhin Al Mamun is a Bangladeshi economist and the founder of BIQEP Policy Briefs. His work is on monetary policy transmission, econometrics and macroeconomic modeling.") + \
  '''<section class="sec"><div class="wrap narrow-w">
 <h2>About Tuhin Al Mamun</h2>
-<p>Dr. Tuhin G. M. Al Mamun (also written Tuhin Al Mamun) is an economist from Bangladesh. He holds a PhD in Economics from Hannam University, where he completed his doctoral studies from 2022 to 2026 with a dissertation on monetary policy transmission in Bangladesh. He worked as a research assistant in the Department of Economics at Hannam University from 2024 to 2025.</p>
+<p>Dr. Tuhin G. M. Al Mamun (also written Tuhin Al Mamun) is an economist from Bangladesh. He holds a PhD in Economics, with a dissertation on monetary policy transmission in Bangladesh.</p>
 <p>He is the founder and executive director of the Bangladesh Institute of Quantitative Economics and Public Policy (BIQEP) and the author of BIQEP Policy Briefs, a series of data-based briefs on the Bangladesh economy that use official statistics and reproducible methods.</p>
 <h2>Research interests</h2>
 <ul><li>Monetary, fiscal and environmental policy</li><li>Dynamic stochastic general equilibrium and heterogeneous-agent macroeconomic models</li><li>Bayesian estimation, time-series and regime-switching econometrics</li><li>Applied machine learning for economics: double machine learning, LASSO, random forests and gradient boosting</li></ul>
@@ -516,7 +515,7 @@ prof = head("tuhin-al-mamun/index.html", [("Tuhin Al Mamun", None)], "Economist"
 <ul><li><a href="https://tuhingm.github.io/almamun/" rel="noopener">Academic website of Tuhin Al Mamun</a></li><li><a href="https://github.com/tuhingm" rel="noopener">GitHub: tuhingm</a></li><li><a href="../index.html">BIQEP Policy Briefs</a>, <a href="../people/index.html">People</a></li></ul>
 </div></section>'''
 page("tuhin-al-mamun/index.html", "Tuhin Al Mamun: Economist and Founder of BIQEP",
- "Tuhin Al Mamun (Tuhin G. M. Al Mamun) is a Bangladeshi economist with a PhD from Hannam University, researching monetary policy transmission and econometrics, and founder of BIQEP Policy Briefs.", prof, "People")
+ "Tuhin Al Mamun (Tuhin G. M. Al Mamun) is a Bangladeshi economist with a PhD in economics, researching monetary policy transmission and econometrics, and founder of BIQEP Policy Briefs.", prof, "People")
 
 std("news/index.html","News","news/index.html","News","News","Release notes and corrections.",
  '''<div class="empty"><h3>No news published yet</h3><p>Release notes, new series and corrections are listed here with their dates.</p></div>

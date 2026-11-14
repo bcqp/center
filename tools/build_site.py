@@ -50,10 +50,10 @@ def page(path, title, desc, body, section="Site", search=True):
 <meta name="theme-color" content="#10283f">
 <meta property="og:site_name" content="BIQEP Policy Briefs"><meta property="og:locale" content="en_US">
 <meta property="og:title" content="{full_title}"><meta property="og:description" content="{desc}"><meta property="og:type" content="website">
-<meta property="og:url" content="{url}"><meta property="og:image" content="{SITE}assets/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{full_title}"><meta name="twitter:description" content="{desc}"><meta name="twitter:image" content="{SITE}assets/og-image.png">
+<meta property="og:url" content="{url}"><meta property="og:image" content="{SITE}assets/og-image.png?v=2"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:type" content="image/png"><meta property="og:image:alt" content="BIQEP Policy Briefs: statistical reports on the Bangladesh economy by Tuhin G. M. Al Mamun">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{full_title}"><meta name="twitter:description" content="{desc}"><meta name="twitter:image" content="{SITE}assets/og-image.png?v=2"><meta name="twitter:image:alt" content="BIQEP Policy Briefs: statistical reports on the Bangladesh economy by Tuhin G. M. Al Mamun">
 <link rel="canonical" href="{url}">
-<link rel="icon" href="{root}assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{root}assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="{root}assets/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="{root}assets/apple-touch-icon.png">
 <script type="application/ld+json">{ld}</script>
 {FONTS}<link rel="stylesheet" href="{root}assets/style.css"></head>
 <body><div id="hdr"></div>

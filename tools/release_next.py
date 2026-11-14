@@ -11,7 +11,7 @@ if not todo: print("queue empty"); sys.exit(0)
 d = today.isoformat()
 for s in todo:
     h = (Q / (s + ".html")).read_text(encoding="utf-8")
-    h = h.replace("· Statistical report · 2026-11-14", "· Statistical report · " + d).replace('"datePublished": "2026-11-14"', '"datePublished": "%s"' % d)
+    h = h.replace("· Statistical report · 2026-11-14", "· Statistical report · " + d).replace('"datePublished": "2026-11-14"', '"datePublished": "%s"' % d).replace('citation_publication_date" content="2026/11/14"', 'citation_publication_date" content="%s"' % d.replace("-", "/")).replace('article:published_time" content="2026-11-14"', 'article:published_time" content="%s"' % d)
     h = re.sub(r"(Al Mamun, Tuhin G\. M\., and Dr Rahim Md Abdur \()\d{4}\)", r"\g<1>%d)" % today.year, h)
     (R / "briefs" / (s + ".html")).write_text(h, encoding="utf-8"); shutil.copytree(Q / s, R / "briefs" / s, dirs_exist_ok=True)
     r = dict(recs[s]); r["date"] = d; brf.append(r)

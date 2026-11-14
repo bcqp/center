@@ -80,6 +80,15 @@ window.BIQEP = {
       "type": "Statistical report",
       "status": "published",
       "summary": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for private credit, broad money, interest rates and growth. Bangladesh is below the peer median and worsening on 3 of 4 indicators judged."
+    },
+    {
+      "slug": "reserves-and-external-vulnerability-2026-11-14",
+      "title": "Reserves and external vulnerability in Bangladesh",
+      "date": "2026-11-14",
+      "topic": "External sector",
+      "type": "Statistical report",
+      "status": "published",
+      "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for reserves, exports, imports, debt service and the exchange rate. Bangladesh is below the peer median and worsening on 4 of 5 indicators judged."
     }
   ],
   "topics": [

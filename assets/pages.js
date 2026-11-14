@@ -334,5 +334,11 @@ window.BIQEP_PAGES = [
 "t": "Domestic savings and the investment gap in Bangladesh",
 "d": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for savings, investment, deposits and growth. Bangladesh is below the peer median and worsening on 2 of 5 indicators judged.",
 "s": "Policy briefs"
+},
+{
+"u": "briefs/urbanisation-and-growth-2026-11-14.html",
+"t": "Urbanisation and growth in Bangladesh",
+"d": "Peer benchmarks and 5 model specifications on 12 variables (1991–2024) for urbanisation, structure and growth. Bangladesh is below the peer median and worsening on 1 of 3 indicators judged.",
+"s": "Policy briefs"
 }
 ];

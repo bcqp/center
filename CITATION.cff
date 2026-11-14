@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use these reports, please cite them as below."
+title: "BIQEP Policy Briefs: statistical reports on the Bangladesh economy"
+authors:
+  - family-names: "Al Mamun"
+    given-names: "Tuhin G. M."
+  - family-names: "Rahim"
+    given-names: "Md Abdur"
+license: CC-BY-4.0
+url: "https://tuhingm.github.io/biqep-policy/"

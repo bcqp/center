@@ -298,5 +298,11 @@ window.BIQEP_PAGES = [
 "t": "Growth, unemployment and youth jobs in Bangladesh",
 "d": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for unemployment, youth jobs, participation and growth. Bangladesh is below the peer median and worsening on 1 of 4 indicators judged.",
 "s": "Policy briefs"
+},
+{
+"u": "briefs/female-labour-force-participation-2026-11-14.html",
+"t": "Women in the labour force in Bangladesh",
+"d": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for female participation, structure and growth. Bangladesh is above the peer median on 4 of 5 indicators judged.",
+"s": "Policy briefs"
 }
 ];

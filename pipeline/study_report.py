@@ -106,7 +106,7 @@ def build(today=None):
                "using 13 official macro variables, find a positive but imprecisely estimated pass-through from Taka depreciation to inflation." % (f(cpi[2024]), 2024))
     A = lambda s: "<p>%s</p>" % s
     body = []
-    body.append('<p class="small muted">Tuhin G. M. Al Mamun · Statistical report · %s</p>' % today)
+    body.append('<p class="small muted">Tuhin G. M. Al Mamun and Rahim Md Abdur · Statistical report · %s</p>' % today)
     body.append('<div class="note"><b>Abstract.</b> Consumer-price inflation in Bangladesh reached %s%% in 2023 and %s%% in 2024, up from %s%% in 2021, while the Taka lost %s%% of its value against the US dollar between 2021 and 2025 and reserves fell by %s%% from 2021 to 2024. '
                 'Using 13 annual macroeconomic series from 1992 to 2025, we estimate vector autoregressions, local projections and Bayesian VARs. A depreciation shock of one standard deviation raises inflation in every specification at the one-year horizon, but only %d of the six impulse responses exclude zero at their stated confidence level, and inflation is overwhelmingly driven by its own past (%s%% of its forecast-error variance). '
                 'The descriptive record is clearer than the estimates: lending rates were below inflation in %s, and deposit rates in %s. Annual data are too short to settle the size of pass-through; monthly series are needed.</div>' % (
@@ -177,7 +177,7 @@ def build(today=None):
             '<script src="../assets/data.js"></script><script src="../assets/pages.js"></script><script src="../assets/site.js" data-root="../"></script></body></html>\n') % (
             esc(title), esc(summary), esc(title), slug, slug,
             json.dumps({"@context": "https://schema.org", "@type": "ScholarlyArticle", "headline": title, "description": summary, "datePublished": today,
-                        "author": {"@type": "Person", "name": "Tuhin G. M. Al Mamun", "url": "https://tuhingm.github.io/biqep-policy/tuhin-al-mamun/"},
+                        "author": [{"@type": "Person", "name": "Tuhin G. M. Al Mamun", "url": "https://tuhingm.github.io/biqep-policy/tuhin-al-mamun/"}, {"@type": "Person", "name": "Rahim Md Abdur"}],
                         "publisher": {"@type": "Organization", "name": "BIQEP Policy Briefs"}}, ensure_ascii=False),
             '<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">',
             esc(title), esc(summary), "\n".join(body))

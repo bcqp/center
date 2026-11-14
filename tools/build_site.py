@@ -145,7 +145,7 @@ home = '''
 
 <section class="sec mist"><div class="wrap">
 <div class="eyebrow">Research agenda</div><h2>Questions that matter in Bangladesh.</h2>
-<p class="lede" style="margin-bottom:28px">Seven areas make up the research agenda.</p>
+<p class="lede" style="margin-bottom:28px">Nine areas make up the research agenda.</p>
 <div class="cards" data-render="topics"></div>
 <p style="margin-top:20px"><a class="link-arrow" href="research/index.html">Read the research agenda</a></p>
 </div></section>
@@ -214,7 +214,7 @@ std("about/index.html","About","about/index.html","The series","About","BIQEP Po
 <p>BIQEP is an independent research initiative. It is not a government body and is not affiliated with Bangladesh Bank, the Bangladesh Bureau of Statistics or the Government of Bangladesh. Views are the author’s own.</p>
 <h2>How the series is organised</h2>
 <div class="two">
-<div><h3>Research areas</h3><p>Seven areas set the agenda: inflation, monetary policy, public finance, labor and wages, the external sector, finance and credit, and climate and energy.</p><a class="link-arrow" href="../research/index.html">Research agenda</a></div>
+<div><h3>Research areas</h3><p>Nine areas set the agenda, from inflation and monetary policy to growth, human development, and climate and energy.</p><a class="link-arrow" href="../research/index.html">Research agenda</a></div>
 <div><h3>Records</h3><p>Policy briefs, data notes, the Bangladesh Economic Outlook, statistical reports and replication materials are kept in separate collections.</p><a class="link-arrow" href="../briefs/index.html">Policy briefs</a></div>
 <div><h3>Data and methods</h3><p>The Data hub lists every series and its source. The methodology explains validation and the models used.</p><a class="link-arrow" href="../data/index.html">Data hub</a></div>
 <div><h3>Standards</h3><p>Seven policies state the standards each brief is held to, from publication to corrections.</p><a class="link-arrow" href="../policies/index.html">Policies</a></div>
@@ -299,9 +299,19 @@ AREAS = [
   ["How do energy-price changes pass into consumer prices?","What are the fiscal costs of energy price policy?","How might climate-related shocks affect growth and prices?","How large is green finance relative to the credit system?"],
   ["Official energy price notifications","Bangladesh Bureau of Statistics","World Bank: climate and development data"],
   ["Structural VARs","Local projections","Panel threshold models"]),
+ ("Growth and structure","growth-structure","Investment, savings, sector shares and urbanisation.",
+  "Growth depends on how much is invested and where. Comparing Bangladesh with regional peers shows where the gaps are.",
+  ["How much does investment lift output?","Is the economy shifting toward higher-productivity sectors?","How does Bangladesh compare with peers on savings and investment?"],
+  ["World Bank: World Development Indicators","Bangladesh Bureau of Statistics: national accounts"],
+  ["Bayesian VARs","Local projections","Peer benchmarking"]),
+ ("Human development","human-development","Health, education and living standards in relation to income.",
+  "Income growth matters when it improves lives. Health and education outcomes are compared with income and with peers.",
+  ["Have health outcomes kept pace with income?","How large is the private burden of health spending?","How do outcomes compare with regional peers?"],
+  ["World Bank: World Development Indicators","Directorate General of Health Services"],
+  ["Bayesian VARs","Peer benchmarking"]),
 ]
 
-std("research/index.html","Research","research/index.html","Research agenda","Research","Seven areas of work, from inflation and monetary policy to climate and energy.",
+std("research/index.html","Research","research/index.html","Research agenda","Research","Nine areas of work, from inflation and monetary policy to climate and energy.",
  '''<h2>The agenda</h2>
 <p>Each area page lists the key questions, the official data sources and the methods that suit them.</p>
 <div class="cards" data-render="topics"></div>
@@ -310,7 +320,7 @@ std("research/index.html","Research","research/index.html","Research agenda","Re
   "Models run in the open-source Open Econometric Systems engine, so results can be replicated.",
   "Each brief states what the design cannot show.",
   'See the <a href="../methodology/index.html">methodology</a> and the <a href="../policies/index.html">policies</a>.']),
- "The BIQEP Policy Briefs research agenda: seven areas covering inflation, monetary policy, public finance, labor, the external sector, credit and energy.")
+ "The BIQEP Policy Briefs research agenda: nine areas covering inflation, monetary policy, public finance, labor, the external sector, credit, energy, growth and human development.")
 
 for (name, slug, short, why, qs, srcs, meths) in AREAS:
     content = f'''<h2>Why it matters</h2><p>{why}</p>

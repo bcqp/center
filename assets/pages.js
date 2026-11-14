@@ -38,7 +38,7 @@ window.BIQEP_PAGES = [
 {
 "u": "research/",
 "t": "Research agenda",
-"d": "The BIQEP Policy Briefs research agenda: seven areas covering inflation, monetary policy, public finance, labor, the external sector, credit and energy.",
+"d": "The BIQEP Policy Briefs research agenda: nine areas covering inflation, monetary policy, public finance, labor, the external sector, credit, energy, growth and human development.",
 "s": "Research"
 },
 {
@@ -81,6 +81,18 @@ window.BIQEP_PAGES = [
 "u": "research/climate-energy/",
 "t": "Climate and energy",
 "d": "BIQEP research area: Climate and energy. Key questions, official sources and methods.",
+"s": "Research"
+},
+{
+"u": "research/growth-structure/",
+"t": "Growth and structure",
+"d": "BIQEP research area: Growth and structure. Key questions, official sources and methods.",
+"s": "Research"
+},
+{
+"u": "research/human-development/",
+"t": "Human development",
+"d": "BIQEP research area: Human development. Key questions, official sources and methods.",
 "s": "Research"
 },
 {

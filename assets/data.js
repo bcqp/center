@@ -99,6 +99,16 @@ window.BIQEP = {
       "name": "Climate and energy",
       "slug": "climate-energy",
       "text": "Energy prices, green finance and climate risk."
+    },
+    {
+      "name": "Growth and structure",
+      "slug": "growth-structure",
+      "text": "Investment, savings, sector shares and urbanisation."
+    },
+    {
+      "name": "Human development",
+      "slug": "human-development",
+      "text": "Health, education and living standards in relation to income."
     }
   ]
 };

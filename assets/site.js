@@ -95,7 +95,7 @@
       '<div class="about"><b>Bangladesh Institute of Quantitative Economics and Public Policy</b><p>BIQEP Policy Briefs is the institute’s public-policy series on Bangladesh. Every figure is checked against an official source before publication, and every estimate is run in an open, reproducible engine.</p>' +
       '<p class="mono tiny">Quantitative evidence. Economic research. Better policy.</p></div>' +
       fcol(byKey.about) + fcol(byKey.briefs) + fcol(byKey.data) + fcol(byKey.methodology) + fcol(byKey.policies) + miscHtml +
-      '</div><p class="legal">BIQEP is an independent research initiative. It is not a government body and is not affiliated with Bangladesh Bank, the Bangladesh Bureau of Statistics or the Government of Bangladesh. Founded and written by <a href="' + root + 'tuhin-al-mamun/">Dr. Tuhin G. M. Al Mamun</a>; views are the author’s own. Site data last updated ' +
+      '</div><p class="legal">BIQEP is an independent research initiative. It is not a government body and is not affiliated with Bangladesh Bank, the Bangladesh Bureau of Statistics or the Government of Bangladesh. Founded and written by <a href="' + root + 'tuhin-al-mamun/">Dr. Tuhin G. M. Al Mamun</a>; views are the author’s own. Archived at <a href="https://doi.org/10.5281/zenodo.24215521">doi.org/10.5281/zenodo.24215521</a>. Site data last updated ' +
       esc(fmtDate(D.updated)) + ".</p></div></footer>";
   }
 

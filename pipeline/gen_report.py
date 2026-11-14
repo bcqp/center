@@ -152,7 +152,7 @@ def build(t, today):
         ("Bangladesh is below the peer median and worsening on %d of %d indicators judged." % (len(worse), len([p for p in PT if p["good"]]))) if worse else
         ("Bangladesh is above the peer median on %d of %d indicators judged." % (len(strong), len([p for p in PT if p["good"]])))))
     A = lambda s_: "<p>%s</p>" % s_
-    body = ['<p class="small muted">Tuhin G. M. Al Mamun and Rahim Md Abdur · Statistical report · %s</p>' % today]
+    body = ['<p class="small muted">Tuhin G. M. Al Mamun and Abdur Rahim · Statistical report · %s</p>' % today]
     body.append('<div class="note"><b>Abstract.</b> %s We benchmark Bangladesh against India, Pakistan, Sri Lanka, Viet Nam, Indonesia and Nepal using World Bank data, and estimate a %d-variable Bayesian VAR with vector autoregression and local-projection checks on annual data for %d–%d. %s Where the models cannot separate the effect from zero, we say so.</div>' % (
         esc(t["question"]), len(keys), M["years"][0], M["years"][1],
         ("Of %d estimated impulse responses, %d have a band that excludes zero at the peak." % (len(rows), nsig)) if rows else "No impulse response could be estimated."))
@@ -199,7 +199,7 @@ def build(t, today):
         '<body><div id="hdr"></div>\n<main id="main">\n<section class="pagehead"><div class="wrap"><div class="crumbs"><a href="../index.html">Home</a><i>/</i><a href="index.html">Policy briefs</a><i>/</i>Statistical report</div><div class="eyebrow">Statistical report</div><h1>%s</h1><p class="lede">%s</p></div></section>\n'
         '<section class="sec"><div class="wrap"><div class="content" style="max-width:900px">%s</div></div></section>\n</main>\n<div id="ftr"></div>\n<script src="../assets/data.js"></script><script src="../assets/pages.js"></script><script src="../assets/site.js" data-root="../"></script></body></html>\n') % (
         esc(title), esc(summary), esc(title), slug, slug, json.dumps({"@context": "https://schema.org", "@type": "ScholarlyArticle", "headline": title, "description": summary, "datePublished": today,
-        "author": [{"@type": "Person", "name": "Tuhin G. M. Al Mamun", "url": "https://tuhingm.github.io/biqep-policy/tuhin-al-mamun/"}, {"@type": "Person", "name": "Rahim Md Abdur"}], "publisher": {"@type": "Organization", "name": "BIQEP Policy Briefs"}}, ensure_ascii=False),
+        "author": [{"@type": "Person", "name": "Tuhin G. M. Al Mamun", "url": "https://tuhingm.github.io/biqep-policy/tuhin-al-mamun/"}, {"@type": "Person", "name": "Abdur Rahim"}], "publisher": {"@type": "Organization", "name": "BIQEP Policy Briefs"}}, ensure_ascii=False),
         esc(title), esc(summary), "\n".join(body))
     (ROOT / "briefs" / (slug + ".html")).write_text(page, encoding="utf-8"); (out / "data.csv").write_text(M["csv"]); M2 = {k: v for k, v in M.items() if k != "csv"}
     (out / "results.json").write_text(json.dumps({"retrieved": today, **M2, "peers": PT}, indent=1, default=str))

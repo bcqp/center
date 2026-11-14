@@ -23,7 +23,7 @@
    "topic": "Growth and structure",
    "type": "Statistical report",
    "status": "published",
-   "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for investment, savings, FDI and growth. Bangladesh is below the peer median and worsening on 2 of 5 indicators judged."
+   "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for investment, savings, FDI and growth. The report compares Bangladesh with peer countries on 5 indicators."
   },
   {
    "slug": "private-credit-and-banking-2026-11-14",
@@ -32,7 +32,7 @@
    "topic": "Finance and credit",
    "type": "Statistical report",
    "status": "published",
-   "summary": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for private credit, broad money, interest rates and growth. Bangladesh is below the peer median and worsening on 3 of 4 indicators judged."
+   "summary": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for private credit, broad money, interest rates and growth. The report compares Bangladesh with peer countries on 4 indicators."
   },
   {
    "slug": "reserves-and-external-vulnerability-2026-11-14",
@@ -41,7 +41,7 @@
    "topic": "External sector",
    "type": "Statistical report",
    "status": "published",
-   "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for reserves, exports, imports, debt service and the exchange rate. Bangladesh is below the peer median and worsening on 4 of 5 indicators judged."
+   "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for reserves, exports, imports, debt service and the exchange rate. The report compares Bangladesh with peer countries on 5 indicators."
   },
   {
    "slug": "trade-and-export-concentration-2026-11-14",
@@ -50,7 +50,7 @@
    "topic": "External sector",
    "type": "Statistical report",
    "status": "published",
-   "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for exports, imports, manufacturing and growth. Bangladesh is below the peer median and worsening on 2 of 4 indicators judged."
+   "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for exports, imports, manufacturing and growth. The report compares Bangladesh with peer countries on 4 indicators."
   },
   {
    "slug": "foreign-direct-investment-2026-11-14",
@@ -59,7 +59,7 @@
    "topic": "External sector",
    "type": "Statistical report",
    "status": "published",
-   "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for FDI, investment, exports and growth. Bangladesh is below the peer median and worsening on 4 of 5 indicators judged."
+   "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for FDI, investment, exports and growth. The report compares Bangladesh with peer countries on 5 indicators."
   },
   {
    "slug": "external-debt-and-debt-service-2026-11-14",
@@ -68,7 +68,7 @@
    "topic": "Public finance",
    "type": "Statistical report",
    "status": "published",
-   "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for external debt, debt service, reserves and growth. Bangladesh is below the peer median and worsening on 4 of 5 indicators judged."
+   "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for external debt, debt service, reserves and growth. The report compares Bangladesh with peer countries on 5 indicators."
   },
   {
    "slug": "growth-and-jobs-2026-11-14",
@@ -77,7 +77,7 @@
    "topic": "Labor and wages",
    "type": "Statistical report",
    "status": "published",
-   "summary": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for unemployment, youth jobs, participation and growth. Bangladesh is below the peer median and worsening on 1 of 4 indicators judged."
+   "summary": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for unemployment, youth jobs, participation and growth. The report compares Bangladesh with peer countries on 4 indicators."
   },
   {
    "slug": "female-labour-force-participation-2026-11-14",
@@ -104,7 +104,7 @@
    "topic": "Inflation",
    "type": "Statistical report",
    "status": "published",
-   "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2024) for food production, yields, prices and growth. Bangladesh is below the peer median and worsening on 1 of 4 indicators judged."
+   "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2024) for food production, yields, prices and growth. The report compares Bangladesh with peer countries on 4 indicators."
   },
   {
    "slug": "energy-and-electricity-2026-11-14",
@@ -113,7 +113,7 @@
    "topic": "Climate and energy",
    "type": "Statistical report",
    "status": "published",
-   "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2024) for electricity, energy mix, imports and growth. Bangladesh is below the peer median and worsening on 3 of 5 indicators judged."
+   "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2024) for electricity, energy mix, imports and growth. The report compares Bangladesh with peer countries on 5 indicators."
   },
   {
    "slug": "savings-and-investment-gap-2026-11-14",
@@ -122,7 +122,7 @@
    "topic": "Growth and structure",
    "type": "Statistical report",
    "status": "published",
-   "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for savings, investment, deposits and growth. Bangladesh is below the peer median and worsening on 2 of 5 indicators judged."
+   "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for savings, investment, deposits and growth. The report compares Bangladesh with peer countries on 5 indicators."
   },
   {
    "slug": "urbanisation-and-growth-2026-11-14",
@@ -131,7 +131,7 @@
    "topic": "Growth and structure",
    "type": "Statistical report",
    "status": "published",
-   "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2024) for urbanisation, structure and growth. Bangladesh is below the peer median and worsening on 1 of 3 indicators judged."
+   "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2024) for urbanisation, structure and growth. The report compares Bangladesh with peer countries on 3 indicators."
   },
   {
    "slug": "growth-and-health-outcomes-2026-11-14",
@@ -140,7 +140,7 @@
    "topic": "Human development",
    "type": "Statistical report",
    "status": "published",
-   "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2024) for income, mortality, life expectancy and structure. Bangladesh is below the peer median and worsening on 3 of 5 indicators judged."
+   "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2024) for income, mortality, life expectancy and structure. The report compares Bangladesh with peer countries on 5 indicators."
   }
  ]
 }

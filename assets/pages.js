@@ -316,5 +316,11 @@ window.BIQEP_PAGES = [
 "t": "Agriculture, food production and prices in Bangladesh",
 "d": "Peer benchmarks and 5 model specifications on 12 variables (1991–2024) for food production, yields, prices and growth. Bangladesh is below the peer median and worsening on 1 of 4 indicators judged.",
 "s": "Policy briefs"
+},
+{
+"u": "briefs/energy-and-electricity-2026-11-14.html",
+"t": "Energy use and electricity in Bangladesh",
+"d": "Peer benchmarks and 5 model specifications on 12 variables (1991–2024) for electricity, energy mix, imports and growth. Bangladesh is below the peer median and worsening on 3 of 5 indicators judged.",
+"s": "Policy briefs"
 }
 ];

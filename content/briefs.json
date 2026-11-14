@@ -97,5 +97,14 @@
   "type": "Statistical report",
   "status": "published",
   "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2024) for food production, yields, prices and growth. Bangladesh is below the peer median and worsening on 1 of 4 indicators judged."
+ },
+ {
+  "slug": "energy-and-electricity-2026-11-14",
+  "title": "Energy use and electricity in Bangladesh",
+  "date": "2026-11-14",
+  "topic": "Climate and energy",
+  "type": "Statistical report",
+  "status": "published",
+  "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2024) for electricity, energy mix, imports and growth. Bangladesh is below the peer median and worsening on 3 of 5 indicators judged."
  }
 ]

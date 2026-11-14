@@ -146,7 +146,7 @@ def build(today=None):
     body.append("<h3>5.3 What drives inflation</h3>" + A("Figure 5 decomposes the six-year forecast-error variance of inflation in the five-variable VAR. Inflation's own past accounts for %s%%, depreciation for %s%%, and the other three variables for the remaining %s%%. High persistence is the dominant feature of the series." % (f(fevd_own, 1), f(fevd_fx, 1), f(100 - fevd_own - fevd_fx, 1)))
                 + '<figure><img src="%s/fig5_variance_decomposition.png" alt="Variance decomposition of inflation" style="width:100%%;height:auto"><figcaption class="small muted"><b>Figure 5.</b> Forecast-error variance decomposition of inflation.</figcaption></figure>' % slug)
     body.append("<h2>6. Policy assessment</h2>" + A("The assessment below separates what the data show from what the models can support.")
-                + "<h3>Where the record supports criticism</h3><ol>"
+                + "<h3>Areas for policy attention</h3><ol>"
                 "<li><b>Interest rates trailed inflation.</b> Lending rates were below inflation in %s and deposit rates in %s. Whatever the reason, the effect was to leave real borrowing costs near or below zero while prices were rising fastest.</li>"
                 "<li><b>External buffers were run down.</b> A %s%% depreciation and a %s%% fall in reserves between 2021 and 2024 show that the external adjustment was large and concentrated in a short period.</li>"
                 "<li><b>Credit and investment weakened.</b> Private credit fell from %s%% of GDP (2015) to %s%% (2025) and investment from %s%% of GDP (2019) to %s%% (2025). These are correlations with the tightening and the external stress, not estimated effects.</li>"

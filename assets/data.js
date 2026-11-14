@@ -70,7 +70,7 @@ window.BIQEP = {
       "topic": "Monetary policy",
       "type": "Statistical report",
       "status": "published",
-      "summary": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for money, credit, interest rates, prices and growth. Bangladesh is below the peer median and worsening on 4 of 4 indicators judged."
+      "summary": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for money, credit, interest rates, prices and growth. The report compares Bangladesh with peer countries on 4 indicators."
     }
   ],
   "topics": [

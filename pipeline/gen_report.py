@@ -149,7 +149,7 @@ def build(t, today):
             "" if p["chg"] is None else "; change over ten years %s%s (peer median %s)" % ("+" if p["chg"] >= 0 else "", fmt(p, p["chg"]), "n/a" if p["pmed"] is None else ("+" if p["pmed"] >= 0 else "") + fmt(p, p["pmed"])))
     summary = ("Peer benchmarks and %d model specifications on %d variables (%d–%d) for %s. %s" % (
         nok, len(keys), M["years"][0], M["years"][1], t["sdesc"],
-        ("Bangladesh is below the peer median and worsening on %d of %d indicators judged." % (len(worse), len([p for p in PT if p["good"]]))) if worse else
+        ("The report compares Bangladesh with peer countries on %d indicators." % len([p for p in PT if p["good"]])) if worse else
         ("Bangladesh is above the peer median on %d of %d indicators judged." % (len(strong), len([p for p in PT if p["good"]])))))
     A = lambda s_: "<p>%s</p>" % s_
     body = ['<p class="small muted">Tuhin G. M. Al Mamun and Dr Rahim Md Abdur · Statistical report · %s</p>' % today]
@@ -182,10 +182,10 @@ def build(t, today):
             + '</tbody></table></div><p class="small muted"><b>Table 1.</b> Response of %s to a shock in %s.</p>' % (esc(sn(r1)), esc(sn(sh))))
     else: body.append("<h2>5. Results</h2>" + A("No specification produced a usable impulse response on this sample, so the report rests on the descriptive and benchmark evidence."))
     body.append("<h2>6. Policy assessment</h2>")
-    if worse: body.append("<h3>Where the record supports criticism</h3><p class=\"small muted\">Bangladesh is more than 5% below the peer median, and its ten-year change is worse than the peer median change.</p><ol>" + "".join(sent(p) for p in worse) + "</ol>")
-    if mixed: body.append("<h3>Behind peers, but improving</h3><ul>" + "".join(sent(p) for p in mixed) + "</ul>")
+    if worse: body.append("<h3>Areas for policy attention</h3><p class=\"small muted\">Bangladesh is more than 5% below the peer median, and its ten-year change is worse than the peer median change.</p><ol>" + "".join(sent(p) for p in worse) + "</ol>")
+    if mixed: body.append("<h3>Below the peer median, with improvement</h3><ul>" + "".join(sent(p) for p in mixed) + "</ul>")
     if strong: body.append("<h3>Where Bangladesh does well</h3><ul>" + "".join(sent(p) for p in strong) + "</ul>")
-    if not worse: body.append("<p>On these indicators the record does not support a general criticism: there is no indicator on which Bangladesh is both below the peer median and deteriorating.</p>")
+    if not worse: body.append("<p>No indicator shows Bangladesh both below the peer median and deteriorating over the ten-year window.</p>")
     body.append("<h3>Where the evidence is not strong enough</h3><ul><li>Dynamic effects: %s</li></ul>" % (
         "%d of %d impulse-response bands exclude zero, so the estimated effect of %s on %s cannot be stated precisely with annual data." % (nsig, len(rows), esc(sn(sh)), esc(sn(r1))) if nsig < len(rows) else "the estimated effect is distinguishable from zero in all specifications, but remains conditional on the ordering."))
     body.append("<h3>Implications for discussion</h3><p class=\"small muted\">Judgements drawn from the record, not estimates.</p><ul>%s</ul>" % "".join("<li>%s</li>" % esc(d) for d in t["disc"]))

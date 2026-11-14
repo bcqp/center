@@ -1,0 +1,28 @@
+name: weekly
+on:
+  workflow_dispatch:
+    inputs:
+      topic: {description: "Topic slug (optional; otherwise ranked from news)", required: false}
+  schedule:
+    - cron: "17 3 * * 1"
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  weekly:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install -r pipeline/requirements.txt && pip install "git+https://github.com/tuhingm/open-econometric-systems.git#subdirectory=oes-engine"
+      - run: python pipeline/run.py ${{ github.event.inputs.topic }}
+      - name: Open pull request for review
+        env: {GH_TOKEN: "${{ github.token }}"}
+        run: |
+          if [ -z "$(git status --porcelain briefs content)" ]; then echo "nothing produced"; exit 0; fi
+          b="brief-$(date +%Y%m%d)"
+          git config user.name "biqep-pipeline"; git config user.email "pipeline@users.noreply.github.com"
+          git checkout -b "$b"; git add -A; git commit -m "New brief for review"
+          git push origin "$b"
+          gh pr create --title "New brief for review" --body-file pipeline/last_run.log --base main --head "$b"

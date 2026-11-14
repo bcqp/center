@@ -1,0 +1,9 @@
+{
+  "note": "Only these hosts may supply numbers. Anything else is refused.",
+  "allow": {
+    "worldbank": {"name": "World Bank, World Development Indicators", "host": "api.worldbank.org"},
+    "imf": {"name": "IMF DataMapper", "host": "www.imf.org"},
+    "bb": {"name": "Bangladesh Bank", "host": "www.bb.org.bd"},
+    "bbs": {"name": "Bangladesh Bureau of Statistics", "host": "bbs.gov.bd"}
+  }
+}

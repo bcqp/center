@@ -1,0 +1,40 @@
+{
+  "topics": [
+    {
+      "slug": "inflation", "name": "Inflation",
+      "keywords": ["inflation", "cpi", "consumer price", "food price", "prices", "cost of living", "essentials"],
+      "variables": [
+        {"id": "infl", "label": "CPI inflation, annual %", "source": "worldbank", "code": "FP.CPI.TOTL.ZG"},
+        {"id": "gdp", "label": "Real GDP growth, annual %", "source": "worldbank", "code": "NY.GDP.MKTP.KD.ZG"},
+        {"id": "fx", "label": "Official exchange rate, Taka per US$", "source": "worldbank", "code": "PA.NUS.FCRF", "transform": "pct"}
+      ],
+      "cross_check": {"var": "infl", "source": "imf", "code": "PCPIPCH", "tolerance": 0.6},
+      "model": {"id": "var", "spec": {"vars": ["infl", "gdp", "fx"], "time": "year", "transform": "levels", "max_lags": 2, "horizon": 8}},
+      "gate": {"summary_label": "Stable", "equals": "yes"}
+    },
+    {
+      "slug": "external-sector", "name": "External sector",
+      "keywords": ["remittance", "export", "import", "exchange rate", "taka", "reserves", "current account", "dollar"],
+      "variables": [
+        {"id": "rem", "label": "Personal remittances received, % of GDP", "source": "worldbank", "code": "BX.TRF.PWKT.DT.GD.ZS"},
+        {"id": "gdp", "label": "Real GDP growth, annual %", "source": "worldbank", "code": "NY.GDP.MKTP.KD.ZG"},
+        {"id": "fx", "label": "Official exchange rate, Taka per US$", "source": "worldbank", "code": "PA.NUS.FCRF", "transform": "pct"}
+      ],
+      "cross_check": null,
+      "model": {"id": "var", "spec": {"vars": ["rem", "gdp", "fx"], "time": "year", "transform": "levels", "max_lags": 2, "horizon": 8}},
+      "gate": {"summary_label": "Stable", "equals": "yes"}
+    },
+    {
+      "slug": "labor-wages", "name": "Labor and wages",
+      "keywords": ["wage", "unemployment", "labour", "labor", "jobs", "garment workers", "minimum wage"],
+      "variables": [
+        {"id": "unemp", "label": "Unemployment, % of labour force (modelled ILO estimate)", "source": "worldbank", "code": "SL.UEM.TOTL.ZS"},
+        {"id": "gdp", "label": "Real GDP growth, annual %", "source": "worldbank", "code": "NY.GDP.MKTP.KD.ZG"},
+        {"id": "infl", "label": "CPI inflation, annual %", "source": "worldbank", "code": "FP.CPI.TOTL.ZG"}
+      ],
+      "cross_check": null,
+      "model": {"id": "var", "spec": {"vars": ["unemp", "gdp", "infl"], "time": "year", "transform": "levels", "max_lags": 2, "horizon": 8}},
+      "gate": {"summary_label": "Stable", "equals": "yes"}
+    }
+  ]
+}

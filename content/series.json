@@ -1,0 +1,52 @@
+[
+  {
+    "id": "cpi_p2p",
+    "name": "CPI inflation, point to point",
+    "topic": "Inflation",
+    "unit": "%",
+    "status": "verified",
+    "latest": {
+      "period": "Sep 2026",
+      "value": 8.34
+    },
+    "history": [
+      {
+        "period": "Aug 2026",
+        "value": 8.26
+      },
+      {
+        "period": "Sep 2025",
+        "value": 8.36
+      }
+    ],
+    "source": "Bangladesh Bureau of Statistics (BBS), published by Bangladesh Bank",
+    "url": "https://www.bb.org.bd/en/index.php/econdata/inflation",
+    "retrieved": "2026-11-14",
+    "note": "CPI base 2021-22 = 100 from April 2023."
+  },
+  {
+    "id": "cpi_12m",
+    "name": "CPI inflation, 12-month average",
+    "topic": "Inflation",
+    "unit": "%",
+    "status": "verified",
+    "latest": {
+      "period": "Sep 2026",
+      "value": 8.65
+    },
+    "history": [
+      {
+        "period": "Aug 2026",
+        "value": 8.66
+      },
+      {
+        "period": "Sep 2025",
+        "value": 9.45
+      }
+    ],
+    "source": "Bangladesh Bureau of Statistics (BBS), published by Bangladesh Bank",
+    "url": "https://www.bb.org.bd/en/index.php/econdata/inflation",
+    "retrieved": "2026-11-14",
+    "note": "CPI base 2021-22 = 100 from April 2023."
+  }
+]

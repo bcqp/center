@@ -216,6 +216,12 @@ window.BIQEP_PAGES = [
 "s": "People"
 },
 {
+"u": "tuhin-al-mamun/",
+"t": "Tuhin Al Mamun: Economist and Founder of BIQEP",
+"d": "Tuhin Al Mamun (Tuhin G. M. Al Mamun) is a Bangladeshi economist with a PhD from Hannam University, researching monetary policy transmission and econometrics, and founder of BIQEP Policy Briefs.",
+"s": "People"
+},
+{
 "u": "news/",
 "t": "News",
 "d": "News and release notes from BIQEP Policy Briefs.",

@@ -10,17 +10,19 @@ def rootof(path):
     return "../" * d if d else "./"
 
 SITE = "https://tuhingm.github.io/biqep-policy/"
-PERSON = {"@type": "Person", "@id": SITE + "people/#tuhin", "name": "Tuhin G. M. Al Mamun", "honorificPrefix": "Dr.",
-          "jobTitle": "Founder and Executive Director, BIQEP", "url": SITE + "people/",
+PERSON = {"@type": "Person", "@id": SITE + "tuhin-al-mamun/#tuhin", "name": "Tuhin G. M. Al Mamun", "honorificPrefix": "Dr.",
+          "alternateName": ["Tuhin Al Mamun", "Tuhin GM Al Mamun", "Tuhin G. Al Mamun", "T. G. M. Al Mamun"],
+          "jobTitle": "Economist; Founder and Executive Director, BIQEP", "url": SITE + "tuhin-al-mamun/", "mainEntityOfPage": SITE + "tuhin-al-mamun/",
           "alumniOf": {"@type": "CollegeOrUniversity", "name": "Hannam University"},
           "nationality": {"@type": "Country", "name": "Bangladesh"},
           "knowsAbout": ["Monetary policy transmission", "Bayesian econometrics", "Time-series econometrics", "DSGE and heterogeneous-agent models", "Bangladesh economy"],
-          "sameAs": ["https://tuhingm.github.io/almamun/", "https://github.com/tuhingm"]}
+          "image": SITE + "assets/og-image.png", "description": "Tuhin Al Mamun (Tuhin G. M. Al Mamun) is a Bangladeshi economist with a PhD from Hannam University, working on monetary policy transmission, Bayesian and time-series econometrics and structural macroeconomic models.",
+          "sameAs": ["https://tuhingm.github.io/almamun/", "https://github.com/tuhingm", "https://tuhingm.github.io/almamun/oes/"]}
 ORG = {"@type": "Organization", "@id": SITE + "#org", "name": "Bangladesh Institute of Quantitative Economics and Public Policy",
        "alternateName": ["BIQEP", "BIQEP Policy Briefs"], "url": SITE, "logo": SITE + "assets/og-image.png",
-       "founder": {"@id": SITE + "people/#tuhin"}, "sameAs": ["https://tuhingm.github.io/almamun/oes/"]}
+       "founder": {"@id": SITE + "tuhin-al-mamun/#tuhin"}, "sameAs": ["https://tuhingm.github.io/almamun/oes/"]}
 SITE_LD = {"@type": "WebSite", "@id": SITE + "#website", "url": SITE, "name": "BIQEP Policy Briefs", "inLanguage": "en",
-           "publisher": {"@id": SITE + "#org"}, "author": {"@id": SITE + "people/#tuhin"}}
+           "publisher": {"@id": SITE + "#org"}, "author": {"@id": SITE + "tuhin-al-mamun/#tuhin"}}
 
 def page(path, title, desc, body, section="Site", search=True):
     root = rootof(path)
@@ -37,7 +39,7 @@ def page(path, title, desc, body, section="Site", search=True):
         crumbs_ld.append({"@type": "ListItem", "position": len(crumbs_ld) + 1, "name": title, "item": url})
         graph.append({"@type": "BreadcrumbList", "itemListElement": crumbs_ld})
     graph.append({"@type": "WebPage", "@id": url + "#page", "url": url, "name": full_title, "description": desc,
-                  "isPartOf": {"@id": SITE + "#website"}, "author": {"@id": SITE + "people/#tuhin"}, "inLanguage": "en"})
+                  "isPartOf": {"@id": SITE + "#website"}, "author": {"@id": SITE + "tuhin-al-mamun/#tuhin"}, "inLanguage": "en"})
     ld = json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False)
     robots = "noindex,follow" if path in ("404.html", "search/index.html") else "index,follow,max-snippet:-1,max-image-preview:large"
     html = f'''<!doctype html>
@@ -114,7 +116,7 @@ home = '''
 <div class="eyebrow">A quantitative economics institution · Policy briefs</div>
 <h1>Evidence-based policy analysis for Bangladesh.</h1>
 <p>BIQEP Policy Briefs turns official data into short, rigorous analysis of inflation, monetary policy, public finance, labor and trade. Every figure is validated against its source and every estimate can be replicated.</p>
-<p class="byline">By <a href="people/index.html">Dr. Tuhin G. M. Al Mamun</a>, Founder and Executive Director</p>
+<p class="byline">By <a href="tuhin-al-mamun/index.html">Dr. Tuhin G. M. Al Mamun</a>, Founder and Executive Director</p>
 <div class="btns"><a class="btn" href="briefs/index.html">Read the policy briefs</a><a class="btn ghost" href="data/index.html">Explore the data hub</a><a class="btn ghost" href="methodology/index.html">How we validate</a></div>
 </div></section>
 <div class="ribbon"><div class="wrap">
@@ -496,8 +498,25 @@ std("people/index.html","People","people/index.html","People","People","Who is r
  '''<div class="person"><div class="avatar">TA</div><div>
 <h2 style="margin-bottom:.2em">Dr. Tuhin G. M. Al Mamun</h2><p class="muted" style="margin-bottom:.8em">Founder and Executive Director</p>
 <p>PhD in Economics, Hannam University. Research on monetary policy transmission, structural and heterogeneous-agent macroeconomic models, Bayesian and time-series econometrics, and applied machine-learning methods.</p>
-<p><a class="link-arrow" href="../about/leadership/index.html">Leadership</a> &nbsp; <a class="link-arrow" href="https://tuhingm.github.io/almamun/" rel="noopener">Academic website</a></p></div></div>''',
+<p><a class="link-arrow" href="../tuhin-al-mamun/index.html">Full profile</a> &nbsp; <a class="link-arrow" href="../about/leadership/index.html">Leadership</a> &nbsp; <a class="link-arrow" href="https://tuhingm.github.io/almamun/" rel="noopener">Academic website</a></p></div></div>''',
  "People behind BIQEP Policy Briefs.", siblings=False)
+
+# ---- personal profile page (name search)
+prof = head("tuhin-al-mamun/index.html", [("Tuhin Al Mamun", None)], "Economist", "Dr. Tuhin G. M. Al Mamun",
+  "Tuhin Al Mamun is a Bangladeshi economist and the founder of BIQEP Policy Briefs. His work is on monetary policy transmission, econometrics and macroeconomic modeling.") + \
+ '''<section class="sec"><div class="wrap narrow-w">
+<h2>About Tuhin Al Mamun</h2>
+<p>Dr. Tuhin G. M. Al Mamun (also written Tuhin Al Mamun) is an economist from Bangladesh. He holds a PhD in Economics from Hannam University, where he completed his doctoral studies from 2022 to 2026 with a dissertation on monetary policy transmission in Bangladesh. He worked as a research assistant in the Department of Economics at Hannam University from 2024 to 2025.</p>
+<p>He is the founder and executive director of the Bangladesh Institute of Quantitative Economics and Public Policy (BIQEP) and the author of BIQEP Policy Briefs, a series of data-based briefs on the Bangladesh economy that use official statistics and reproducible methods.</p>
+<h2>Research interests</h2>
+<ul><li>Monetary, fiscal and environmental policy</li><li>Dynamic stochastic general equilibrium and heterogeneous-agent macroeconomic models</li><li>Bayesian estimation, time-series and regime-switching econometrics</li><li>Applied machine learning for economics: double machine learning, LASSO, random forests and gradient boosting</li></ul>
+<h2>Open Econometric Systems</h2>
+<p>Tuhin Al Mamun develops Open Econometric Systems (OES), an open library of 69 econometric models that the BIQEP briefs use for their estimates. See the <a href="https://tuhingm.github.io/almamun/oes/" rel="noopener">OES page</a> and the <a href="https://github.com/tuhingm/open-econometric-systems" rel="noopener">source code on GitHub</a>.</p>
+<h2>Elsewhere</h2>
+<ul><li><a href="https://tuhingm.github.io/almamun/" rel="noopener">Academic website of Tuhin Al Mamun</a></li><li><a href="https://github.com/tuhingm" rel="noopener">GitHub: tuhingm</a></li><li><a href="../index.html">BIQEP Policy Briefs</a>, <a href="../people/index.html">People</a></li></ul>
+</div></section>'''
+page("tuhin-al-mamun/index.html", "Tuhin Al Mamun: Economist and Founder of BIQEP",
+ "Tuhin Al Mamun (Tuhin G. M. Al Mamun) is a Bangladeshi economist with a PhD from Hannam University, researching monetary policy transmission and econometrics, and founder of BIQEP Policy Briefs.", prof, "People")
 
 std("news/index.html","News","news/index.html","News","News","Release notes and corrections.",
  '''<div class="empty"><h3>No news published yet</h3><p>Release notes, new series and corrections are listed here with their dates.</p></div>

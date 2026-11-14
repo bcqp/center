@@ -15,32 +15,50 @@
     var p = iso.split("-");
     return (p[2] ? +p[2] + " " : "") + MONTHS[+p[1] - 1] + " " + p[0];
   }
-  function topicHref(t) { return root + "briefs/index.html#" + encodeURIComponent(t); }
 
-  /* ---------- masthead, navigation, footer ---------- */
-  var parts = location.pathname.split("/").filter(Boolean);
-  var sections = [
-    ["Policy briefs", "briefs/index.html", "briefs"],
-    ["Data hub", "data/index.html", "data"],
-    ["Methodology", "methodology/index.html", "methodology"],
-    ["Policies", "policies/index.html", "policies"],
-    ["About", "about/index.html", "about"],
-    ["Contact", "contact/index.html", "contact"]
+  /* ---------- site map (single source for nav, sidebars, footer) ---------- */
+  var topicKids = D.topics.map(function (t) { return [t.name, "research/" + t.slug + "/"]; });
+  var NAV = [
+    { label: "About", key: "about", href: "about/", kids: [
+      ["The series", "about/"], ["Mission and vision", "about/mission-vision/"], ["Research philosophy", "about/research-philosophy/"],
+      ["Leadership", "about/leadership/"], ["Governance", "about/governance/"]] },
+    { label: "Research", key: "research", href: "research/", kids: [["Research agenda", "research/"]].concat(topicKids, [["Research collaboration", "research/collaboration/"]]) },
+    { label: "Policy briefs", key: "briefs", href: "briefs/", kids: [
+      ["All records", "briefs/"], ["Data notes", "briefs/data-notes/"], ["Bangladesh Economic Outlook", "briefs/outlook/"],
+      ["Statistical reports", "briefs/statistical-reports/"], ["Replication materials", "briefs/replication/"]] },
+    { label: "Data hub", key: "data", href: "data/", kids: [
+      ["Series register", "data/"], ["Official sources", "data/sources/"], ["Validation log", "data/validation/"]] },
+    { label: "Methodology", key: "methodology", href: "methodology/", kids: [
+      ["How a brief is made", "methodology/"], ["Models and tools", "methodology/models/"], ["Data standards", "methodology/data-standards/"], ["Replication", "methodology/replication/"]] },
+    { label: "Policies", key: "policies", href: "policies/", kids: [
+      ["Series policies", "policies/"], ["Publication policy", "policies/publication/"], ["Data and sources policy", "policies/data-sources/"],
+      ["Validation policy", "policies/validation/"], ["Replication policy", "policies/replication/"], ["Corrections policy", "policies/corrections/"],
+      ["Use of automated tools", "policies/automated-tools/"], ["Copyright and reuse", "policies/copyright/"], ["Conflict-of-interest policy", "policies/conflict-of-interest/"]] },
+    { label: "People", key: "people", href: "people/" },
+    { label: "News", key: "news", href: "news/", kids: [["News", "news/"], ["Events", "news/events/"]] },
+    { label: "Contact", key: "contact", href: "contact/" }
   ];
-  var current = "";
-  sections.forEach(function (i) { if (parts.indexOf(i[2]) > -1) current = i[2]; });
 
-  var briefDrop = '<div class="drop"><div class="dh">Browse</div><a href="' + root + 'briefs/index.html">All policy briefs</a>' +
-    '<div class="dh">By topic</div>' + D.topics.map(function (t) { return '<a href="' + topicHref(t.name) + '">' + esc(t.name) + "</a>"; }).join("") + "</div>";
+  /* ---------- where are we? ---------- */
+  var depth = (root.match(/\.\.\//g) || []).length;
+  var segs = location.pathname.split("/").filter(Boolean);
+  var isFile = segs.length && /\.html$/.test(segs[segs.length - 1]) && segs[segs.length - 1] !== "index.html";
+  if (segs.length && segs[segs.length - 1] === "index.html") segs.pop();
+  var relSegs = depth ? segs.slice(-(depth + (isFile ? 1 : 0))) : [];
+  if (root.charAt(0) === "/") relSegs = []; // 404 page
+  var rel = relSegs.join("/");
+  function norm(h) { return h.replace(/index\.html$/, "").replace(/\/+$/, ""); }
+  var curKey = relSegs[0] || "";
+  var section = NAV.filter(function (n) { return n.key === curKey; })[0] || null;
 
-  var navHtml = '<div class="item"><a' + (current === "" && parts.join("/").indexOf("404") < 0 ? ' class="on" aria-current="page"' : "") + ' href="' + root + 'index.html">Home</a></div>' +
-    sections.map(function (i) {
-      var on = i[2] === current ? ' class="on" aria-current="page"' : "";
-      var has = i[2] === "briefs";
-      return '<div class="item' + (has ? " has" : "") + '"><a' + on + ' href="' + root + i[1] + '">' + i[0] + "</a>" + (has ? briefDrop : "") + "</div>";
-    }).join("");
-  // Home is "on" only on the home page
-  if (current !== "") navHtml = navHtml.replace(' class="on" aria-current="page" href="' + root + 'index.html"', ' href="' + root + 'index.html"');
+  /* ---------- masthead, nav ---------- */
+  function navItem(n) {
+    var on = n.key === curKey;
+    var has = n.kids && n.kids.length > 1;
+    var drop = has ? '<div class="drop">' + n.kids.map(function (k) { return '<a href="' + root + k[1] + '">' + esc(k[0]) + "</a>"; }).join("") + "</div>" : "";
+    return '<div class="item' + (has ? " has" : "") + '"><a' + (on ? ' class="on" aria-current="page"' : "") + ' href="' + root + n.href + '">' + esc(n.label) + "</a>" + drop + "</div>";
+  }
+  var navHtml = '<div class="item"><a' + (curKey === "" && root.charAt(0) !== "/" ? ' class="on" aria-current="page"' : "") + ' href="' + root + 'index.html">Home</a></div>' + NAV.map(navItem).join("");
 
   var hdr = document.getElementById("hdr");
   if (hdr) {
@@ -49,7 +67,8 @@
       '<div class="topbar">Quantitative evidence. Economic research. Better policy.</div>' +
       '<header class="masthead"><div class="wrap">' +
       '<a class="brand" href="' + root + 'index.html"><span class="logo">BIQEP</span><span><b>Bangladesh Institute of Quantitative Economics and Public Policy</b><small>BIQEP · Policy briefs</small></span></a>' +
-      '<button class="menubtn" aria-expanded="false" aria-controls="primary">Menu</button></div></header>' +
+      '<div class="tools"><a class="iconbtn" href="' + root + 'search/index.html" aria-label="Search the site"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search</span></a>' +
+      '<button class="menubtn" aria-expanded="false" aria-controls="primary">Menu</button></div></div></header>' +
       '<nav class="primary" id="primary" aria-label="Main"><div class="wrap">' + navHtml + "</div></nav>";
     var btn = hdr.querySelector(".menubtn"), nv = hdr.querySelector("nav.primary");
     btn.addEventListener("click", function () {
@@ -58,14 +77,24 @@
     });
   }
 
+  /* ---------- footer ---------- */
   var ftr = document.getElementById("ftr");
   if (ftr) {
+    function fcol(n) {
+      return "<div><h4>" + esc(n.label) + "</h4>" + (n.kids || [[n.label, n.href]]).map(function (k) { return '<a href="' + root + k[1] + '">' + esc(k[0]) + "</a>"; }).join("") + "</div>";
+    }
+    var byKey = {}; NAV.forEach(function (n) { byKey[n.key] = n; });
+    var misc = { label: "More", kids: [["People", "people/"], ["News and events", "news/"], ["Contact", "contact/"], ["Search", "search/index.html"],
+      ["Open Econometric Systems", "https://tuhingm.github.io/almamun/oes/"]] };
+    var miscHtml = "<div><h4>More</h4>" + misc.kids.map(function (k) {
+      var ext = /^https?:/.test(k[1]);
+      return '<a href="' + (ext ? "" : root) + k[1] + '"' + (ext ? ' rel="noopener"' : "") + ">" + esc(k[0]) + "</a>";
+    }).join("") + "</div>";
     ftr.innerHTML =
-      '<footer class="site"><div class="wrap"><div class="cols">' +
-      '<div class="about"><b>Bangladesh Institute of Quantitative Economics and Public Policy</b><p>BIQEP Policy Briefs is the institute’s public-policy series on Bangladesh. Every figure is checked against an official source before publication.</p></div>' +
-      '<div><h4>Briefs</h4><a href="' + root + 'briefs/index.html">All policy briefs</a><a href="' + root + 'data/index.html">Data hub</a><a href="' + root + 'methodology/index.html">Methodology</a></div>' +
-      '<div><h4>Institute</h4><a href="' + root + 'about/index.html">About</a><a href="' + root + 'policies/index.html">Policies</a><a href="' + root + 'contact/index.html">Contact</a></div>' +
-      '<div><h4>Open tools</h4><a href="https://tuhingm.github.io/almamun/oes/" rel="noopener">Open Econometric Systems</a><a href="https://github.com/tuhingm/open-econometric-systems" rel="noopener">OES on GitHub</a></div>' +
+      '<footer class="site"><div class="wrap"><div class="fgrid">' +
+      '<div class="about"><b>Bangladesh Institute of Quantitative Economics and Public Policy</b><p>BIQEP Policy Briefs is the institute’s public-policy series on Bangladesh. Every figure is checked against an official source before publication, and every estimate is run in an open, reproducible engine.</p>' +
+      '<p class="mono tiny">Quantitative evidence. Economic research. Better policy.</p></div>' +
+      fcol(byKey.about) + fcol(byKey.briefs) + fcol(byKey.data) + fcol(byKey.methodology) + fcol(byKey.policies) + miscHtml +
       '</div><p class="legal">BIQEP is an independent research initiative. It is not a government body and is not affiliated with Bangladesh Bank, the Bangladesh Bureau of Statistics or the Government of Bangladesh. Views are the author’s own. Briefs describe evidence and are not investment, legal or policy-implementation advice. Site data last updated ' +
       esc(fmtDate(D.updated)) + ".</p></div></footer>";
   }
@@ -76,7 +105,6 @@
     var x = m[st] || ["", st];
     return '<span class="tag ' + x[0] + '">' + x[1] + "</span>";
   }
-  function count(list, f) { return list.filter(f).length; }
   var verified = D.series.filter(function (x) { return x.status === "verified"; });
   var pending = D.series.filter(function (x) { return x.status !== "verified"; });
   var published = D.briefs.filter(function (b) { return b.status === "published"; });
@@ -86,9 +114,10 @@
       '<div class="when">' + esc(b.date) + "</div><div>" + statusTag(b.status) + '<span class="tag">' + esc(b.topic) + '</span><span class="tag">' + esc(b.type) + "</span>" +
       "<h3>" + esc(b.title) + "</h3><p>" + esc(b.summary) + "</p></div></a>";
   }
-  function noPublished() {
-    return '<div class="empty"><h3>No published briefs yet</h3><p>Briefs appear in this list as published only after the data are validated and the author has approved the text. Items marked “in preparation” are not findings.</p></div>';
+  function emptyBox(title, text) {
+    return '<div class="empty"><h3>' + esc(title) + "</h3><p>" + esc(text) + "</p></div>";
   }
+  function topicHref(t) { return root + "briefs/index.html#" + encodeURIComponent(t); }
 
   /* ---------- renderers ---------- */
   var R = {};
@@ -103,14 +132,14 @@
     if (pending.length) {
       html += '<div class="ind pend"><span class="k">Other series</span><span class="v t">' + pending.length + ' awaiting verification</span><span class="m">Shown here only after each is checked against its official release.</span><span class="s">See the Data hub</span></div>';
     }
-    el.innerHTML = html || '<div class="empty"><h3>No verified series yet</h3></div>';
+    el.innerHTML = html || emptyBox("No verified series yet", "");
   };
 
   R.stats = function (el) {
     var st = [
       [verified.length, "series verified against an official release"],
       [pending.length, "series awaiting verification"],
-      [count(D.briefs, function (b) { return b.status === "in-preparation"; }), "brief in preparation"],
+      [D.topics.length, "research areas"],
       [published.length, "briefs published"]
     ];
     el.innerHTML = st.map(function (x) { return '<div class="stat"><b>' + String(x[0]).padStart(2, "0") + "</b><span>" + x[1] + "</span></div>"; }).join("");
@@ -129,38 +158,58 @@
     el.innerHTML = '<table><thead><tr><th>Series</th><th>Status</th><th class="n">Latest</th><th>Source</th><th>Retrieved</th><th>Notes</th></tr></thead><tbody>' + rows + "</tbody></table>";
   };
 
+  R.validation = function (el) {
+    var rows = D.series.map(function (x) {
+      var res = x.status === "verified"
+        ? "Value read from the official release and matched to the figure used."
+        : "Not yet checked. No value is used.";
+      return "<tr><td><b>" + esc(x.name) + "</b></td><td>" + (x.retrieved ? esc(fmtDate(x.retrieved)) : "—") + "</td><td>" + statusTag(x.status) +
+        "</td><td>" + esc(res) + '</td><td class="small muted">' + esc(x.note || "") + "</td></tr>";
+    }).join("");
+    el.innerHTML = '<table><thead><tr><th>Series</th><th>Checked</th><th>Status</th><th>Result</th><th>Open issue or note</th></tr></thead><tbody>' + rows + "</tbody></table>";
+  };
+
   R.latest = function (el) {
-    el.innerHTML = D.briefs.length ? D.briefs.slice(0, 1).map(recItem).join("") + (published.length ? "" : noPublished()) : noPublished();
+    el.innerHTML = D.briefs.length ? recItem(D.briefs[0]) + (published.length ? "" : emptyBox("No published briefs yet", "Briefs appear in this list as published only after the data are validated and the author has approved the text. Items marked “in preparation” are not findings.")) : emptyBox("No briefs yet", "");
+  };
+
+  R.collection = function (el) {
+    var type = el.getAttribute("data-type"), topic = el.getAttribute("data-topic");
+    var sel = D.briefs.filter(function (b) { return (!type || b.type === type) && (!topic || b.topic === topic); });
+    var title = el.getAttribute("data-empty-title") || "No records yet";
+    var text = el.getAttribute("data-empty") || "Records appear here once they have been validated and approved.";
+    el.innerHTML = sel.length ? sel.map(recItem).join("") + (published.length ? "" : "") : emptyBox(title, text);
   };
 
   R.topics = function (el) {
     el.innerHTML = D.topics.map(function (t, i) {
-      return '<a class="link-card" href="' + topicHref(t.name) + '"><span class="num">' + String(i + 1).padStart(2, "0") + "</span><h3>" + esc(t.name) + "</h3><p>" + esc(t.text) + "</p></a>";
+      return '<a class="link-card" href="' + root + "research/" + t.slug + '/"><span class="num">' + String(i + 1).padStart(2, "0") + "</span><h3>" + esc(t.name) + "</h3><p>" + esc(t.text) + "</p></a>";
     }).join("");
   };
 
   R["topic-chips"] = function (el) {
-    el.innerHTML = D.topics.map(function (t) { return '<a class="chip" href="' + topicHref(t.name) + '">' + esc(t.name) + "</a>"; }).join("");
+    el.innerHTML = D.topics.map(function (t) { return '<a class="chip" href="' + root + "research/" + t.slug + '/">' + esc(t.name) + "</a>"; }).join("");
   };
 
   R.sidebar = function (el) {
-    var mode = el.getAttribute("data-mode") || "site";
-    function draw() {
-      var h = decodeURIComponent((location.hash || "").slice(1));
-      var html;
-      if (mode === "topics") {
-        html = "<h4>Briefs by topic</h4><a" + (h ? "" : ' class="on"') + ' href="' + root + 'briefs/index.html#">All policy briefs</a>' +
-          D.topics.map(function (t) { return "<a" + (h === t.name ? ' class="on"' : "") + ' href="' + topicHref(t.name) + '">' + esc(t.name) + "</a>"; }).join("") +
-          '<a href="' + root + 'data/index.html">Data hub</a><a href="' + root + 'methodology/index.html">Methodology</a>';
-      } else {
-        html = "<h4>Site sections</h4>" + sections.map(function (i) {
-          return "<a" + (i[2] === current ? ' class="on"' : "") + ' href="' + root + i[1] + '">' + i[0] + "</a>";
-        }).join("");
-      }
-      el.innerHTML = html;
+    var n = section;
+    var list = n && n.kids && n.kids.length > 1 ? n.kids : null;
+    var title = n ? n.label : "Site sections";
+    if (!list) {
+      list = NAV.map(function (x) { return [x.label, x.href]; });
+      title = "Site sections";
     }
-    draw();
-    if (mode === "topics") window.addEventListener("hashchange", draw);
+    el.innerHTML = "<h4>" + esc(title) + "</h4>" + list.map(function (k) {
+      return "<a" + (norm(k[1]) === rel ? ' class="on" aria-current="page"' : "") + ' href="' + root + k[1] + '">' + esc(k[0]) + "</a>";
+    }).join("");
+  };
+
+  R.siblings = function (el) {
+    var n = section;
+    if (!n || !n.kids || n.kids.length < 2) return;
+    var others = n.kids.filter(function (k) { return norm(k[1]) !== rel; });
+    el.innerHTML = '<h2>More in ' + esc(n.label.toLowerCase()) + '</h2><div class="cards">' +
+      others.map(function (k) { return '<a class="link-card" href="' + root + k[1] + '"><h3>' + esc(k[0]) + '</h3><p class="link-arrow">Open</p></a>'; }).join("") + "</div>";
   };
 
   R["briefs-page"] = function (el) {
@@ -177,18 +226,45 @@
       var sel = D.briefs.filter(function (b) {
         return (!t || b.topic === t) && (!term || (b.title + " " + b.summary + " " + b.topic + " " + b.type).toLowerCase().indexOf(term) > -1);
       });
-      list.innerHTML = sel.length ? sel.map(recItem).join("") :
-        '<div class="empty"><h3>No briefs match</h3><p>' + (t ? "There are no briefs under “" + esc(t) + "” yet." : "No brief matches that search.") + "</p></div>";
-      after.innerHTML = published.length ? "" : noPublished();
+      list.innerHTML = sel.length ? sel.map(recItem).join("") : emptyBox("No briefs match", t ? "There are no briefs under “" + t + "” yet." : "No brief matches that search.");
+      after.innerHTML = published.length ? "" : emptyBox("No published briefs yet", "Briefs appear in this list as published only after the data are validated and the author has approved the text. Items marked “in preparation” are not findings.");
     }
     fc.addEventListener("click", function (e) {
       var b = e.target.closest("button"); if (!b) return;
       var t = b.getAttribute("data-t");
-      if (t) location.hash = encodeURIComponent(t); else history.replaceState(null, "", location.pathname), draw(), window.dispatchEvent(new HashChangeEvent("hashchange"));
+      if (t) { location.hash = encodeURIComponent(t); }
+      else { history.replaceState(null, "", location.pathname); draw(); }
     });
     q.addEventListener("input", draw);
     window.addEventListener("hashchange", draw);
     draw();
+  };
+
+  R["site-search"] = function (el) {
+    var pages = window.BIQEP_PAGES || [];
+    el.innerHTML =
+      '<div class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>' +
+      '<input id="sq" type="search" placeholder="Search pages, topics and series" aria-label="Search the site" autofocus></div><div id="sres" style="margin-top:18px"></div>';
+    var inp = el.querySelector("#sq"), out = el.querySelector("#sres");
+    var params = new URLSearchParams(location.search); inp.value = params.get("q") || "";
+    function run() {
+      var term = inp.value.trim().toLowerCase();
+      if (!term) { out.innerHTML = '<p class="muted">Type to search ' + pages.length + " pages.</p>"; return; }
+      var words = term.split(/\s+/);
+      var hits = pages.map(function (p) {
+        var hay = (p.t + " " + p.d + " " + p.s).toLowerCase(), score = 0;
+        words.forEach(function (w) {
+          var re = new RegExp("(^|[^a-z0-9])" + w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+          if (re.test(p.t.toLowerCase())) score += 3;
+          if (re.test(hay)) score += 1; else score -= 100;
+        });
+        return { p: p, score: score };
+      }).filter(function (x) { return x.score > 0; }).sort(function (a, b) { return b.score - a.score; });
+      out.innerHTML = hits.length ? hits.map(function (h) {
+        return '<a class="rec" href="' + root + h.p.u + '"><div class="when">' + esc(h.p.s) + "</div><div><h3>" + esc(h.p.t) + "</h3><p>" + esc(h.p.d) + "</p></div></a>";
+      }).join("") : emptyBox("No pages match", "Try a shorter or different word.");
+    }
+    inp.addEventListener("input", run); run();
   };
 
   [].forEach.call(document.querySelectorAll("[data-render]"), function (el) {

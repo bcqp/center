@@ -109,12 +109,12 @@ window.BIQEP = {
   ],
 
   topics: [
-    { name: "Inflation", text: "Price dynamics, food and non-food inflation, and expectations." },
-    { name: "Monetary policy", text: "Policy rates, transmission to lending and the exchange rate." },
-    { name: "Public finance", text: "Revenue, spending, deficits and debt sustainability." },
-    { name: "Labor and wages", text: "Employment, real wages and the informal economy." },
-    { name: "External sector", text: "Exchange rate, remittances, reserves and trade." },
-    { name: "Finance and credit", text: "Bank lending, interest rates and financial stability." },
-    { name: "Climate and energy", text: "Energy prices, green finance and climate risk." }
+    { name: "Inflation", slug: "inflation", text: "Price dynamics, food and non-food inflation, and expectations." },
+    { name: "Monetary policy", slug: "monetary-policy", text: "Policy rates, transmission to lending and the exchange rate." },
+    { name: "Public finance", slug: "public-finance", text: "Revenue, spending, deficits and debt sustainability." },
+    { name: "Labor and wages", slug: "labor-wages", text: "Employment, real wages and the informal economy." },
+    { name: "External sector", slug: "external-sector", text: "Exchange rate, remittances, reserves and trade." },
+    { name: "Finance and credit", slug: "finance-credit", text: "Bank lending, interest rates and financial stability." },
+    { name: "Climate and energy", slug: "climate-energy", text: "Energy prices, green finance and climate risk." }
   ]
 };

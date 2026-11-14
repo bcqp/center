@@ -304,5 +304,11 @@ window.BIQEP_PAGES = [
 "t": "Women in the labour force in Bangladesh",
 "d": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for female participation, structure and growth. Bangladesh is above the peer median on 4 of 5 indicators judged.",
 "s": "Policy briefs"
+},
+{
+"u": "briefs/manufacturing-and-structural-change-2026-11-14.html",
+"t": "Manufacturing and structural change in Bangladesh",
+"d": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for sector shares, exports, investment and growth. Bangladesh is above the peer median on 2 of 3 indicators judged.",
+"s": "Policy briefs"
 }
 ];

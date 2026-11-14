@@ -134,6 +134,15 @@ window.BIQEP = {
       "type": "Statistical report",
       "status": "published",
       "summary": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for female participation, structure and growth. Bangladesh is above the peer median on 4 of 5 indicators judged."
+    },
+    {
+      "slug": "manufacturing-and-structural-change-2026-11-14",
+      "title": "Manufacturing and structural change in Bangladesh",
+      "date": "2026-11-14",
+      "topic": "Growth and structure",
+      "type": "Statistical report",
+      "status": "published",
+      "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for sector shares, exports, investment and growth. Bangladesh is above the peer median on 2 of 3 indicators judged."
     }
   ],
   "topics": [

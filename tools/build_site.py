@@ -9,16 +9,51 @@ def rootof(path):
     d = path.count("/")
     return "../" * d if d else "./"
 
+SITE = "https://tuhingm.github.io/biqep-policy/"
+PERSON = {"@type": "Person", "@id": SITE + "people/#tuhin", "name": "Tuhin G. M. Al Mamun", "honorificPrefix": "Dr.",
+          "jobTitle": "Founder and Executive Director, BIQEP", "url": SITE + "people/",
+          "alumniOf": {"@type": "CollegeOrUniversity", "name": "Hannam University"},
+          "nationality": {"@type": "Country", "name": "Bangladesh"},
+          "knowsAbout": ["Monetary policy transmission", "Bayesian econometrics", "Time-series econometrics", "DSGE and heterogeneous-agent models", "Bangladesh economy"],
+          "sameAs": ["https://tuhingm.github.io/almamun/", "https://github.com/tuhingm"]}
+ORG = {"@type": "Organization", "@id": SITE + "#org", "name": "Bangladesh Institute of Quantitative Economics and Public Policy",
+       "alternateName": ["BIQEP", "BIQEP Policy Briefs"], "url": SITE, "logo": SITE + "assets/og-image.png",
+       "founder": {"@id": SITE + "people/#tuhin"}, "sameAs": ["https://tuhingm.github.io/almamun/oes/"]}
+SITE_LD = {"@type": "WebSite", "@id": SITE + "#website", "url": SITE, "name": "BIQEP Policy Briefs", "inLanguage": "en",
+           "publisher": {"@id": SITE + "#org"}, "author": {"@id": SITE + "people/#tuhin"}}
+
 def page(path, title, desc, body, section="Site", search=True):
     root = rootof(path)
     canon = path.replace("index.html", "")
+    url = SITE + canon
+    full_title = ("BIQEP Policy Briefs: Bangladesh Economy | Tuhin G. M. Al Mamun" if path == "index.html"
+                  else f"{title} | BIQEP Policy Briefs")
+    graph = [ORG, SITE_LD, PERSON]
+    parts = path.split("/")
+    if len(parts) >= 2 and path != "404.html":
+        crumbs_ld = [{"@type": "ListItem", "position": 1, "name": "Home", "item": SITE}]
+        if len(parts) >= 3:
+            crumbs_ld.append({"@type": "ListItem", "position": 2, "name": section, "item": SITE + parts[0] + "/"})
+        crumbs_ld.append({"@type": "ListItem", "position": len(crumbs_ld) + 1, "name": title, "item": url})
+        graph.append({"@type": "BreadcrumbList", "itemListElement": crumbs_ld})
+    graph.append({"@type": "WebPage", "@id": url + "#page", "url": url, "name": full_title, "description": desc,
+                  "isPartOf": {"@id": SITE + "#website"}, "author": {"@id": SITE + "people/#tuhin"}, "inLanguage": "en"})
+    ld = json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False)
+    robots = "noindex,follow" if path in ("404.html", "search/index.html") else "index,follow,max-snippet:-1,max-image-preview:large"
     html = f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{title} | BIQEP Policy Briefs</title>
+<title>{full_title}</title>
 <meta name="description" content="{desc}">
+<meta name="author" content="Tuhin G. M. Al Mamun">
+<meta name="robots" content="{robots}">
 <meta name="theme-color" content="#10283f">
-<meta property="og:title" content="{title} | BIQEP Policy Briefs"><meta property="og:description" content="{desc}"><meta property="og:type" content="website">
-<link rel="canonical" href="https://tuhingm.github.io/biqep-policy/{canon}">
+<meta property="og:site_name" content="BIQEP Policy Briefs"><meta property="og:locale" content="en_US">
+<meta property="og:title" content="{full_title}"><meta property="og:description" content="{desc}"><meta property="og:type" content="website">
+<meta property="og:url" content="{url}"><meta property="og:image" content="{SITE}assets/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{full_title}"><meta name="twitter:description" content="{desc}"><meta name="twitter:image" content="{SITE}assets/og-image.png">
+<link rel="canonical" href="{url}">
+<link rel="icon" href="{root}assets/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">{ld}</script>
 {FONTS}<link rel="stylesheet" href="{root}assets/style.css"></head>
 <body><div id="hdr"></div>
 <main id="main">
@@ -31,7 +66,8 @@ def page(path, title, desc, body, section="Site", search=True):
     open(full, "w", encoding="utf-8").write(html)
     if search:
         PAGES.append({"u": canon, "t": title, "d": desc, "s": section})
-    URLS.append(canon)
+    if 'noindex' not in robots:
+        URLS.append(canon)
 
 def crumbs(path, trail):
     root = rootof(path)
@@ -78,6 +114,7 @@ home = '''
 <div class="eyebrow">A quantitative economics institution · Policy briefs</div>
 <h1>Evidence-based policy analysis for Bangladesh.</h1>
 <p>BIQEP Policy Briefs turns official data into short, rigorous analysis of inflation, monetary policy, public finance, labor and trade. Every figure is validated against its source and every estimate can be replicated.</p>
+<p class="byline">By <a href="people/index.html">Dr. Tuhin G. M. Al Mamun</a>, Founder and Executive Director</p>
 <div class="btns"><a class="btn" href="briefs/index.html">Read the policy briefs</a><a class="btn ghost" href="data/index.html">Explore the data hub</a><a class="btn ghost" href="methodology/index.html">How we validate</a></div>
 </div></section>
 <div class="ribbon"><div class="wrap">

@@ -64,12 +64,17 @@ def build(topic, series_meta, data, res, years, csv_text, today=None):
         body.append('<li>%s: %s, <a href="%s">%s</a>, retrieved %s.</li>' % (esc(vm[vid]["label"]), esc(m["source"]), esc(m["url"]), esc(m["url"]), today))
     body.append('</ul><h2>Replication</h2><p><a href="%s.csv">Dataset (CSV)</a> · <a href="%s.json">Specification and results (JSON)</a></p>' % (slug, slug))
     body.append('</div></div></section>')
+    ld = json.dumps({"@context": "https://schema.org", "@type": "Article", "headline": title, "description": summary, "datePublished": today,
+                     "author": {"@type": "Person", "name": "Tuhin G. M. Al Mamun", "url": "https://tuhingm.github.io/biqep-policy/people/"},
+                     "publisher": {"@type": "Organization", "name": "BIQEP Policy Briefs", "url": "https://tuhingm.github.io/biqep-policy/"}}, ensure_ascii=False)
     page = ('<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
             '<title>%s | BIQEP Policy Briefs</title><meta name="description" content="%s"><meta name="theme-color" content="#10283f">'
-            '<link rel="canonical" href="https://tuhingm.github.io/biqep-policy/briefs/%s.html">%s<link rel="stylesheet" href="../assets/style.css"></head>\n'
+            '<meta name="author" content="Tuhin G. M. Al Mamun"><meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">'
+            '<meta property="og:title" content="%s"><meta property="og:type" content="article"><meta property="og:image" content="https://tuhingm.github.io/biqep-policy/assets/og-image.png"><meta name="twitter:card" content="summary_large_image">'
+            '<link rel="canonical" href="https://tuhingm.github.io/biqep-policy/briefs/%s.html"><script type="application/ld+json">%s</script>%s<link rel="stylesheet" href="../assets/style.css"></head>\n'
             '<body><div id="hdr"></div>\n<main id="main">\n%s\n</main>\n<div id="ftr"></div>\n'
             '<script src="../assets/data.js"></script><script src="../assets/pages.js"></script><script src="../assets/site.js" data-root="../"></script></body></html>\n') % (
-            esc(title), esc(summary), slug, FONTS, "\n".join(body))
+            esc(title), esc(summary), esc(title), slug, ld, FONTS, "\n".join(body))
     record = {"slug": slug, "title": title, "date": today, "topic": topic["name"], "type": "Data note", "status": "published", "summary": summary}
     out = ROOT / "briefs"
     (out / (slug + ".html")).write_text(page, encoding="utf-8")

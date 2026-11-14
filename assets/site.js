@@ -33,7 +33,7 @@
     { label: "Policies", key: "policies", href: "policies/", kids: [
       ["Series policies", "policies/"], ["Publication policy", "policies/publication/"], ["Data and sources policy", "policies/data-sources/"],
       ["Validation policy", "policies/validation/"], ["Replication policy", "policies/replication/"], ["Corrections policy", "policies/corrections/"],
-      ["Use of automated tools", "policies/automated-tools/"], ["Copyright and reuse", "policies/copyright/"], ["Conflict-of-interest policy", "policies/conflict-of-interest/"]] },
+      ["Copyright and reuse", "policies/copyright/"], ["Conflict-of-interest policy", "policies/conflict-of-interest/"]] },
     { label: "People", key: "people", href: "people/" },
     { label: "News", key: "news", href: "news/", kids: [["News", "news/"], ["Events", "news/events/"]] },
     { label: "Contact", key: "contact", href: "contact/" }
@@ -95,7 +95,7 @@
       '<div class="about"><b>Bangladesh Institute of Quantitative Economics and Public Policy</b><p>BIQEP Policy Briefs is the institute’s public-policy series on Bangladesh. Every figure is checked against an official source before publication, and every estimate is run in an open, reproducible engine.</p>' +
       '<p class="mono tiny">Quantitative evidence. Economic research. Better policy.</p></div>' +
       fcol(byKey.about) + fcol(byKey.briefs) + fcol(byKey.data) + fcol(byKey.methodology) + fcol(byKey.policies) + miscHtml +
-      '</div><p class="legal">BIQEP is an independent research initiative. It is not a government body and is not affiliated with Bangladesh Bank, the Bangladesh Bureau of Statistics or the Government of Bangladesh. Views are the author’s own. Briefs describe evidence and are not investment, legal or policy-implementation advice. Site data last updated ' +
+      '</div><p class="legal">BIQEP is an independent research initiative. It is not a government body and is not affiliated with Bangladesh Bank, the Bangladesh Bureau of Statistics or the Government of Bangladesh. Views are the author’s own. Site data last updated ' +
       esc(fmtDate(D.updated)) + ".</p></div></footer>";
   }
 

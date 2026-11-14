@@ -198,12 +198,6 @@ window.BIQEP_PAGES = [
 "s": "Policies"
 },
 {
-"u": "policies/automated-tools/",
-"t": "Use of automated tools",
-"d": "BIQEP policy: Use of automated tools.",
-"s": "Policies"
-},
-{
 "u": "policies/copyright/",
 "t": "Copyright and reuse",
 "d": "BIQEP policy: Copyright and reuse.",

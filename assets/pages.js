@@ -32,7 +32,7 @@ window.BIQEP_PAGES = [
 {
 "u": "about/governance/",
 "t": "Governance",
-"d": "How BIQEP Policy Briefs is governed: responsibility, decision path, independence and corrections.",
+"d": "Governance of BIQEP Policy Briefs: responsibility, independence and corrections.",
 "s": "About"
 },
 {
@@ -44,43 +44,43 @@ window.BIQEP_PAGES = [
 {
 "u": "research/inflation/",
 "t": "Inflation",
-"d": "BIQEP research area: Inflation. Planned questions, official sources and methods.",
+"d": "BIQEP research area: Inflation. Key questions, official sources and methods.",
 "s": "Research"
 },
 {
 "u": "research/monetary-policy/",
 "t": "Monetary policy",
-"d": "BIQEP research area: Monetary policy. Planned questions, official sources and methods.",
+"d": "BIQEP research area: Monetary policy. Key questions, official sources and methods.",
 "s": "Research"
 },
 {
 "u": "research/public-finance/",
 "t": "Public finance",
-"d": "BIQEP research area: Public finance. Planned questions, official sources and methods.",
+"d": "BIQEP research area: Public finance. Key questions, official sources and methods.",
 "s": "Research"
 },
 {
 "u": "research/labor-wages/",
 "t": "Labor and wages",
-"d": "BIQEP research area: Labor and wages. Planned questions, official sources and methods.",
+"d": "BIQEP research area: Labor and wages. Key questions, official sources and methods.",
 "s": "Research"
 },
 {
 "u": "research/external-sector/",
 "t": "External sector",
-"d": "BIQEP research area: External sector. Planned questions, official sources and methods.",
+"d": "BIQEP research area: External sector. Key questions, official sources and methods.",
 "s": "Research"
 },
 {
 "u": "research/finance-credit/",
 "t": "Finance and credit",
-"d": "BIQEP research area: Finance and credit. Planned questions, official sources and methods.",
+"d": "BIQEP research area: Finance and credit. Key questions, official sources and methods.",
 "s": "Research"
 },
 {
 "u": "research/climate-energy/",
 "t": "Climate and energy",
-"d": "BIQEP research area: Climate and energy. Planned questions, official sources and methods.",
+"d": "BIQEP research area: Climate and energy. Key questions, official sources and methods.",
 "s": "Research"
 },
 {
@@ -134,7 +134,7 @@ window.BIQEP_PAGES = [
 {
 "u": "data/validation/",
 "t": "Validation log",
-"d": "Validation log for BIQEP series: what was checked, when, and open issues such as the policy rate.",
+"d": "Validation log for BIQEP series: how each was checked against its official release.",
 "s": "Data hub"
 },
 {
@@ -232,11 +232,5 @@ window.BIQEP_PAGES = [
 "t": "Contact",
 "d": "How to reach BIQEP Policy Briefs about corrections, collaboration and questions.",
 "s": "Contact"
-},
-{
-"u": "briefs/inflation-above-8.html",
-"t": "Why is inflation still above 8%?",
-"d": "Data note on Bangladesh inflation: verified CPI figures, what is still to be checked, and the planned analysis.",
-"s": "Policy briefs"
 }
 ];

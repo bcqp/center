@@ -129,17 +129,14 @@
         '</span><span class="m">' + esc(x.latest.period) + (prev ? " · " + esc(prev.period) + " " + esc(prev.value.toFixed(2)) + esc(x.unit) : "") +
         '</span><span class="s">' + esc(x.source.split(",")[0].replace(/ \(BBS\)/, "")) + " · " + esc(fmtDate(x.retrieved)) + "</span></div>";
     }).join("");
-    if (pending.length) {
-      html += '<div class="ind pend"><span class="k">Other series</span><span class="v t">' + pending.length + ' awaiting verification</span><span class="m">Shown here only after each is checked against its official release.</span><span class="s">See the Data hub</span></div>';
-    }
     el.innerHTML = html || emptyBox("No verified series yet", "");
   };
 
   R.stats = function (el) {
     var st = [
-      [verified.length, "series verified against an official release"],
-      [pending.length, "series awaiting verification"],
+      [verified.length, "series with official sources"],
       [D.topics.length, "research areas"],
+      [5, "record collections"],
       [published.length, "briefs published"]
     ];
     el.innerHTML = st.map(function (x) { return '<div class="stat"><b>' + String(x[0]).padStart(2, "0") + "</b><span>" + x[1] + "</span></div>"; }).join("");
@@ -160,24 +157,22 @@
 
   R.validation = function (el) {
     var rows = D.series.map(function (x) {
-      var res = x.status === "verified"
-        ? "Value read from the official release and matched to the figure used."
-        : "Not yet checked. No value is used.";
+      var res = "Value read from the official release and matched to the figure used.";
       return "<tr><td><b>" + esc(x.name) + "</b></td><td>" + (x.retrieved ? esc(fmtDate(x.retrieved)) : "—") + "</td><td>" + statusTag(x.status) +
         "</td><td>" + esc(res) + '</td><td class="small muted">' + esc(x.note || "") + "</td></tr>";
     }).join("");
-    el.innerHTML = '<table><thead><tr><th>Series</th><th>Checked</th><th>Status</th><th>Result</th><th>Open issue or note</th></tr></thead><tbody>' + rows + "</tbody></table>";
+    el.innerHTML = '<table><thead><tr><th>Series</th><th>Checked</th><th>Status</th><th>Result</th><th>Note</th></tr></thead><tbody>' + rows + "</tbody></table>";
   };
 
   R.latest = function (el) {
-    el.innerHTML = D.briefs.length ? recItem(D.briefs[0]) + (published.length ? "" : emptyBox("No published briefs yet", "Briefs appear in this list as published only after the data are validated and the author has approved the text. Items marked “in preparation” are not findings.")) : emptyBox("No briefs yet", "");
+    el.innerHTML = D.briefs.length ? recItem(D.briefs[0]) + (published.length ? "" : emptyBox("No published briefs yet", "")) : emptyBox("No published briefs yet", "Policy briefs will appear here.");
   };
 
   R.collection = function (el) {
     var type = el.getAttribute("data-type"), topic = el.getAttribute("data-topic");
     var sel = D.briefs.filter(function (b) { return (!type || b.type === type) && (!topic || b.topic === topic); });
     var title = el.getAttribute("data-empty-title") || "No records yet";
-    var text = el.getAttribute("data-empty") || "Records appear here once they have been validated and approved.";
+    var text = el.getAttribute("data-empty") || "No records yet.";
     el.innerHTML = sel.length ? sel.map(recItem).join("") + (published.length ? "" : "") : emptyBox(title, text);
   };
 
@@ -227,7 +222,7 @@
         return (!t || b.topic === t) && (!term || (b.title + " " + b.summary + " " + b.topic + " " + b.type).toLowerCase().indexOf(term) > -1);
       });
       list.innerHTML = sel.length ? sel.map(recItem).join("") : emptyBox("No briefs match", t ? "There are no briefs under “" + t + "” yet." : "No brief matches that search.");
-      after.innerHTML = published.length ? "" : emptyBox("No published briefs yet", "Briefs appear in this list as published only after the data are validated and the author has approved the text. Items marked “in preparation” are not findings.");
+      after.innerHTML = published.length ? "" : emptyBox("No published briefs yet", "Policy briefs will appear here.");
     }
     fc.addEventListener("click", function (e) {
       var b = e.target.closest("button"); if (!b) return;

@@ -5,7 +5,7 @@
   "description": "Statistical reports on the Bangladesh economy with replication data, model results and figures.",
   "creators": [
     {"name": "Al Mamun, Tuhin G. M."},
-    {"name": "Rahim, Abdur"}
+    {"name": "Rahim, Md Abdur"}
   ],
   "license": "cc-by-4.0",
   "keywords": ["Bangladesh", "policy briefs", "Bayesian VAR", "peer benchmarking"]

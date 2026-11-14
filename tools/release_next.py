@@ -12,7 +12,7 @@ d = today.isoformat()
 for s in todo:
     h = (Q / (s + ".html")).read_text(encoding="utf-8")
     h = h.replace("· Statistical report · 2026-11-14", "· Statistical report · " + d).replace('"datePublished": "2026-11-14"', '"datePublished": "%s"' % d)
-    h = re.sub(r"(Al Mamun, Tuhin G\. M\., and Abdur Rahim \()\d{4}\)", r"\g<1>%d)" % today.year, h)
+    h = re.sub(r"(Al Mamun, Tuhin G\. M\., and Dr Rahim Md Abdur \()\d{4}\)", r"\g<1>%d)" % today.year, h)
     (R / "briefs" / (s + ".html")).write_text(h, encoding="utf-8"); shutil.copytree(Q / s, R / "briefs" / s, dirs_exist_ok=True)
     r = dict(recs[s]); r["date"] = d; brf.append(r)
 json.dump(brf, open(R / "content/briefs.json", "w"), indent=1, ensure_ascii=False)

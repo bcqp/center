@@ -262,5 +262,11 @@ window.BIQEP_PAGES = [
 "t": "Growth and investment in Bangladesh: how far does capital formation carry output?",
 "d": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for investment, savings, FDI and growth. Bangladesh is below the peer median and worsening on 2 of 5 indicators judged.",
 "s": "Policy briefs"
+},
+{
+"u": "briefs/private-credit-and-banking-2026-11-14.html",
+"t": "Private credit and the banking system in Bangladesh: depth, cost and growth",
+"d": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for private credit, broad money, interest rates and growth. Bangladesh is below the peer median and worsening on 3 of 4 indicators judged.",
+"s": "Policy briefs"
 }
 ];

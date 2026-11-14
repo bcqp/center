@@ -101,12 +101,11 @@
 
   /* ---------- helpers ---------- */
   function statusTag(st) {
-    var m = { verified: ["ok", "Verified"], pending: ["wip", "Pending"], published: ["ok", "Published"], "in-preparation": ["wip", "In preparation"], draft: ["wip", "Draft"] };
+    var m = { verified: ["ok", "Verified"], published: ["ok", "Published"] };
     var x = m[st] || ["", st];
     return '<span class="tag ' + x[0] + '">' + x[1] + "</span>";
   }
   var verified = D.series.filter(function (x) { return x.status === "verified"; });
-  var pending = D.series.filter(function (x) { return x.status !== "verified"; });
   var published = D.briefs.filter(function (b) { return b.status === "published"; });
 
   function recItem(b) {
@@ -146,7 +145,7 @@
     var rows = D.series.map(function (x) {
       var v = x.status === "verified"
         ? esc(x.latest.value.toFixed(2)) + esc(x.unit) + '<br><span class="small muted">' + esc(x.latest.period) + "</span>"
-        : '<span class="muted">Not yet verified</span>';
+        : "";
       var src = x.url ? '<a href="' + esc(x.url) + '" rel="noopener">' + esc(x.source) + "</a>" : esc(x.source);
       return "<tr><td><b>" + esc(x.name) + '</b><br><span class="small muted">' + esc(x.topic) + "</span></td><td>" + statusTag(x.status) +
         '</td><td class="n">' + v + "</td><td>" + src + "</td><td>" + (x.retrieved ? esc(fmtDate(x.retrieved)) : "—") +

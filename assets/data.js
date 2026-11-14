@@ -53,7 +53,17 @@ window.BIQEP = {
       "note": "CPI base 2021-22 = 100 from April 2023."
     }
   ],
-  "briefs": [],
+  "briefs": [
+    {
+      "slug": "inflation-taka-and-policy-stance-2026-11-14",
+      "title": "Inflation, the Taka and the stance of policy in Bangladesh, 1992–2025",
+      "date": "2026-11-14",
+      "topic": "Monetary policy",
+      "type": "Statistical report",
+      "status": "published",
+      "summary": "Inflation rose to 10.5% in 2024 while lending rates stayed below it in each of the four years from 2022 to 2025. Nine econometric estimates, using 13 official macro variables, find a positive but imprecisely estimated pass-through from Taka depreciation to inflation."
+    }
+  ],
   "topics": [
     {
       "name": "Inflation",

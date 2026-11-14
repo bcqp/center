@@ -340,5 +340,11 @@ window.BIQEP_PAGES = [
 "t": "Urbanisation and growth in Bangladesh",
 "d": "Peer benchmarks and 5 model specifications on 12 variables (1991–2024) for urbanisation, structure and growth. Bangladesh is below the peer median and worsening on 1 of 3 indicators judged.",
 "s": "Policy briefs"
+},
+{
+"u": "briefs/growth-and-health-outcomes-2026-11-14.html",
+"t": "Income growth and health outcomes in Bangladesh",
+"d": "Peer benchmarks and 5 model specifications on 12 variables (1991–2024) for income, mortality, life expectancy and structure. Bangladesh is below the peer median and worsening on 3 of 5 indicators judged.",
+"s": "Policy briefs"
 }
 ];

@@ -76,3 +76,19 @@ def build(topic, series_meta, data, res, years, csv_text, today=None):
     (out / (slug + ".csv")).write_text(csv_text, encoding="utf-8")
     (out / (slug + ".json")).write_text(json.dumps({"topic": topic["slug"], "model": topic["model"], "variables": topic["variables"], "retrieved": today, "result": res}, indent=1, default=str), encoding="utf-8")
     return record
+
+
+def review_body(topic, series_meta, data, res, years, rec):
+    """Pull-request text: each statement the brief makes, with Agree / Disagree boxes for the author."""
+    vm = {v["id"]: v for v in topic["variables"]}
+    st = []
+    for vid, v in vm.items():
+        s = data[vid]; y = max(s)
+        st.append(("%s was %.2f in %d." % (v["label"], s[y], y), series_meta[vid]["source"] + ", " + series_meta[vid]["url"]))
+    st.append(("The model uses %d annual observations, %d to %d." % (len(years), years[0], years[-1]), "Dataset in the replication CSV"))
+    st.append(("The vector autoregression meets the stability condition.", "OES engine diagnostics"))
+    out = ["## Review: %s" % rec["title"], "", "Tick one box for each statement. Merge only when every statement is agreed.", ""]
+    for i, (text, src) in enumerate(st, 1):
+        out += ["### Statement %d" % i, text, "", "Source: " + src, "", "- [ ] Agree", "- [ ] Disagree", "- Comment:", ""]
+    out += ["### Whole brief", "- [ ] Agree to publish", "- [ ] Do not publish", ""]
+    return "\n".join(out)

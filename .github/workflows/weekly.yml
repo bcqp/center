@@ -23,6 +23,6 @@ jobs:
           if [ -z "$(git status --porcelain briefs content)" ]; then echo "nothing produced"; exit 0; fi
           b="brief-$(date +%Y%m%d)"
           git config user.name "biqep-pipeline"; git config user.email "pipeline@users.noreply.github.com"
-          git checkout -b "$b"; git add -A; git commit -m "New brief for review"
+          git checkout -b "$b"; git add -A -- briefs content assets sitemap.xml; git commit -m "New brief for review"
           git push origin "$b"
-          gh pr create --title "New brief for review" --body-file pipeline/last_run.log --base main --head "$b"
+          gh pr create --title "New brief for review" --body-file pipeline/review.md --base main --head "$b"

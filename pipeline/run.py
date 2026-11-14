@@ -27,11 +27,13 @@ def main(force_topic=None, offline_news=None):
             if t.get("cross_check"): validate.cross_check(data[t["cross_check"]["var"]], t["cross_check"], log)
             res, csv_text, years = run_oes.run(t, data)
             rec = report.build(t, meta, data, res, years, csv_text, today)
+            review = report.review_body(t, meta, data, res, years, rec)
         except Exception as e:
             log.append("REJECTED %s: %s" % (slug, e)); continue
         bp = ROOT / "content/briefs.json"
         b = json.loads(bp.read_text()); b.append(rec); bp.write_text(json.dumps(b, indent=2, ensure_ascii=False))
         log.append("produced %s" % rec["slug"])
+        (ROOT / "pipeline" / "review.md").write_text(review, encoding="utf-8")
         subprocess.check_call([sys.executable, str(ROOT / "tools/build_data.py")])
         subprocess.check_call([sys.executable, str(ROOT / "tools/build_site.py")])
         break

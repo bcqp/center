@@ -17,6 +17,25 @@ jobs:
         with: {python-version: "3.12"}
       - run: pip install -r pipeline/requirements.txt && pip install "git+https://github.com/tuhingm/open-econometric-systems.git#subdirectory=oes-engine"
       - run: python pipeline/run.py ${{ github.event.inputs.topic }}
+      - name: Keep a preview of the whole site
+        uses: actions/upload-artifact@v4
+        with:
+          name: preview-site
+          path: |
+            index.html
+            404.html
+            about
+            research
+            briefs
+            data
+            methodology
+            policies
+            people
+            news
+            contact
+            search
+            assets
+          retention-days: 14
       - name: Open pull request for review
         env: {GH_TOKEN: "${{ github.token }}"}
         run: |

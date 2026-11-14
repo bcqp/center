@@ -143,6 +143,15 @@ window.BIQEP = {
       "type": "Statistical report",
       "status": "published",
       "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for sector shares, exports, investment and growth. Bangladesh is above the peer median on 2 of 3 indicators judged."
+    },
+    {
+      "slug": "agriculture-and-food-security-2026-11-14",
+      "title": "Agriculture, food production and prices in Bangladesh",
+      "date": "2026-11-14",
+      "topic": "Inflation",
+      "type": "Statistical report",
+      "status": "published",
+      "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2024) for food production, yields, prices and growth. Bangladesh is below the peer median and worsening on 1 of 4 indicators judged."
     }
   ],
   "topics": [

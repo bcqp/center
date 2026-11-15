@@ -278,9 +278,9 @@ footer.site a{font-size:.78rem;line-height:1.4;margin-bottom:8px}
 .two h3{margin-bottom:.35em}
 .two p,.two li{font-size:.94rem;color:var(--mut)}
 .pill{display:inline-block;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;background:var(--wip-l);color:var(--wip);margin-left:8px;vertical-align:middle}
-.person{display:grid;grid-template-columns:130px minmax(0,1fr);gap:26px;border-top:1px solid var(--line);padding:26px 0}
+.person{display:grid;grid-template-columns:200px minmax(0,1fr);gap:26px;border-top:1px solid var(--line);padding:26px 0;align-items:start}
 .avatar{width:130px;height:130px;background:var(--navy);color:var(--gold);font-family:var(--serif);font-size:2.2rem;display:flex;align-items:center;justify-content:center;border-bottom:4px solid var(--gold)}
-@media(max-width:600px){.person{grid-template-columns:1fr}}
+@media(max-width:600px){.person{grid-template-columns:1fr}.founder-photo{width:180px;height:180px}}
 .content .more{margin-top:52px;padding-top:6px;border-top:1px solid var(--line)}
 .content .more h2{font-size:1.4rem;margin-top:1em}
 .coll{display:grid;gap:0 36px;grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
@@ -306,5 +306,5 @@ footer.site a{font-size:.78rem;line-height:1.4;margin-bottom:8px}
 html,body{overflow-x:hidden}
 
 /* Founder portraits: render from original repository files at a readable size. */
-.founder-photo{display:block;width:200px;height:200px;max-width:100%;object-fit:cover;object-position:center top;border-bottom:4px solid var(--gold);image-rendering:auto}
+.founder-photo{display:block;width:200px;height:200px;max-width:none;object-fit:contain;object-position:center center;background:#f4f4f1;border-bottom:4px solid var(--gold);image-rendering:auto}
 @media(max-width:600px){.founder-photo{width:180px;height:180px}}

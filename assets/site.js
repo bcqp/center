@@ -35,6 +35,7 @@
       ["Validation policy", "policies/validation/"], ["Replication policy", "policies/replication/"], ["Corrections policy", "policies/corrections/"],
       ["Copyright and reuse", "policies/copyright/"], ["Conflict-of-interest policy", "policies/conflict-of-interest/"]] },
     { label: "News", key: "news", href: "news/", kids: [["News", "news/"], ["Events", "news/events/"]] },
+    { label: "Journal", key: "journal", href: "journal/" },
     { label: "Contact", key: "contact", href: "contact/" }
   ];
 

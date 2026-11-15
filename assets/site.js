@@ -34,7 +34,6 @@
       ["Series policies", "policies/"], ["Publication policy", "policies/publication/"], ["Data and sources policy", "policies/data-sources/"],
       ["Validation policy", "policies/validation/"], ["Replication policy", "policies/replication/"], ["Corrections policy", "policies/corrections/"],
       ["Copyright and reuse", "policies/copyright/"], ["Conflict-of-interest policy", "policies/conflict-of-interest/"]] },
-    { label: "People", key: "people", href: "people/" },
     { label: "News", key: "news", href: "news/", kids: [["News", "news/"], ["Events", "news/events/"]] },
     { label: "Contact", key: "contact", href: "contact/" }
   ];
@@ -84,7 +83,7 @@
       return "<div><h4>" + esc(n.label) + "</h4>" + (n.kids || [[n.label, n.href]]).map(function (k) { return '<a href="' + root + k[1] + '">' + esc(k[0]) + "</a>"; }).join("") + "</div>";
     }
     var byKey = {}; NAV.forEach(function (n) { byKey[n.key] = n; });
-    var misc = { label: "More", kids: [["People", "people/"], ["News and events", "news/"], ["Contact", "contact/"], ["Search", "search/index.html"],
+    var misc = { label: "More", kids: [["News and events", "news/"], ["Contact", "contact/"], ["Search", "search/index.html"],
       ["Open Econometric Systems", "https://tuhingm.github.io/almamun/oes/"]] };
     var miscHtml = "<div><h4>More</h4>" + misc.kids.map(function (k) {
       var ext = /^https?:/.test(k[1]);

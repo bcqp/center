@@ -304,3 +304,7 @@ footer.site a{font-size:.78rem;line-height:1.4;margin-bottom:8px}
   .iconbtn,.menubtn{height:40px;padding:0 11px}
 }
 html,body{overflow-x:hidden}
+
+/* Founder portraits: render from original repository files at a readable size. */
+.founder-photo{display:block;width:200px;height:200px;max-width:100%;object-fit:cover;object-position:center top;border-bottom:4px solid var(--gold);image-rendering:auto}
+@media(max-width:600px){.founder-photo{width:180px;height:180px}}

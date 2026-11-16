@@ -172,14 +172,37 @@
     if(e.key==="ArrowRight"){e.preventDefault();show(current+1);}
   });
   var startX=null;
-  slider.addEventListener("touchstart",function(e){startX=e.changedTouches[0].clientX;},{passive:true});
+  var timer=null;
+  var delay=5500;
+  function stopAuto(){if(timer){window.clearInterval(timer);timer=null;}}
+  function startAuto(){
+    stopAuto();
+    if(document.hidden || window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+    timer=window.setInterval(function(){show(current+1);},delay);
+  }
+  slider.addEventListener("mouseenter",stopAuto);
+  slider.addEventListener("mouseleave",startAuto);
+  slider.addEventListener("focusin",stopAuto);
+  slider.addEventListener("focusout",function(e){
+    if(!slider.contains(e.relatedTarget))startAuto();
+  });
+  document.addEventListener("visibilitychange",function(){
+    if(document.hidden)stopAuto();else startAuto();
+  });
+  slider.addEventListener("touchstart",function(e){stopAuto();startX=e.changedTouches[0].clientX;},{passive:true});
   slider.addEventListener("touchend",function(e){
-    if(startX===null)return;
-    var delta=e.changedTouches[0].clientX-startX;
-    if(Math.abs(delta)>45)show(current+(delta<0?1:-1));
+    if(startX!==null){
+      var delta=e.changedTouches[0].clientX-startX;
+      if(Math.abs(delta)>45)show(current+(delta<0?1:-1));
+    }
     startX=null;
+    startAuto();
   },{passive:true});
+  slider.querySelectorAll("button").forEach(function(button){
+    button.addEventListener("click",function(){startAuto();});
+  });
   show(0);
+  startAuto();
 })();
 </script>
 </body></html>

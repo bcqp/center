@@ -28,7 +28,6 @@ jobs:
         run: |
           python3 tools/release_next.py _queue ${{ inputs.force && '--force' || '' }}
           python3 tools/build_data.py
-          python3 tools/build_site.py
           python3 tools/build_latest.py
           python3 tools/stamp.py "$(date +%Y%m%d)"
           rm -rf _queue

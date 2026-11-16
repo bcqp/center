@@ -7,8 +7,8 @@ window.BIQEP_PAGES = [
 },
 {
 "u": "about/",
-"t": "The series",
-"d": "About the Bangladesh Institute of Quantitative Economics and Public Policy and its policy briefs series.",
+"t": "About BIQEP",
+"d": "Institutional overview of BIQEP: quantitative economics, econometrics, statistical sciences, public policy, data, training and collaboration.",
 "s": "About"
 },
 {
@@ -98,7 +98,7 @@ window.BIQEP_PAGES = [
 {
 "u": "research/collaboration/",
 "t": "Research collaboration",
-"d": "How to collaborate with BIQEP Policy Briefs: data, corrections, topics and methods.",
+"d": "Research collaboration with BIQEP across quantitative economics, econometrics, data, methods, seminars and training.",
 "s": "Research"
 },
 {
@@ -224,7 +224,7 @@ window.BIQEP_PAGES = [
 {
 "u": "news/",
 "t": "News",
-"d": "News and release notes from BIQEP Policy Briefs.",
+"d": "Dated institutional updates, research infrastructure notes and corrections from BIQEP.",
 "s": "News"
 },
 {
@@ -236,7 +236,7 @@ window.BIQEP_PAGES = [
 {
 "u": "contact/",
 "t": "Contact",
-"d": "How to reach BIQEP Policy Briefs about corrections, collaboration and questions.",
+"d": "Contact BIQEP about research collaboration, data corrections, methodological questions and institutional enquiries.",
 "s": "Contact"
 },
 {

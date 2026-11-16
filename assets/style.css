@@ -329,31 +329,3 @@ html,body{overflow-x:hidden}
 @media(max-width:600px){.publication-slider{padding-top:22px}.publication-slide{min-height:250px}.publication-controls{padding-top:12px}}
 
 .publication-slide.is-active{opacity:1;transform:translateY(0)}
-
-
-/* Homepage featured reports: paired image cards */
-.report-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:22px;align-items:stretch}
-.report-card{display:flex;flex-direction:column;min-width:0;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 28px rgba(16,40,63,.07);color:var(--ink);text-decoration:none;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
-.report-card:hover{transform:translateY(-3px);box-shadow:0 15px 34px rgba(16,40,63,.12);border-color:#c6d4e3}
-.report-card:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
-.report-card>img{display:block;width:100%;height:150px;object-fit:cover;object-position:center;background:#f4f6f8;border-bottom:1px solid var(--line)}
-.report-card-body{display:flex;flex:1;flex-direction:column;padding:17px 19px 18px}
-.report-meta{font-family:var(--mono);font-size:.61rem;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);margin-bottom:8px}
-.report-card h3{font-family:var(--serif);font-size:1.12rem;line-height:1.35;margin:0 0 8px;color:var(--navy)}
-.report-card p{font-size:.85rem;line-height:1.65;color:var(--mut);margin:0 0 15px}
-.report-read{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:auto;padding-top:11px;border-top:1px solid var(--line);font-size:.78rem;font-weight:700;color:var(--blue)}
-.report-read span{font-size:1rem;transition:transform .2s ease}
-.report-card:hover .report-read span{transform:translateX(4px)}
-@media(max-width:680px){.report-grid{grid-template-columns:1fr;gap:14px}.report-card>img{height:175px}.report-card-body{padding:16px}}
-@media(prefers-reduced-motion:reduce){.report-card,.report-read span{transition:none}.report-card:hover{transform:none}}
-
-
-/* Enforce the requested 1 × 2 desktop report-card layout */
-.report-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;align-items:stretch!important}
-.report-grid>.report-card{width:100%;min-width:0}
-@media(max-width:680px){.report-grid{grid-template-columns:1fr!important}}
-
-
-/* Preserve complete report thumbnails: no vertical cropping */
-.report-card>img{height:220px!important;object-fit:contain!important;object-position:center!important;background:#fff!important}
-@media(max-width:680px){.report-card>img{height:200px!important}}

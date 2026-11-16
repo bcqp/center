@@ -1,6 +1,6 @@
 """Write latest.json: the newest published reports, for display on other sites (e.g. the author's homepage)."""
 import json, pathlib
-R = pathlib.Path(__file__).resolve().parents[1]; B = "https://tuhingm.github.io/biqep-policy/"
+R = pathlib.Path(__file__).resolve().parents[1]; B = "https://biqep.github.io/institute/"
 brf = json.load(open(R / "content/briefs.json")); out = []
 for b in reversed(brf):
     if not (R / "briefs" / b["slug"] / "thumb.jpg").exists(): continue

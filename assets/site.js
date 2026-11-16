@@ -29,7 +29,7 @@
     { label: "Data hub", key: "data", href: "data/", kids: [
       ["Series register", "data/"], ["Official sources", "data/sources/"], ["Validation log", "data/validation/"]] },
     { label: "Methodology", key: "methodology", href: "methodology/", kids: [
-      ["How a brief is made", "methodology/"], ["Models and tools", "methodology/models/"], ["Data standards", "methodology/data-standards/"], ["Replication", "methodology/replication/"]] },
+      ["How a brief is made", "methodology/"], ["Quantitative policy analysis", "methodology/quantitative-policy-analysis/"], ["Models and tools", "methodology/models/"], ["Data standards", "methodology/data-standards/"], ["Replication", "methodology/replication/"]] },
     { label: "Policies", key: "policies", href: "policies/", kids: [
       ["Series policies", "policies/"], ["Publication policy", "policies/publication/"], ["Data and sources policy", "policies/data-sources/"],
       ["Validation policy", "policies/validation/"], ["Replication policy", "policies/replication/"], ["Corrections policy", "policies/corrections/"],

@@ -59,7 +59,7 @@
     return '<div class="item' + (has ? " has" : "") + '"><a' + (on ? ' class="on" aria-current="page"' : "") + ' href="' + root + n.href + '">' + esc(n.label) + "</a>" + drop + "</div>";
   }
   var navHtml = '<div class="item"><a' + (curKey === "" && root.charAt(0) !== "/" ? ' class="on" aria-current="page"' : "") + ' href="' + root + 'index.html">Home</a></div>' + NAV.map(navItem).join("");
-  navHtml += '<div class="item oes-nav-item"><a href="https://tuhingm.github.io/almamun/oes/" target="_blank" rel="noopener noreferrer" aria-label="Open Econometric Systems (opens in a new tab)" title="Open Econometric Systems">OES</a></div>';
+  navHtml += '<div class="item oes-nav-item"><a href="' + root + 'oes/index.html" aria-label="Open Econometric Systems">OES</a></div>';
 
   var hdr = document.getElementById("hdr");
   if (hdr) {

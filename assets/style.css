@@ -352,3 +352,8 @@ html,body{overflow-x:hidden}
 .report-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;align-items:stretch!important}
 .report-grid>.report-card{width:100%;min-width:0}
 @media(max-width:680px){.report-grid{grid-template-columns:1fr!important}}
+
+
+/* Preserve complete report thumbnails: no vertical cropping */
+.report-card>img{height:220px!important;object-fit:contain!important;object-position:center!important;background:#fff!important}
+@media(max-width:680px){.report-card>img{height:200px!important}}

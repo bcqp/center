@@ -175,8 +175,8 @@ window.BIQEP_PAGES = [
 },
 {
 "u": "policies/",
-"t": "Series policies",
-"d": "Publication, source, validation, replication, corrections and other policies for BIQEP Policy Briefs.",
+"t": "Policy framework",
+"d": "Overview of BIQEP institutional publication, evidence, validation, replication, corrections and research-integrity policies.",
 "s": "Policies"
 },
 {

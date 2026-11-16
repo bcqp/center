@@ -261,6 +261,66 @@
     inp.addEventListener("input", run); run();
   };
 
+
+  /* ---------- social sharing bar (matches the personal academic website) ---------- */
+  (function addShareBar() {
+    if (document.querySelector(".share-bar")) return;
+    var canonical = document.querySelector('link[rel="canonical"]');
+    var pageUrl = canonical ? canonical.href : location.href.split("#")[0];
+    var titleMeta = document.querySelector('meta[property="og:title"]');
+    var pageTitle = titleMeta ? titleMeta.content : document.title;
+    var encodedUrl = encodeURIComponent(pageUrl);
+    var encodedTitle = encodeURIComponent(pageTitle);
+    var icons = {
+      li: '<path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.3-.03-3-1.83-3-1.84 0-2.12 1.43-2.12 2.9V21H9z"/>',
+      fb: '<path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.87.25-1.46 1.5-1.46h1.55V4.47A20 20 0 0 0 14.3 4.3c-2.2 0-3.7 1.34-3.7 3.8v2.4H8.1v3h2.5V21z"/>',
+      x: '<path d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.77zm-1.08 16.2h1.7L7.4 4.73H5.58z"/>',
+      copy: '<path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11z"/>',
+      more: '<path d="M18 16a3 3 0 0 0-2.4 1.2l-6.7-3.4a3 3 0 0 0 0-1.6l6.7-3.4A3 3 0 1 0 15 7l-6.7 3.4a3 3 0 1 0 0 3.2L15 17a3 3 0 1 0 3-1z"/>'
+    };
+    function icon(key) {
+      return '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' + icons[key] + '</svg>';
+    }
+    function link(key, label, href) {
+      return '<a class="share-btn share-' + key + '" href="' + href + '" target="_blank" rel="noopener noreferrer" aria-label="Share on ' + label + '">' + icon(key) + '<span>' + label + '</span></a>';
+    }
+    var bar = document.createElement("div");
+    bar.className = "share-bar";
+    bar.setAttribute("role", "group");
+    bar.setAttribute("aria-label", "Share this page");
+    bar.innerHTML =
+      '<span class="share-label">Share this page</span>' +
+      link("li", "LinkedIn", "https://www.linkedin.com/sharing/share-offsite/?url=" + encodedUrl) +
+      link("fb", "Facebook", "https://www.facebook.com/sharer/sharer.php?u=" + encodedUrl) +
+      link("x", "X", "https://twitter.com/intent/tweet?url=" + encodedUrl + "&text=" + encodedTitle) +
+      '<button type="button" class="share-btn share-copy" aria-label="Copy link to this page">' + icon("copy") + '<span>Copy link</span></button>' +
+      (navigator.share ? '<button type="button" class="share-btn share-more" aria-label="More sharing options">' + icon("more") + '<span>More</span></button>' : "");
+    var style = document.createElement("style");
+    style.textContent = '.share-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:34px 0 26px;padding:16px 0 0;border-top:1px solid #dbe3f0;font-family:"DM Sans",system-ui,sans-serif;clear:both}.share-bar .share-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#111;margin-right:4px}.share-bar .share-btn{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 13px;border:1px solid #d3dcec;border-radius:999px;background:#fff;color:#111;font:600 12.5px "DM Sans",system-ui,sans-serif;text-decoration:none;cursor:pointer;transition:background .15s,border-color .15s,color .15s}.share-bar .share-btn svg{width:15px;height:15px;fill:currentColor;flex:none}.share-bar .share-btn:hover,.share-bar .share-btn:focus-visible{border-color:#0033a0;color:#0033a0;background:#f3f6fc;text-decoration:none}.share-bar .share-btn:focus-visible{outline:2px solid #0033a0;outline-offset:2px}.share-bar .share-li:hover{color:#0a66c2;border-color:#0a66c2}.share-bar .share-fb:hover{color:#1877f2;border-color:#1877f2}.share-bar .share-x:hover{color:#000;border-color:#000}.share-bar .share-copy.ok{color:#1f7a4d;border-color:#1f7a4d;background:#f0f8f3}@media(max-width:560px){.share-bar .share-label{width:100%;margin-bottom:2px}.share-bar .share-btn span{display:none}.share-bar .share-btn{width:40px;height:40px;padding:0;justify-content:center}.share-bar .share-btn svg{width:17px;height:17px}}@media print{.share-bar{display:none}}';
+    document.head.appendChild(style);
+    var main = document.querySelector("main");
+    var footer = document.querySelector("footer.site, footer");
+    if (main) main.appendChild(bar);
+    else if (footer && footer.parentNode) footer.parentNode.insertBefore(bar, footer);
+    else document.body.appendChild(bar);
+    var copy = bar.querySelector(".share-copy");
+    copy.addEventListener("click", function () {
+      function done() {
+        var label = copy.querySelector("span");
+        label.textContent = "Link copied";
+        copy.classList.add("ok");
+        setTimeout(function () { label.textContent = "Copy link"; copy.classList.remove("ok"); }, 2000);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(pageUrl).then(done, function () { window.prompt("Copy this link:", pageUrl); });
+      } else window.prompt("Copy this link:", pageUrl);
+    });
+    var more = bar.querySelector(".share-more");
+    if (more) more.addEventListener("click", function () {
+      navigator.share({ title: pageTitle, url: pageUrl }).catch(function () {});
+    });
+  })();
+
   [].forEach.call(document.querySelectorAll("[data-render]"), function (el) {
     var f = R[el.getAttribute("data-render")]; if (f) f(el);
   });

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Open Econometric Systems (OES) | BIQEP</title>
+<meta name="description" content="Open Econometric Systems (OES), the browser-based econometric computing platform associated with BIQEP. Explore its model workflows, Python engine, testing and research applications.">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<link rel="canonical" href="https://biqep.github.io/institute/oes/">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/style.css?v=20261116-oes1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700&family=IBM+Plex+Mono:wght@400;500&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+<meta name="author" content="BIQEP">
+<meta property="og:site_name" content="BIQEP"><meta property="og:title" content="Open Econometric Systems (OES) | BIQEP">
+<meta property="og:description" content="The browser-based econometric computing platform associated with BIQEP.">
+<meta property="og:url" content="https://biqep.github.io/institute/oes/"><meta property="og:type" content="website">
+</head>
+<body>
+<div id="hdr"></div>
+<main id="main">
+<section class="pagehead"><div class="wrap">
+<div class="crumbs"><a href="../index.html">Home</a><i>/</i>Open Econometric Systems</div>
+<div class="eyebrow">Research infrastructure · Computational econometrics</div>
+<h1>Open Econometric Systems (OES)</h1>
+<p class="lede">An open, browser-based econometric computing platform for model estimation, empirical research and reproducible quantitative analysis.</p>
+</div></section>
+<section class="sec"><div class="wrap layout">
+<aside class="sidenav" aria-label="Section navigation">
+<a href="#overview">Overview</a><a href="#workflow">Research workflow</a><a href="#technology">Computational design</a><a href="#testing">Testing and reproducibility</a><a href="#relationship">OES and BIQEP</a>
+</aside>
+<div class="content">
+<h2 id="overview">A practical environment for applied econometrics</h2>
+<p>Open Econometric Systems (OES) is an open-source econometric computing platform that allows users to select an econometric model, load a guide dataset or their own CSV file, prepare variables, specify an estimation and examine the resulting output in a web browser. The platform connects model implementation with methodological guides and Python code that researchers can reproduce outside the browser.</p>
+<p>OES is designed as a research tool rather than a collection of static calculators. Its workflow brings together data preparation, model specification, estimation, result inspection and code reproduction. The available model catalogue and implementation details are maintained on the OES platform and its source repository.</p>
+<p><a class="link-arrow" href="https://tuhingm.github.io/almamun/oes/" target="_blank" rel="noopener noreferrer">Visit the OES computing platform</a></p>
+
+<h2 id="workflow">From data to reproducible estimates</h2>
+<div class="two">
+<div><h3>1. Select a model</h3><p>Choose an estimator from the platform's model catalogue. The model guides explain the research use, specification and interpretation associated with the available methods.</p></div>
+<div><h3>2. Load data</h3><p>Use the dataset supplied with a model guide or upload a CSV file. Panel workflows can use unit and time identifiers where required.</p></div>
+<div><h3>3. Prepare variables</h3><p>Create lags, first differences, logarithms and growth rates; demean variables or restrict the estimation sample using the available data operations.</p></div>
+<div><h3>4. Specify and estimate</h3><p>Set the model-specific options and run the estimator. The platform presents estimation output, tables and visual summaries where implemented.</p></div>
+<div><h3>5. Inspect and export</h3><p>Review reported estimates and diagnostics, then export result tables or structured results where those options are provided by the selected model.</p></div>
+<div><h3>6. Reproduce in Python</h3><p>Use the generated Python call and the published OES engine to reproduce the computation in a local research environment.</p></div>
+</div>
+
+<h2 id="technology">Computational design</h2>
+<dl class="kv">
+<dt>Execution environment</dt><dd>Python runs in the browser through Pyodide, using scientific-computing packages including NumPy, pandas, SciPy, statsmodels, scikit-learn and XGBoost as required by the implementations.</dd>
+<dt>Data handling</dt><dd>The OES page states that uploaded files are read on the user's device and are not uploaded to a server for estimation. Users should consult the live platform's current technical notes for details and limitations.</dd>
+<dt>Model-specific implementations</dt><dd>Estimator implementations and supporting helper files are published with the OES guides and engine repository. The exact methods and options depend on the selected model.</dd>
+<dt>Scope</dt><dd>OES covers the econometric workflows implemented in its current catalogue. DSGE models are handled separately through Dynare and are not part of the OES browser engine.</dd>
+</dl>
+
+<h2 id="testing">Testing, documentation and reproducibility</h2>
+<p>The platform includes an in-browser test suite that runs model examples and compares reported estimates with reference values. Its documentation also describes checks against established Python packages and selected published results. The source code, tests and implementation notes are available in the public OES repository.</p>
+<p>For empirical work, researchers should report the dataset source, sample, transformations, model specification, options and software version. The OES guides and generated Python calls are intended to make the computational steps easier to inspect and reproduce.</p>
+<p><a class="link-arrow" href="https://github.com/tuhingm/open-econometric-systems" target="_blank" rel="noopener noreferrer">View the OES source code and test suite</a></p>
+<p><a class="link-arrow" href="https://tuhingm.github.io/almamun/oes/" target="_blank" rel="noopener noreferrer">Open the live OES platform and model catalogue</a></p>
+
+<h2 id="relationship">How OES relates to BIQEP</h2>
+<p>The Bangladesh Institute of Quantitative Economics and Public Policy (BIQEP) focuses on quantitative economic research and evidence-based public-policy analysis. OES is presented here as computational research infrastructure associated with that broader mission: it provides a practical environment for implementing econometric methods, examining empirical relationships and supporting transparent analytical workflows.</p>
+<p>BIQEP's policy research and OES have complementary but distinct roles. BIQEP develops and communicates research findings; OES provides computational tools that researchers can use in empirical analysis. OES does not itself determine BIQEP's research conclusions, and the presence of a method in the platform does not imply that every BIQEP publication uses that method.</p>
+<p>For policy briefs and institutional research, visit the <a href="../briefs/index.html">BIQEP Policy Briefs</a> and <a href="../research/index.html">Research</a> sections.</p>
+<div class="more" data-render="siblings"></div>
+</div></div></section>
+</main>
+<div id="ftr"></div>
+<script src="../assets/data.js?v=20261114h"></script><script src="../assets/pages.js?v=20261114h"></script><script src="../assets/site.js?v=20261116-oes1" data-root="../"></script>
+</body></html>

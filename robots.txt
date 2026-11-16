@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://biqep.github.io/institute/sitemap.xml
+Sitemap: https://tuhingm.github.io/biqep-policy/sitemap.xml

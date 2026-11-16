@@ -2,8 +2,8 @@
    Fonts: DM Sans (text), Libre Baskerville (headings), IBM Plex Mono (labels)
    Palette: navy, blue, teal, gold on warm paper */
 :root{
-  --navy:#10283f;--blue:#0033a0;--teal:#168b88;--gold:#c6a15b;
-  --paper:#f7f6f1;--paper2:#fbfaf6;--mist:#eaf0f3;--ink:#111827;--mut:#303b4b;--line:#d9e0e4;
+  --navy:#00205b;--blue:#0033A0;--teal:#168b88;--gold:#c6a15b;
+  --paper:#f7f6f1;--paper2:#fbfaf6;--mist:#eaf0f3;--ink:#17233b;--mut:#596780;--line:#d9e0e4;
   --teal-l:#b2d9d4;--on-navy:#dce5e9;
   --ok:#1b6b46;--ok-l:#e0f0e8;--wip:#7a5a12;--wip-l:#f6ecd4;
   --sans:"DM Sans",system-ui,-apple-system,sans-serif;
@@ -27,7 +27,7 @@ a:hover{color:var(--navy)}
 .mono{font-family:var(--mono)}
 .muted{color:var(--mut)}
 .small{font-size:.86rem}
-.lede{font-size:1.06rem;color:#202938;max-width:720px;line-height:1.75}
+.lede{font-size:1.06rem;color:#45536c;max-width:720px;line-height:1.75}
 .eyebrow{font-family:var(--mono);font-size:.69rem;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin-bottom:14px;font-weight:500}
 .skip{position:absolute;left:-999px;top:0;background:#fff;padding:10px 14px;z-index:60;color:var(--navy)}
 .skip:focus{left:8px;top:8px}

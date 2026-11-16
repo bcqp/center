@@ -39,9 +39,32 @@
 
 <section class="sec mist tight"><div class="wrap">
 <div class="row"><div><div class="eyebrow">Research publications</div><h2>Latest research and policy analysis.</h2></div><a class="link-arrow" href="briefs/index.html">All publications</a></div>
-<div class="two">
-<article class="link-card"><span class="num">STATISTICAL REPORT · 14 NOVEMBER 2026</span><h3>Inflation, the Taka and the stance of policy in Bangladesh, 1992–2025</h3><p>Examines inflation, exchange-rate depreciation, interest-rate policy and reserves using annual macroeconomic data and multiple econometric specifications.</p><a class="link-arrow" href="briefs/inflation-taka-and-policy-stance-2026-11-14.html">Read the report</a></article>
-<article class="link-card"><span class="num">STATISTICAL REPORT · 14 NOVEMBER 2026</span><h3>Money growth and prices in Bangladesh</h3><p>Studies money, credit, interest rates, prices and growth, with comparisons across six regional economies.</p><a class="link-arrow" href="briefs/money-and-prices-2026-11-14.html">Read the report</a></article>
+<div class="publication-slider" data-publication-slider aria-roledescription="carousel" aria-label="Latest BIQEP research reports">
+<div class="publication-track">
+<article class="publication-slide is-active" data-slide aria-hidden="false">
+<span class="num">REPORT 01 · STATISTICAL REPORT · 14 NOVEMBER 2026</span>
+<h3>Inflation, the Taka and the stance of policy in Bangladesh, 1992–2025</h3>
+<p>Examines inflation, exchange-rate depreciation, interest-rate policy and reserves using annual macroeconomic data and multiple econometric specifications.</p>
+<a class="link-arrow" href="briefs/inflation-taka-and-policy-stance-2026-11-14.html">Read the report</a>
+</article>
+<article class="publication-slide" data-slide aria-hidden="true" hidden>
+<span class="num">REPORT 02 · STATISTICAL REPORT · 14 NOVEMBER 2026</span>
+<h3>Money growth and prices in Bangladesh</h3>
+<p>Studies money, credit, interest rates, prices and growth, with comparisons across six regional economies.</p>
+<a class="link-arrow" href="briefs/money-and-prices-2026-11-14.html">Read the report</a>
+</article>
+</div>
+<div class="publication-controls">
+<div class="publication-dots" role="group" aria-label="Choose a report">
+<button type="button" class="publication-dot is-active" data-go="0" aria-label="Show report 1" aria-pressed="true"></button>
+<button type="button" class="publication-dot" data-go="1" aria-label="Show report 2" aria-pressed="false"></button>
+</div>
+<div class="publication-arrows">
+<button type="button" data-prev aria-label="Previous report">←</button>
+<span data-count aria-live="polite">01 / 02</span>
+<button type="button" data-next aria-label="Next report">→</button>
+</div>
+</div>
 </div>
 <p class="small muted" style="margin-top:16px">New research and policy analysis are published on an ongoing basis. Follow the <a href="news/index.html">News page</a> for publication updates.</p>
 </div></section>
@@ -119,4 +142,44 @@
 
 </main>
 <div id="ftr"></div>
-<script src="./assets/data.js?v=20261114h"></script><script src="./assets/pages.js?v=20261114h"></script><script src="./assets/site.js?v=20261116c" data-root="./"></script></body></html>
+<script src="./assets/data.js?v=20261114h"></script><script src="./assets/pages.js?v=20261114h"></script><script src="./assets/site.js?v=20261116c" data-root="./"></script><script>
+(function(){
+  var slider=document.querySelector("[data-publication-slider]");
+  if(!slider)return;
+  var slides=Array.prototype.slice.call(slider.querySelectorAll("[data-slide]"));
+  var dots=Array.prototype.slice.call(slider.querySelectorAll("[data-go]"));
+  var count=slider.querySelector("[data-count]"),current=0;
+  function show(index){
+    current=(index+slides.length)%slides.length;
+    slides.forEach(function(slide,i){
+      var active=i===current;
+      slide.hidden=!active;
+      slide.classList.toggle("is-active",active);
+      slide.setAttribute("aria-hidden",active?"false":"true");
+    });
+    dots.forEach(function(dot,i){
+      var active=i===current;
+      dot.classList.toggle("is-active",active);
+      dot.setAttribute("aria-pressed",active?"true":"false");
+    });
+    count.textContent=String(current+1).padStart(2,"0")+" / "+String(slides.length).padStart(2,"0");
+  }
+  slider.querySelector("[data-prev]").addEventListener("click",function(){show(current-1);});
+  slider.querySelector("[data-next]").addEventListener("click",function(){show(current+1);});
+  dots.forEach(function(dot){dot.addEventListener("click",function(){show(Number(dot.getAttribute("data-go")));});});
+  slider.addEventListener("keydown",function(e){
+    if(e.key==="ArrowLeft"){e.preventDefault();show(current-1);}
+    if(e.key==="ArrowRight"){e.preventDefault();show(current+1);}
+  });
+  var startX=null;
+  slider.addEventListener("touchstart",function(e){startX=e.changedTouches[0].clientX;},{passive:true});
+  slider.addEventListener("touchend",function(e){
+    if(startX===null)return;
+    var delta=e.changedTouches[0].clientX-startX;
+    if(Math.abs(delta)>45)show(current+(delta<0?1:-1));
+    startX=null;
+  },{passive:true});
+  show(0);
+})();
+</script>
+</body></html>

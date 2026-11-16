@@ -7,8 +7,8 @@ window.BIQEP_PAGES = [
 },
 {
 "u": "about/",
-"t": "The series",
-"d": "About the Bangladesh Institute of Quantitative Economics and Public Policy and its policy briefs series.",
+"t": "About BIQEP",
+"d": "Institutional overview of BIQEP: quantitative economics, econometrics, statistical sciences, public policy, data, training and collaboration.",
 "s": "About"
 },
 {
@@ -98,7 +98,7 @@ window.BIQEP_PAGES = [
 {
 "u": "research/collaboration/",
 "t": "Research collaboration",
-"d": "How to collaborate with BIQEP Policy Briefs: data, corrections, topics and methods.",
+"d": "Research collaboration with BIQEP across quantitative economics, econometrics, data, methods, seminars and training.",
 "s": "Research"
 },
 {
@@ -175,8 +175,8 @@ window.BIQEP_PAGES = [
 },
 {
 "u": "policies/",
-"t": "Series policies",
-"d": "Publication, source, validation, replication, corrections and other policies for BIQEP Policy Briefs.",
+"t": "Policy framework",
+"d": "Overview of BIQEP institutional publication, evidence, validation, replication, corrections and research-integrity policies.",
 "s": "Policies"
 },
 {
@@ -222,21 +222,9 @@ window.BIQEP_PAGES = [
 "s": "Policies"
 },
 {
-"u": "people/",
-"t": "People",
-"d": "People behind BIQEP Policy Briefs.",
-"s": "People"
-},
-{
-"u": "tuhin-al-mamun/",
-"t": "Tuhin Al Mamun: Economist and Founder of BIQEP",
-"d": "Tuhin Al Mamun (Tuhin G. M. Al Mamun) is a Bangladeshi economist with a PhD in economics, researching monetary policy transmission and econometrics, and founder of BIQEP Policy Briefs.",
-"s": "People"
-},
-{
 "u": "news/",
 "t": "News",
-"d": "News and release notes from BIQEP Policy Briefs.",
+"d": "Dated institutional updates, research infrastructure notes and corrections from BIQEP.",
 "s": "News"
 },
 {
@@ -248,7 +236,7 @@ window.BIQEP_PAGES = [
 {
 "u": "contact/",
 "t": "Contact",
-"d": "How to reach BIQEP Policy Briefs about corrections, collaboration and questions.",
+"d": "Contact BIQEP about research collaboration, data corrections, methodological questions and institutional enquiries.",
 "s": "Contact"
 },
 {

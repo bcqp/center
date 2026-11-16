@@ -308,3 +308,22 @@ html,body{overflow-x:hidden}
 /* Founder portraits: render from original repository files at a readable size. */
 .founder-photo{display:block;width:200px;height:200px;max-width:none;object-fit:contain;object-position:center center;background:#f4f4f1;border-bottom:4px solid var(--gold);image-rendering:auto}
 @media(max-width:600px){.founder-photo{width:180px;height:180px}}
+
+
+/* Homepage featured-publication slider */
+.publication-slider{position:relative;max-width:900px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px 0 18px}
+.publication-slide{min-height:205px;padding:0 12px 12px 0;animation:publication-in .28s ease both}
+.publication-slide[hidden]{display:none}
+.publication-slide h3{font-size:clamp(1.35rem,2.6vw,1.9rem);max-width:760px;margin:8px 0 12px}
+.publication-slide p{max-width:700px;color:var(--mut);margin:0 0 18px}
+.publication-controls{display:flex;justify-content:space-between;align-items:center;gap:18px;padding-top:14px;border-top:1px solid var(--line)}
+.publication-dots,.publication-arrows{display:flex;align-items:center;gap:12px}
+.publication-dot{width:9px;height:9px;padding:0;border:1px solid var(--blue);border-radius:50%;background:transparent;cursor:pointer}
+.publication-dot.is-active{width:25px;border-radius:10px;background:var(--blue)}
+.publication-arrows button{width:36px;height:36px;border:1px solid var(--line);background:transparent;color:var(--navy);font-size:1.1rem;cursor:pointer}
+.publication-arrows button:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+.publication-arrows span{font-family:var(--mono);font-size:.7rem;color:var(--mut);min-width:54px;text-align:center}
+.publication-dot:focus-visible,.publication-arrows button:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+@keyframes publication-in{from{opacity:.45;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.publication-slide{animation:none}}
+@media(max-width:600px){.publication-slider{padding-top:22px}.publication-slide{min-height:250px}.publication-controls{padding-top:12px}}

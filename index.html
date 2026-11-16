@@ -7,7 +7,7 @@
 <link rel="canonical" href="https://biqep.github.io/institute/">
 <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="./assets/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://biqep.github.io/institute/#org", "name": "Bangladesh Institute of Quantitative Economics and Public Policy", "alternateName": ["BIQEP", "BIQEP Policy Briefs"], "url": "https://biqep.github.io/institute/", "logo": "https://biqep.github.io/institute/assets/og-image.png", "founder": [{"@id": "https://biqep.github.io/institute/tuhin-al-mamun/#tuhin"}, {"@id": "https://biqep.github.io/institute/abdur-rahim/#abdur"}], "sameAs": ["https://tuhingm.github.io/almamun/oes/"]}, {"@type": "WebSite", "@id": "https://biqep.github.io/institute/#website", "url": "https://biqep.github.io/institute/", "name": "BIQEP – Quantitative Economics and Public Policy", "inLanguage": "en", "publisher": {"@id": "https://biqep.github.io/institute/#org"}, "author": {"@id": "https://biqep.github.io/institute/tuhin-al-mamun/#tuhin"}}, {"@type": "Person", "@id": "https://biqep.github.io/institute/tuhin-al-mamun/#tuhin", "name": "Dr. Tuhin G. M. Al Mamun", "honorificPrefix": "Dr.", "jobTitle": "Economist; Co-Founder, BIQEP", "url": "https://biqep.github.io/institute/tuhin-al-mamun/", "mainEntityOfPage": "https://biqep.github.io/institute/tuhin-al-mamun/", "nationality": {"@type": "Country", "name": "Bangladesh"}, "knowsAbout": ["Monetary policy transmission", "Bayesian econometrics", "Time-series econometrics", "DSGE and heterogeneous-agent models", "Bangladesh economy"], "image": "https://biqep.github.io/institute/assets/og-image.png", "description": "Dr. Tuhin G. M. Al Mamun is a Bangladeshi economist with a PhD in economics, working on monetary policy transmission, Bayesian and time-series econometrics and structural macroeconomic models.", "sameAs": ["https://tuhingm.github.io/almamun/", "https://github.com/tuhingm", "https://tuhingm.github.io/almamun/oes/"]}, {"@type": "WebPage", "@id": "https://biqep.github.io/institute/#page", "url": "https://biqep.github.io/institute/", "name": "BIQEP – Quantitative Economics and Public Policy", "description": "Quantitative economic research and econometric policy analysis for Bangladesh, using official data, statistical models and reproducible methods to understand policy challenges.", "isPartOf": {"@id": "https://biqep.github.io/institute/#website"}, "author": {"@id": "https://biqep.github.io/institute/tuhin-al-mamun/#tuhin"}, "inLanguage": "en"}]}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700&family=IBM+Plex+Mono:wght@400;500&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="./assets/style.css?v=20261114h">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700&family=IBM+Plex+Mono:wght@400;500&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="./assets/style.css?v=20261116-slider2">
 <meta name="author" content="Dr. Tuhin G. M. Al Mamun">
 <meta property="og:site_name" content="BIQEP">
 <meta property="og:locale" content="en_US">
@@ -149,14 +149,21 @@
   var slides=Array.prototype.slice.call(slider.querySelectorAll("[data-slide]"));
   var dots=Array.prototype.slice.call(slider.querySelectorAll("[data-go]"));
   var count=slider.querySelector("[data-count]"),current=0;
+  var timer=null,delay=4500,transitionTimer=null,paused=false;
   function show(index){
-    current=(index+slides.length)%slides.length;
-    slides.forEach(function(slide,i){
-      var active=i===current;
-      slide.hidden=!active;
-      slide.classList.toggle("is-active",active);
-      slide.setAttribute("aria-hidden",active?"false":"true");
-    });
+    var next=(index+slides.length)%slides.length;
+    if(next===current)return;
+    var previous=slides[current],incoming=slides[next];
+    window.clearTimeout(transitionTimer);
+    previous.classList.remove("is-active");
+    previous.setAttribute("aria-hidden","true");
+    incoming.hidden=false;
+    incoming.setAttribute("aria-hidden","false");
+    incoming.classList.remove("is-active");
+    void incoming.offsetWidth;
+    requestAnimationFrame(function(){incoming.classList.add("is-active");});
+    current=next;
+    transitionTimer=window.setTimeout(function(){previous.hidden=true;},480);
     dots.forEach(function(dot,i){
       var active=i===current;
       dot.classList.toggle("is-active",active);
@@ -164,43 +171,32 @@
     });
     count.textContent=String(current+1).padStart(2,"0")+" / "+String(slides.length).padStart(2,"0");
   }
-  slider.querySelector("[data-prev]").addEventListener("click",function(){show(current-1);});
-  slider.querySelector("[data-next]").addEventListener("click",function(){show(current+1);});
-  dots.forEach(function(dot){dot.addEventListener("click",function(){show(Number(dot.getAttribute("data-go")));});});
-  slider.addEventListener("keydown",function(e){
-    if(e.key==="ArrowLeft"){e.preventDefault();show(current-1);}
-    if(e.key==="ArrowRight"){e.preventDefault();show(current+1);}
-  });
-  var startX=null;
-  var timer=null;
-  var delay=5500;
   function stopAuto(){if(timer){window.clearInterval(timer);timer=null;}}
   function startAuto(){
     stopAuto();
-    if(document.hidden || window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+    if(paused||document.hidden)return;
     timer=window.setInterval(function(){show(current+1);},delay);
   }
-  slider.addEventListener("mouseenter",stopAuto);
-  slider.addEventListener("mouseleave",startAuto);
-  slider.addEventListener("focusin",stopAuto);
+  slider.querySelector("[data-prev]").addEventListener("click",function(){show(current-1);startAuto();});
+  slider.querySelector("[data-next]").addEventListener("click",function(){show(current+1);startAuto();});
+  dots.forEach(function(dot){dot.addEventListener("click",function(){show(Number(dot.getAttribute("data-go")));startAuto();});});
+  slider.addEventListener("keydown",function(e){
+    if(e.key==="ArrowLeft"){e.preventDefault();show(current-1);startAuto();}
+    if(e.key==="ArrowRight"){e.preventDefault();show(current+1);startAuto();}
+  });
+  slider.addEventListener("mouseenter",function(){paused=true;stopAuto();});
+  slider.addEventListener("mouseleave",function(){paused=false;startAuto();});
+  slider.addEventListener("focusin",function(){paused=true;stopAuto();});
   slider.addEventListener("focusout",function(e){
-    if(!slider.contains(e.relatedTarget))startAuto();
+    if(!slider.contains(e.relatedTarget)){paused=false;startAuto();}
   });
-  document.addEventListener("visibilitychange",function(){
-    if(document.hidden)stopAuto();else startAuto();
-  });
-  slider.addEventListener("touchstart",function(e){stopAuto();startX=e.changedTouches[0].clientX;},{passive:true});
+  document.addEventListener("visibilitychange",function(){if(document.hidden)stopAuto();else startAuto();});
+  var startX=null;
+  slider.addEventListener("touchstart",function(e){paused=true;stopAuto();startX=e.changedTouches[0].clientX;},{passive:true});
   slider.addEventListener("touchend",function(e){
-    if(startX!==null){
-      var delta=e.changedTouches[0].clientX-startX;
-      if(Math.abs(delta)>45)show(current+(delta<0?1:-1));
-    }
-    startX=null;
-    startAuto();
+    if(startX!==null){var delta=e.changedTouches[0].clientX-startX;if(Math.abs(delta)>45)show(current+(delta<0?1:-1));}
+    startX=null;paused=false;startAuto();
   },{passive:true});
-  slider.querySelectorAll("button").forEach(function(button){
-    button.addEventListener("click",function(){startAuto();});
-  });
   show(0);
   startAuto();
 })();

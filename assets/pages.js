@@ -7,8 +7,8 @@ window.BIQEP_PAGES = [
 },
 {
 "u": "about/",
-"t": "About BIQEP",
-"d": "Institutional overview of BIQEP: quantitative economics, econometrics, statistical sciences, public policy, data, training and collaboration.",
+"t": "The series",
+"d": "About the Bangladesh Institute of Quantitative Economics and Public Policy and its policy briefs series.",
 "s": "About"
 },
 {
@@ -98,7 +98,7 @@ window.BIQEP_PAGES = [
 {
 "u": "research/collaboration/",
 "t": "Research collaboration",
-"d": "Research collaboration with BIQEP across quantitative economics, econometrics, data, methods, seminars and training.",
+"d": "How to collaborate with BIQEP Policy Briefs: data, corrections, topics and methods.",
 "s": "Research"
 },
 {
@@ -175,8 +175,8 @@ window.BIQEP_PAGES = [
 },
 {
 "u": "policies/",
-"t": "Policy framework",
-"d": "Overview of BIQEP institutional publication, evidence, validation, replication, corrections and research-integrity policies.",
+"t": "Series policies",
+"d": "Publication, source, validation, replication, corrections and other policies for BIQEP Policy Briefs.",
 "s": "Policies"
 },
 {
@@ -222,9 +222,21 @@ window.BIQEP_PAGES = [
 "s": "Policies"
 },
 {
+"u": "people/",
+"t": "People",
+"d": "People behind BIQEP Policy Briefs.",
+"s": "People"
+},
+{
+"u": "tuhin-al-mamun/",
+"t": "Tuhin Al Mamun: Economist and Founder of BIQEP",
+"d": "Tuhin Al Mamun (Tuhin G. M. Al Mamun) is a Bangladeshi economist with a PhD in economics, researching monetary policy transmission and econometrics, and founder of BIQEP Policy Briefs.",
+"s": "People"
+},
+{
 "u": "news/",
 "t": "News",
-"d": "Dated institutional updates, research infrastructure notes and corrections from BIQEP.",
+"d": "News and release notes from BIQEP Policy Briefs.",
 "s": "News"
 },
 {
@@ -236,7 +248,7 @@ window.BIQEP_PAGES = [
 {
 "u": "contact/",
 "t": "Contact",
-"d": "Contact BIQEP about research collaboration, data corrections, methodological questions and institutional enquiries.",
+"d": "How to reach BIQEP Policy Briefs about corrections, collaboration and questions.",
 "s": "Contact"
 },
 {
@@ -249,6 +261,24 @@ window.BIQEP_PAGES = [
 "u": "briefs/money-and-prices-2026-11-14.html",
 "t": "Money growth and prices in Bangladesh",
 "d": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for money, credit, interest rates, prices and growth. The report compares Bangladesh with peer countries on 4 indicators.",
+"s": "Policy briefs"
+},
+{
+"u": "briefs/growth-and-investment-2026-11-14.html",
+"t": "Growth and investment in Bangladesh: how far does capital formation carry output?",
+"d": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for investment, savings, FDI and growth. The report compares Bangladesh with peer countries on 5 indicators.",
+"s": "Policy briefs"
+},
+{
+"u": "briefs/private-credit-and-banking-2026-11-14.html",
+"t": "Private credit and the banking system in Bangladesh: depth, cost and growth",
+"d": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for private credit, broad money, interest rates and growth. The report compares Bangladesh with peer countries on 4 indicators.",
+"s": "Policy briefs"
+},
+{
+"u": "briefs/labor-wages-2026-11-23.html",
+"t": "Labor and wages in Bangladesh: latest official data and model results",
+"d": "Official figures on labor and wages for 1995–2025 with vector autoregression results. Unemployment, % of labour force (modelled ILO estimate): 3.78 in 2025 (3.63 in 2024).",
 "s": "Policy briefs"
 }
 ];

@@ -89,6 +89,15 @@ window.BIQEP = {
       "type": "Statistical report",
       "status": "published",
       "summary": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for private credit, broad money, interest rates and growth. The report compares Bangladesh with peer countries on 4 indicators."
+    },
+    {
+      "slug": "labor-wages-2026-11-23",
+      "title": "Labor and wages in Bangladesh: latest official data and model results",
+      "date": "2026-11-23",
+      "topic": "Labor and wages",
+      "type": "Data note",
+      "status": "published",
+      "summary": "Official figures on labor and wages for 1995–2025 with vector autoregression results. Unemployment, % of labour force (modelled ILO estimate): 3.78 in 2025 (3.63 in 2024)."
     }
   ],
   "topics": [

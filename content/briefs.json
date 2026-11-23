@@ -1,38 +1,47 @@
 [
- {
-  "slug": "inflation-taka-and-policy-stance-2026-11-14",
-  "title": "Inflation, the Taka and the stance of policy in Bangladesh, 1992–2025",
-  "date": "2026-11-14",
-  "topic": "Monetary policy",
-  "type": "Statistical report",
-  "status": "published",
-  "summary": "Inflation rose to 10.5% in 2024 while lending rates stayed below it in each of the four years from 2022 to 2025. Nine econometric estimates, using 13 official macro variables, find a positive but imprecisely estimated pass-through from Taka depreciation to inflation."
- },
- {
-  "slug": "money-and-prices-2026-11-14",
-  "title": "Money growth and prices in Bangladesh",
-  "date": "2026-11-14",
-  "topic": "Monetary policy",
-  "type": "Statistical report",
-  "status": "published",
-  "summary": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for money, credit, interest rates, prices and growth. The report compares Bangladesh with peer countries on 4 indicators."
- },
- {
-  "slug": "growth-and-investment-2026-11-14",
-  "title": "Growth and investment in Bangladesh: how far does capital formation carry output?",
-  "date": "2026-11-23",
-  "topic": "Growth and structure",
-  "type": "Statistical report",
-  "status": "published",
-  "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for investment, savings, FDI and growth. The report compares Bangladesh with peer countries on 5 indicators."
- },
- {
-  "slug": "private-credit-and-banking-2026-11-14",
-  "title": "Private credit and the banking system in Bangladesh: depth, cost and growth",
-  "date": "2026-11-23",
-  "topic": "Finance and credit",
-  "type": "Statistical report",
-  "status": "published",
-  "summary": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for private credit, broad money, interest rates and growth. The report compares Bangladesh with peer countries on 4 indicators."
- }
+  {
+    "slug": "inflation-taka-and-policy-stance-2026-11-14",
+    "title": "Inflation, the Taka and the stance of policy in Bangladesh, 1992–2025",
+    "date": "2026-11-14",
+    "topic": "Monetary policy",
+    "type": "Statistical report",
+    "status": "published",
+    "summary": "Inflation rose to 10.5% in 2024 while lending rates stayed below it in each of the four years from 2022 to 2025. Nine econometric estimates, using 13 official macro variables, find a positive but imprecisely estimated pass-through from Taka depreciation to inflation."
+  },
+  {
+    "slug": "money-and-prices-2026-11-14",
+    "title": "Money growth and prices in Bangladesh",
+    "date": "2026-11-14",
+    "topic": "Monetary policy",
+    "type": "Statistical report",
+    "status": "published",
+    "summary": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for money, credit, interest rates, prices and growth. The report compares Bangladesh with peer countries on 4 indicators."
+  },
+  {
+    "slug": "growth-and-investment-2026-11-14",
+    "title": "Growth and investment in Bangladesh: how far does capital formation carry output?",
+    "date": "2026-11-23",
+    "topic": "Growth and structure",
+    "type": "Statistical report",
+    "status": "published",
+    "summary": "Peer benchmarks and 5 model specifications on 12 variables (1991–2025) for investment, savings, FDI and growth. The report compares Bangladesh with peer countries on 5 indicators."
+  },
+  {
+    "slug": "private-credit-and-banking-2026-11-14",
+    "title": "Private credit and the banking system in Bangladesh: depth, cost and growth",
+    "date": "2026-11-23",
+    "topic": "Finance and credit",
+    "type": "Statistical report",
+    "status": "published",
+    "summary": "Peer benchmarks and 5 model specifications on 12 variables (1992–2025) for private credit, broad money, interest rates and growth. The report compares Bangladesh with peer countries on 4 indicators."
+  },
+  {
+    "slug": "labor-wages-2026-11-23",
+    "title": "Labor and wages in Bangladesh: latest official data and model results",
+    "date": "2026-11-23",
+    "topic": "Labor and wages",
+    "type": "Data note",
+    "status": "published",
+    "summary": "Official figures on labor and wages for 1995–2025 with vector autoregression results. Unemployment, % of labour force (modelled ILO estimate): 3.78 in 2025 (3.63 in 2024)."
+  }
 ]

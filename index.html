@@ -41,7 +41,7 @@
 
 <section class="sec mist tight"><div class="wrap">
 <div class="row"><div><div class="eyebrow">Research publications</div><h2>Latest research and policy analysis.</h2></div><a class="link-arrow" href="briefs/index.html">All publications</a></div>
-<div class="cards" id="pb-cards" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin:22px 0"><a class="card" href="briefs/inflation-taka-and-policy-stance-2026-11-14.html" style="display:block;text-decoration:none;color:inherit;padding:0;overflow:hidden"><img src="https://tuhingm.github.io/almamun/assets/img/policy/inflation.jpg" alt="Inflation and exchange-rate charts for Bangladesh, 1992–2025" loading="lazy" style="width:100%;height:200px;object-fit:cover;object-position:top;display:block;border-bottom:1px solid var(--line)"><div style="padding:18px 22px 20px"><h3 style="margin:0 0 6px;font-size:1.05rem">Inflation, the Taka and the stance of policy in Bangladesh, 1992–2025</h3><p style="margin:0;font-size:.92rem">Inflation rose to 10.5% in 2024 while lending rates stayed below it in each of the four years from 2022 to 2025. Nine econometric estimates, using 13 official macro variables, examine exchange-rate pass-through to inflation.</p></div></a><a class="card" href="briefs/money-and-prices-2026-11-14.html" style="display:block;text-decoration:none;color:inherit;padding:0;overflow:hidden"><img src="https://tuhingm.github.io/almamun/assets/img/policy/money.jpg" alt="Money, prices, credit and growth comparisons across Bangladesh and regional peers" loading="lazy" style="width:100%;height:200px;object-fit:cover;object-position:top;display:block;border-bottom:1px solid var(--line)"><div style="padding:18px 22px 20px"><h3 style="margin:0 0 6px;font-size:1.05rem">Money growth and prices in Bangladesh</h3><p style="margin:0;font-size:.92rem">Peer benchmarks and five model specifications covering 12 variables from 1992–2025 examine money, credit, interest rates, prices and growth, with comparisons across regional economies.</p></div></a></div>
+<div class="cards" id="pb-cards" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin:22px 0" aria-live="polite"></div>
 <p class="small muted" style="margin-top:16px">New research and policy analysis are published on an ongoing basis. Follow the <a href="news/index.html">News page</a> for publication updates.</p>
 </div></section>
 
@@ -119,6 +119,24 @@
 </main>
 <div id="ftr"></div>
 <script src="./assets/data.js?v=20261123"></script><script src="./assets/pages.js?v=20261123"></script><script src="./assets/site.js?v=20261116-share1" data-root="./"></script><script>
+(function(){
+  var container=document.getElementById("pb-cards");
+  var records=(window.BIQEP&&Array.isArray(window.BIQEP.briefs)?window.BIQEP.briefs:[])
+    .filter(function(item){return item.status==="published"&&item.slug&&item.title;})
+    .sort(function(a,b){return String(b.date||"").localeCompare(String(a.date||""));})
+    .slice(0,2);
+  if(!container)return;
+  function esc(value){return String(value==null?"":value).replace(/[&<>"\']/g,function(ch){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","\'":"&#39;"}[ch];});}
+  container.innerHTML=records.map(function(item){
+    var date=item.date?new Date(item.date+"T00:00:00").toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"}):"";
+    return '<a class="card" href="briefs/'+encodeURIComponent(item.slug)+'.html" style="display:block;text-decoration:none;color:inherit;padding:22px">'+
+      '<div class="eyebrow" style="margin-bottom:10px">'+esc(item.topic||"Research")+' · '+esc(date)+'</div>'+
+      '<h3 style="margin:0 0 10px;font-size:1.05rem">'+esc(item.title)+'</h3>'+
+      '<p style="margin:0;font-size:.92rem">'+esc(item.summary||"Read the full BIQEP research report.")+'</p></a>';
+  }).join("");
+  if(!records.length)container.innerHTML='<p class="muted">No published reports are currently listed.</p>';
+})();
+</script><script>
 (function(){
   var slider=document.querySelector("[data-publication-slider]");
   if(!slider)return;

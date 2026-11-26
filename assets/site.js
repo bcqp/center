@@ -2,7 +2,7 @@
   "use strict";
   var s = document.currentScript;
   var root = s.getAttribute("data-root") || "./";
-  var D = window.BIQEP || { series: [], briefs: [], topics: [] };
+  var D = window.BCQP || { series: [], briefs: [], topics: [] };
 
   function esc(t) {
     return String(t == null ? "" : t).replace(/[&<>"']/g, function (c) {
@@ -65,9 +65,9 @@
   if (hdr) {
     hdr.innerHTML =
       '<a class="skip" href="#main">Skip to main content</a>' +
-      '<div class="topbar">Quantitative evidence. Economic research. Better policy.</div>' +
+      '<div class="topbar">Better policy starts with better evidence.</div>' +
       '<header class="masthead"><div class="wrap">' +
-      '<a class="brand" href="' + root + 'index.html"><span class="logo">BIQEP</span><span><b>Bangladesh Institute of Quantitative Economics and Public Policy</b><small>BIQEP · Policy briefs</small></span></a>' +
+      '<a class="brand" href="' + root + 'index.html"><span class="logo">BCQP</span><span><b>Bangladesh Center for Quantitative Policy</b><small>BCQP · Policy briefs</small></span></a>' +
       '<div class="tools"><a class="iconbtn" href="' + root + 'search/index.html" aria-label="Search the site"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search</span></a>' +
       '<button class="menubtn" aria-expanded="false" aria-controls="primary">Menu</button></div></div></header>' +
       '<nav class="primary" id="primary" aria-label="Main"><div class="wrap">' + navHtml + "</div></nav>";
@@ -100,10 +100,10 @@
         ["Google Scholar", "https://scholar.google.com/citations?user=CMV8R_0AAAAJ&hl=en"]]);
     ftr.innerHTML =
       '<footer class="site"><div class="wrap"><div class="fgrid">' +
-      '<div class="about"><b>Bangladesh Institute of Quantitative Economics and Public Policy</b><p>BIQEP Policy Briefs is the institute’s public-policy series on Bangladesh. Every figure is checked against an official source before publication, and every estimate is run in an open, reproducible engine.</p>' +
-      '<p class="mono tiny">Quantitative evidence. Economic research. Better policy.</p></div>' +
+      '<div class="about"><b>Bangladesh Center for Quantitative Policy</b><p>BCQP Policy Briefs is the center’s public-policy series on Bangladesh. Every figure is checked against an official source before publication, and every estimate is run in an open, reproducible engine.</p>' +
+      '<p class="mono tiny">Better policy starts with better evidence.</p></div>' +
       fcol(byKey.about) + fcol(byKey.briefs) + fcol(byKey.data) + fcol(byKey.methodology) + fcol(byKey.policies) + miscHtml +
-      '</div><p class="legal">BIQEP is an independent research initiative. It is not a government body and is not affiliated with Bangladesh Bank, the Bangladesh Bureau of Statistics or the Government of Bangladesh. Founded and written by <a href="' + root + 'tuhin-al-mamun/">Dr. Tuhin G. M. Al Mamun</a>; views are the author’s own. Archived at <a href="https://doi.org/10.5281/zenodo.24215521">doi.org/10.5281/zenodo.24215521</a>. Site data last updated ' +
+      '</div><p class="legal">BCQP is an independent research initiative. It is not a government body and is not affiliated with Bangladesh Bank, the Bangladesh Bureau of Statistics or the Government of Bangladesh. Founded and written by <a href="' + root + 'tuhin-al-mamun/">Dr. Tuhin G. M. Al Mamun</a>; views are the author’s own. Archived at <a href="https://doi.org/10.5281/zenodo.24215521">doi.org/10.5281/zenodo.24215521</a>. Site data last updated ' +
       esc(fmtDate(D.updated)) + ".</p></div></footer>";
   }
 
@@ -169,6 +169,17 @@
         "</td><td>" + esc(res) + '</td><td class="small muted">' + esc(x.note || "") + "</td></tr>";
     }).join("");
     el.innerHTML = '<table><thead><tr><th>Series</th><th>Checked</th><th>Status</th><th>Result</th><th>Note</th></tr></thead><tbody>' + rows + "</tbody></table>";
+  };
+
+  R["latest-cards"] = function (el) {
+    var list = published.slice().sort(function (a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; }).slice(0, 3);
+    if (!list.length) return;
+    el.innerHTML = list.map(function (b) {
+      return '<a class="card" href="' + root + "briefs/" + esc(b.slug) + '.html" style="display:block;text-decoration:none;color:inherit;padding:0;overflow:hidden">' +
+        '<img src="' + root + "briefs/" + esc(b.slug) + '/fig1_stylised_facts.png" alt="" loading="lazy" onerror="this.style.display=\'none\'" style="width:100%;height:200px;object-fit:cover;object-position:top;display:block;border-bottom:1px solid var(--line)">' +
+        '<div style="padding:18px 22px 20px"><div class="eyebrow" style="margin:0 0 6px">' + esc(b.topic) + " · " + esc(fmtDate(b.date)) + '</div><h3 style="margin:0 0 6px;font-size:1.05rem">' + esc(b.title) +
+        '</h3><p style="margin:0;font-size:.92rem">' + esc(b.summary) + "</p></div></a>";
+    }).join("");
   };
 
   R.latest = function (el) {
@@ -243,7 +254,7 @@
   };
 
   R["site-search"] = function (el) {
-    var pages = window.BIQEP_PAGES || [];
+    var pages = window.BCQP_PAGES || [];
     el.innerHTML =
       '<div class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>' +
       '<input id="sq" type="search" placeholder="Search pages, topics and series" aria-label="Search the site" autofocus></div><div id="sres" style="margin-top:18px"></div>';
@@ -290,7 +301,7 @@
         '</ul><p><a href="https://tuhingm.github.io/almamun/oes/" rel="noopener">Browse all 173 models</a></p></div>';
     }
     h += '<div class="author"><img src="' + root + 'Tuhin.png" alt="Tuhin G. M. Al Mamun" width="84" height="84" loading="lazy"><div>' +
-      '<h2>About the author</h2><p><b><a href="' + root + 'tuhin-al-mamun/">Tuhin G. M. Al Mamun</a></b>, Founder and Executive Director of BIQEP, is an economist working on monetary and fiscal policy and econometrics. ' +
+      '<h2>About the author</h2><p><b><a href="' + root + 'tuhin-al-mamun/">Tuhin G. M. Al Mamun</a></b>, Founder and Executive Director of BCQP, is an economist working on monetary and fiscal policy and econometrics. ' +
       'Co-author of the statistical reports: Dr Rahim Md Abdur.</p><p class="alinks">' +
       '<a href="https://tuhingm.github.io/almamun/" rel="noopener">Academic website</a><a href="https://orcid.org/0009-0005-0275-6922" rel="noopener">ORCID</a>' +
       '<a href="https://scholar.google.com/citations?user=CMV8R_0AAAAJ&hl=en" rel="noopener">Google Scholar</a>' +

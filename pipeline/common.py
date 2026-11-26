@@ -1,7 +1,7 @@
 import json, pathlib, urllib.request, urllib.parse
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 CFG = pathlib.Path(__file__).resolve().parent / "config"
-UA = "BIQEP-pipeline/1.0 (+https://tuhingm.github.io/biqep-policy/)"
+UA = "BIQEP-pipeline/1.0 (+https://biqep.github.io/institute/)"
 
 def cfg(name): return json.loads((CFG / name).read_text(encoding="utf-8"))
 

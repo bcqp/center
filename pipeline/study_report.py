@@ -170,14 +170,14 @@ def build(today=None):
     page = ('<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
             '<title>%s | BIQEP Policy Briefs</title><meta name="description" content="%s"><meta name="author" content="Tuhin G. M. Al Mamun">'
             '<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"><meta name="theme-color" content="#10283f">'
-            '<meta property="og:title" content="%s"><meta property="og:type" content="article"><meta property="og:image" content="https://tuhingm.github.io/biqep-policy/briefs/%s/fig3_irf_depreciation.png"><meta name="twitter:card" content="summary_large_image">'
-            '<link rel="canonical" href="https://tuhingm.github.io/biqep-policy/briefs/%s.html"><script type="application/ld+json">%s</script>%s<link rel="stylesheet" href="../assets/style.css"></head>\n'
+            '<meta property="og:title" content="%s"><meta property="og:type" content="article"><meta property="og:image" content="https://biqep.github.io/institute/briefs/%s/fig3_irf_depreciation.png"><meta name="twitter:card" content="summary_large_image">'
+            '<link rel="canonical" href="https://biqep.github.io/institute/briefs/%s.html"><script type="application/ld+json">%s</script>%s<link rel="stylesheet" href="../assets/style.css"></head>\n'
             '<body><div id="hdr"></div>\n<main id="main">\n<section class="pagehead"><div class="wrap"><div class="crumbs"><a href="../index.html">Home</a><i>/</i><a href="index.html">Policy briefs</a><i>/</i>Statistical report</div><div class="eyebrow">Statistical report</div><h1>%s</h1><p class="lede">%s</p></div></section>\n'
             '<section class="sec"><div class="wrap"><div class="content" style="max-width:900px">%s</div></div></section>\n</main>\n<div id="ftr"></div>\n'
             '<script src="../assets/data.js"></script><script src="../assets/pages.js"></script><script src="../assets/site.js" data-root="../"></script></body></html>\n') % (
             esc(title), esc(summary), esc(title), slug, slug,
             json.dumps({"@context": "https://schema.org", "@type": "ScholarlyArticle", "headline": title, "description": summary, "datePublished": today,
-                        "author": [{"@type": "Person", "name": "Tuhin G. M. Al Mamun", "url": "https://tuhingm.github.io/biqep-policy/tuhin-al-mamun/"}, {"@type": "Person", "name": "Dr Rahim Md Abdur"}],
+                        "author": [{"@type": "Person", "name": "Tuhin G. M. Al Mamun", "url": "https://biqep.github.io/institute/tuhin-al-mamun/"}, {"@type": "Person", "name": "Dr Rahim Md Abdur"}],
                         "publisher": {"@type": "Organization", "name": "BIQEP Policy Briefs"}}, ensure_ascii=False),
             '<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">',
             esc(title), esc(summary), "\n".join(body))

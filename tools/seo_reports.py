@@ -2,7 +2,7 @@
 Usage: seo_reports.py <dir containing <slug>.html and <slug>/ folders>   (idempotent)"""
 import re, sys, json, html, pathlib, textwrap
 from PIL import Image, ImageDraw, ImageFont
-B = "https://tuhingm.github.io/biqep-policy/"; D = pathlib.Path(sys.argv[1])
+B = "https://biqep.github.io/institute/"; D = pathlib.Path(sys.argv[1])
 F = lambda n, z: ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSerif%s.ttf" % ("-Bold" if n else ""), z)
 def card(title, thumb, out):
     im = Image.new("RGB", (1200, 630), "#10283f"); d = ImageDraw.Draw(im)

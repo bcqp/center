@@ -9,7 +9,7 @@ def rootof(path):
     d = path.count("/")
     return "../" * d if d else "./"
 
-SITE = "https://tuhingm.github.io/biqep-policy/"
+SITE = "https://biqep.github.io/institute/"
 PERSON = {"@type": "Person", "@id": SITE + "tuhin-al-mamun/#tuhin", "name": "Tuhin G. M. Al Mamun", "honorificPrefix": "Dr.",
           "alternateName": ["Tuhin Al Mamun", "Tuhin GM Al Mamun", "Tuhin G. Al Mamun", "T. G. M. Al Mamun"],
           "jobTitle": "Economist; Founder and Executive Director, BIQEP", "url": SITE + "tuhin-al-mamun/", "mainEntityOfPage": SITE + "tuhin-al-mamun/",
@@ -550,7 +550,7 @@ body = head("search/index.html", [("Search", None)], "Search", "Search the site"
 page("search/index.html","Search","Search BIQEP Policy Briefs.",body,"Search",search=False)
 
 # =============================================================== 404
-r = "/biqep-policy/"
+r = "/institute/"
 nf = f'''<section class="pagehead"><div class="wrap"><div class="eyebrow">404</div><h1>Page not found</h1><p class="lede">That page does not exist. Try the briefs, the data hub or the home page.</p></div></section>
 <section class="sec"><div class="wrap"><div class="btns" style="margin-top:0"><a class="btn" href="{r}index.html">Home</a><a class="btn line" href="{r}briefs/index.html">Policy briefs</a><a class="btn line" href="{r}data/index.html">Data hub</a><a class="btn line" href="{r}search/index.html">Search</a></div></div></section>'''
 html404 = f'''<!doctype html>
@@ -570,7 +570,7 @@ for b in json.load(open(R+"/content/briefs.json", encoding="utf-8")):
     URLS.append("briefs/%s.html" % b["slug"])
 
 open(R+"/assets/pages.js","w",encoding="utf-8").write("window.BIQEP_PAGES = " + json.dumps(PAGES, ensure_ascii=False, indent=0) + ";\n")
-open(R+"/robots.txt","w").write("User-agent: *\nAllow: /\nSitemap: https://tuhingm.github.io/biqep-policy/sitemap.xml\n")
-open(R+"/sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"<url><loc>https://tuhingm.github.io/biqep-policy/{u}</loc><lastmod>2026-11-14</lastmod></url>\n" for u in sorted(set(URLS))) + "</urlset>\n")
+open(R+"/robots.txt","w").write("User-agent: *\nAllow: /\nSitemap: https://biqep.github.io/institute/sitemap.xml\n")
+open(R+"/sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"<url><loc>https://biqep.github.io/institute/{u}</loc><lastmod>2026-11-14</lastmod></url>\n" for u in sorted(set(URLS))) + "</urlset>\n")
 
 print(len(PAGES), "pages")

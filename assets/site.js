@@ -270,6 +270,35 @@
   };
 
 
+  /* ---------- report pages: OES model links and author box ---------- */
+  (function addReportExtras() {
+    if (!/-\d{4}-\d{2}-\d{2}\.html$/.test(location.pathname) || document.querySelector(".author-box")) return;
+    var main = document.querySelector("main"); if (!main) return;
+    var OES = "https://tuhingm.github.io/almamun/oes/index.html#";
+    var text = main.textContent;
+    var models = [
+      ["var", "VAR (vector autoregression)", /(^|[^A-Za-z])VARs?([^A-Za-z]|$)/], ["bvar", "Bayesian VAR", /BVAR/], ["lp", "Local projections", /local projections?/i],
+      ["svar", "Structural VAR", /SVAR/], ["vecm", "VECM", /VECM/], ["ardl", "ARDL", /ARDL/], ["garch", "GARCH", /GARCH/],
+      ["arima", "ARIMA", /ARIMA/], ["ms_reg", "Markov-switching regression", /Markov[- ]switching/i], ["ols", "OLS with diagnostics", /\bOLS\b/]
+    ].filter(function (m) { return m[2].test(text); });
+    var box = document.createElement("section");
+    box.className = "author-box";
+    var h = "";
+    if (models.length) {
+      h += '<div class="oes-models"><h2>Run these models yourself</h2><p>Every model in this report is available in Open Econometric Systems, a free tool that runs in your browser. Your data stays on your device.</p><ul>' +
+        models.map(function (m) { return '<li><a href="' + OES + m[0] + '" rel="noopener">' + esc(m[1]) + "</a></li>"; }).join("") +
+        '</ul><p><a href="https://tuhingm.github.io/almamun/oes/" rel="noopener">Browse all 173 models</a></p></div>';
+    }
+    h += '<div class="author"><img src="' + root + 'Tuhin.png" alt="Tuhin G. M. Al Mamun" width="84" height="84" loading="lazy"><div>' +
+      '<h2>About the author</h2><p><b><a href="' + root + 'tuhin-al-mamun/">Tuhin G. M. Al Mamun</a></b>, Founder and Executive Director of BIQEP, is an economist working on monetary and fiscal policy and econometrics. ' +
+      'Co-author of the statistical reports: Dr Rahim Md Abdur.</p><p class="alinks">' +
+      '<a href="https://tuhingm.github.io/almamun/" rel="noopener">Academic website</a><a href="https://orcid.org/0009-0005-0275-6922" rel="noopener">ORCID</a>' +
+      '<a href="https://scholar.google.com/citations?user=CMV8R_0AAAAJ&hl=en" rel="noopener">Google Scholar</a>' +
+      '<a href="https://tuhingm.github.io/almamun/oes/" rel="noopener">Open Econometric Systems</a></p></div></div>';
+    box.innerHTML = h;
+    main.appendChild(box);
+  })();
+
   /* ---------- social sharing bar (matches the personal academic website) ---------- */
   (function addShareBar() {
     if (document.querySelector(".share-bar")) return;

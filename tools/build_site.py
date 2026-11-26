@@ -47,7 +47,7 @@ def page(path, title, desc, body, section="Site", search=True):
 <meta name="description" content="{desc}">
 <meta name="author" content="Tuhin G. M. Al Mamun">
 <meta name="robots" content="{robots}">
-<meta name="theme-color" content="#10283f">
+<meta name="theme-color" content="#00205b">
 <meta property="og:site_name" content="BIQEP Policy Briefs"><meta property="og:locale" content="en_US">
 <meta property="og:title" content="{full_title}"><meta property="og:description" content="{desc}"><meta property="og:type" content="website">
 <meta property="og:url" content="{url}"><meta property="og:image" content="{SITE}assets/og-image.png?v=2"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:type" content="image/png"><meta property="og:image:alt" content="BIQEP Policy Briefs: statistical reports on the Bangladesh economy by Tuhin G. M. Al Mamun">
@@ -564,13 +564,16 @@ open(R+"/404.html","w",encoding="utf-8").write(html404)
 # removed: PAGES.append({"u":"briefs/inflation-above-8.html","t":"Why is inflation still above 8%?","d":"Data note on Bangladesh inflation: verified CPI figures, what is still to be checked, and the planned analysis.","s":"Policy briefs"})
 # removed: URLS.append
 
+BRIEF_DATES = {}
 # briefs produced by the pipeline are listed in search and the sitemap
 for b in json.load(open(R+"/content/briefs.json", encoding="utf-8")):
     PAGES.append({"u": "briefs/%s.html" % b["slug"], "t": b["title"], "d": b["summary"], "s": "Policy briefs"})
     URLS.append("briefs/%s.html" % b["slug"])
+    BRIEF_DATES["briefs/%s.html" % b["slug"]] = b["slug"][-10:]
 
 open(R+"/assets/pages.js","w",encoding="utf-8").write("window.BIQEP_PAGES = " + json.dumps(PAGES, ensure_ascii=False, indent=0) + ";\n")
 open(R+"/robots.txt","w").write("User-agent: *\nAllow: /\nSitemap: https://biqep.github.io/institute/sitemap.xml\n")
-open(R+"/sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"<url><loc>https://biqep.github.io/institute/{u}</loc><lastmod>2026-11-14</lastmod></url>\n" for u in sorted(set(URLS))) + "</urlset>\n")
+_latest = max(BRIEF_DATES.values()) if BRIEF_DATES else json.load(open(R+"/latest.json", encoding="utf-8")).get("updated", "")[:10]
+open(R+"/sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"<url><loc>https://biqep.github.io/institute/{u}</loc><lastmod>{BRIEF_DATES.get(u, _latest)}</lastmod></url>\n" for u in sorted(set(URLS))) + "</urlset>\n")
 
 print(len(PAGES), "pages")

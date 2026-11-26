@@ -68,7 +68,7 @@ def build(topic, series_meta, data, res, years, csv_text, today=None):
                      "author": {"@type": "Person", "name": "Tuhin G. M. Al Mamun", "url": "https://biqep.github.io/institute/people/"},
                      "publisher": {"@type": "Organization", "name": "BIQEP Policy Briefs", "url": "https://biqep.github.io/institute/"}}, ensure_ascii=False)
     page = ('<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
-            '<title>%s | BIQEP Policy Briefs</title><meta name="description" content="%s"><meta name="theme-color" content="#10283f">'
+            '<title>%s | BIQEP Policy Briefs</title><meta name="description" content="%s"><meta name="theme-color" content="#00205b">'
             '<meta name="author" content="Tuhin G. M. Al Mamun"><meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">'
             '<meta property="og:title" content="%s"><meta property="og:type" content="article"><meta property="og:image" content="https://biqep.github.io/institute/assets/og-image.png"><meta name="twitter:card" content="summary_large_image">'
             '<link rel="canonical" href="https://biqep.github.io/institute/briefs/%s.html"><script type="application/ld+json">%s</script>%s<link rel="stylesheet" href="../assets/style.css"></head>\n'

@@ -381,3 +381,19 @@ footer.site .about b{grid-column:1/-1}
 footer.site .about p{max-width:none}
 @media(max-width:1100px){footer.site .fgrid{grid-template-columns:repeat(3,1fr)}footer.site .about{grid-column:1/-1}}
 @media(max-width:600px){footer.site .fgrid{grid-template-columns:1fr 1fr}}
+
+/* Author box and OES model links on report pages */
+.author-box{max-width:920px;margin:36px auto 0;padding:0 20px;display:grid;gap:18px}
+.author-box>div{background:var(--paper2);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.author-box h2{font:800 1.05rem/1.3 var(--serif);margin:0 0 8px;color:var(--ink)}
+.author-box p{margin:0 0 8px;font-size:.95rem;color:var(--mut)}
+.oes-models ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:10px 0;padding:0}
+.oes-models li a{display:inline-block;padding:6px 12px;border-radius:999px;background:var(--mist);font-weight:700;font-size:.88rem;text-decoration:none}
+.author{display:flex;gap:16px;align-items:flex-start}
+.author img{width:84px;height:84px;border-radius:50%;object-fit:cover;flex:none}
+.alinks{display:flex;flex-wrap:wrap;gap:6px 16px;font-weight:700;font-size:.9rem}
+@media(max-width:600px){.author{flex-direction:column}}
+/* hero links stay readable on blue */
+.hero .byline a,.hero p a,.pagehead .byline a{color:#fff!important;text-decoration-color:#6EC1E4}
+.hero .byline,.pagehead .byline{color:var(--on-navy)}
+.iconbtn{background:transparent}.menubtn{background:transparent;color:#fff;border:1px solid #ffffff55}

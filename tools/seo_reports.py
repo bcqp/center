@@ -17,7 +17,7 @@ def card(title, thumb, out):
 for p in sorted(D.glob("*-2026-*.html")):
     slug = p.stem; s = p.read_text(encoding="utf-8")
     title = html.unescape(re.search(r"<h1>(.*?)</h1>", s).group(1))
-    card(title, D / slug / "thumb.jpg", D / slug / "og.jpg")
+    # the preview card itself is drawn by tools/og_pages.py (shared main-site style)
     if 'name="citation_title"' in s: continue
     desc = html.unescape(re.search(r'<meta name="description" content="(.*?)">', s).group(1))
     date = re.search(r"Statistical report · (\d{4}-\d{2}-\d{2})", s).group(1)

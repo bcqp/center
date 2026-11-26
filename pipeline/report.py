@@ -3,7 +3,7 @@ import json, html, datetime
 from common import ROOT, cfg
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-         '<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700&family=IBM+Plex+Mono:wght@400;500&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">')
+         '<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">')
 esc = html.escape
 
 def svg_chart(ch, w=640, h=260):
@@ -68,7 +68,7 @@ def build(topic, series_meta, data, res, years, csv_text, today=None):
                      "author": {"@type": "Person", "name": "Tuhin G. M. Al Mamun", "url": "https://biqep.github.io/institute/people/"},
                      "publisher": {"@type": "Organization", "name": "BIQEP Policy Briefs", "url": "https://biqep.github.io/institute/"}}, ensure_ascii=False)
     page = ('<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
-            '<title>%s | BIQEP Policy Briefs</title><meta name="description" content="%s"><meta name="theme-color" content="#10283f">'
+            '<title>%s | BIQEP Policy Briefs</title><meta name="description" content="%s"><meta name="theme-color" content="#00205b">'
             '<meta name="author" content="Tuhin G. M. Al Mamun"><meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">'
             '<meta property="og:title" content="%s"><meta property="og:type" content="article"><meta property="og:image" content="https://biqep.github.io/institute/assets/og-image.png"><meta name="twitter:card" content="summary_large_image">'
             '<link rel="canonical" href="https://biqep.github.io/institute/briefs/%s.html"><script type="application/ld+json">%s</script>%s<link rel="stylesheet" href="../assets/style.css"></head>\n'

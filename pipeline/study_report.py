@@ -179,7 +179,7 @@ def build(today=None):
             json.dumps({"@context": "https://schema.org", "@type": "ScholarlyArticle", "headline": title, "description": summary, "datePublished": today,
                         "author": [{"@type": "Person", "name": "Tuhin G. M. Al Mamun", "url": "https://biqep.github.io/institute/tuhin-al-mamun/"}, {"@type": "Person", "name": "Dr Rahim Md Abdur"}],
                         "publisher": {"@type": "Organization", "name": "BIQEP Policy Briefs"}}, ensure_ascii=False),
-            '<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">',
+            '<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">',
             esc(title), esc(summary), "\n".join(body))
     (ROOT / "briefs" / (slug + ".html")).write_text(page, encoding="utf-8")
     (out / "data.csv").write_text(R["csv"], encoding="utf-8")

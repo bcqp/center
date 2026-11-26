@@ -85,12 +85,19 @@
       return "<div><h4>" + esc(n.label) + "</h4>" + (n.kids || [[n.label, n.href]]).map(function (k) { return '<a href="' + root + k[1] + '">' + esc(k[0]) + "</a>"; }).join("") + "</div>";
     }
     var byKey = {}; NAV.forEach(function (n) { byKey[n.key] = n; });
-    var misc = { label: "More", kids: [["News and events", "news/"], ["Contact", "contact/"], ["Search", "search/index.html"],
-      ["Open Econometric Systems", "https://tuhingm.github.io/almamun/oes/"]] };
-    var miscHtml = "<div><h4>More</h4>" + misc.kids.map(function (k) {
-      var ext = /^https?:/.test(k[1]);
-      return '<a href="' + (ext ? "" : root) + k[1] + '"' + (ext ? ' rel="noopener"' : "") + ">" + esc(k[0]) + "</a>";
-    }).join("") + "</div>";
+    function colHtml(h, kids) {
+      return "<div><h4>" + esc(h) + "</h4>" + kids.map(function (k) {
+        var ext = /^https?:/.test(k[1]);
+        return '<a href="' + (ext ? "" : root) + k[1] + '"' + (ext ? ' rel="noopener"' : "") + ">" + esc(k[0]) + "</a>";
+      }).join("") + "</div>";
+    }
+    var miscHtml = colHtml("More", [["News and events", "news/"], ["Contact", "contact/"], ["Search", "search/index.html"]]) +
+      colHtml("Tuhin G. M. Al Mamun", [
+        ["Academic website", "https://tuhingm.github.io/almamun/"],
+        ["Open Econometric Systems", "https://tuhingm.github.io/almamun/oes/"],
+        ["Statistical consulting", "https://tuhingm.github.io/almamun/oes/consultation.html"],
+        ["ORCID", "https://orcid.org/0009-0005-0275-6922"],
+        ["Google Scholar", "https://scholar.google.com/citations?user=CMV8R_0AAAAJ&hl=en"]]);
     ftr.innerHTML =
       '<footer class="site"><div class="wrap"><div class="fgrid">' +
       '<div class="about"><b>Bangladesh Institute of Quantitative Economics and Public Policy</b><p>BIQEP Policy Briefs is the institute’s public-policy series on Bangladesh. Every figure is checked against an official source before publication, and every estimate is run in an open, reproducible engine.</p>' +

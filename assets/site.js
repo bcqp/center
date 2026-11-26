@@ -171,6 +171,17 @@
     el.innerHTML = '<table><thead><tr><th>Series</th><th>Checked</th><th>Status</th><th>Result</th><th>Note</th></tr></thead><tbody>' + rows + "</tbody></table>";
   };
 
+  R["latest-cards"] = function (el) {
+    var list = published.slice().sort(function (a, b) { return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; }).slice(0, 3);
+    if (!list.length) return;
+    el.innerHTML = list.map(function (b) {
+      return '<a class="card" href="' + root + "briefs/" + esc(b.slug) + '.html" style="display:block;text-decoration:none;color:inherit;padding:0;overflow:hidden">' +
+        '<img src="' + root + "briefs/" + esc(b.slug) + '/fig1_stylised_facts.png" alt="" loading="lazy" onerror="this.style.display=\'none\'" style="width:100%;height:200px;object-fit:cover;object-position:top;display:block;border-bottom:1px solid var(--line)">' +
+        '<div style="padding:18px 22px 20px"><div class="eyebrow" style="margin:0 0 6px">' + esc(b.topic) + " · " + esc(fmtDate(b.date)) + '</div><h3 style="margin:0 0 6px;font-size:1.05rem">' + esc(b.title) +
+        '</h3><p style="margin:0;font-size:.92rem">' + esc(b.summary) + "</p></div></a>";
+    }).join("");
+  };
+
   R.latest = function (el) {
     el.innerHTML = D.briefs.length ? recItem(D.briefs[0]) + (published.length ? "" : emptyBox("No published briefs yet", "")) : emptyBox("No published briefs yet", "Policy briefs will appear here.");
   };

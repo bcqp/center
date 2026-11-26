@@ -397,3 +397,4 @@ footer.site .about p{max-width:none}
 .hero .byline a,.hero p a,.pagehead .byline a{color:#fff!important;text-decoration-color:#6EC1E4}
 .hero .byline,.pagehead .byline{color:var(--on-navy)}
 .iconbtn{background:transparent}.menubtn{background:transparent;color:#fff;border:1px solid #ffffff55}
+.sec.navy .step p{color:var(--on-navy)}.sec.navy .steps,.sec.navy .step{border-color:#ffffff30}

@@ -21,6 +21,7 @@ jobs:
         run: |
           pip install playwright && python -m playwright install --with-deps chromium
           OG_MISSING=1 python tools/og_pages.py
+          python tools/seo_links.py
       - name: Keep a preview of the whole site
         uses: actions/upload-artifact@v4
         with:

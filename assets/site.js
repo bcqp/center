@@ -65,7 +65,7 @@
   if (hdr) {
     hdr.innerHTML =
       '<a class="skip" href="#main">Skip to main content</a>' +
-      '<div class="topbar">Quantitative evidence. Economic research. Better policy.</div>' +
+      '<div class="topbar">Better policy starts with better evidence.</div>' +
       '<header class="masthead"><div class="wrap">' +
       '<a class="brand" href="' + root + 'index.html"><span class="logo">BCQP</span><span><b>Bangladesh Center for Quantitative Policy</b><small>BCQP · Policy briefs</small></span></a>' +
       '<div class="tools"><a class="iconbtn" href="' + root + 'search/index.html" aria-label="Search the site"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search</span></a>' +
@@ -101,7 +101,7 @@
     ftr.innerHTML =
       '<footer class="site"><div class="wrap"><div class="fgrid">' +
       '<div class="about"><b>Bangladesh Center for Quantitative Policy</b><p>BCQP Policy Briefs is the center’s public-policy series on Bangladesh. Every figure is checked against an official source before publication, and every estimate is run in an open, reproducible engine.</p>' +
-      '<p class="mono tiny">Quantitative evidence. Economic research. Better policy.</p></div>' +
+      '<p class="mono tiny">Better policy starts with better evidence.</p></div>' +
       fcol(byKey.about) + fcol(byKey.briefs) + fcol(byKey.data) + fcol(byKey.methodology) + fcol(byKey.policies) + miscHtml +
       '</div><p class="legal">BCQP is an independent research initiative. It is not a government body and is not affiliated with Bangladesh Bank, the Bangladesh Bureau of Statistics or the Government of Bangladesh. Founded and written by <a href="' + root + 'tuhin-al-mamun/">Dr. Tuhin G. M. Al Mamun</a>; views are the author’s own. Archived at <a href="https://doi.org/10.5281/zenodo.24215521">doi.org/10.5281/zenodo.24215521</a>. Site data last updated ' +
       esc(fmtDate(D.updated)) + ".</p></div></footer>";

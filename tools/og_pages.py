@@ -25,6 +25,7 @@ for p in sorted(ROOT.rglob("*.html")):
     title = html.unescape(t.group(1)); desc = html.unescape(d.group(1))
     short = re.sub(r"\s*\|\s*BCQP.*$", "", title)
     if rel == "index.html": short = "Better policy starts with better evidence"
+    if rel == "index.html": desc = "Replicable, source-checked statistical reports on the Bangladesh economy."
     pages.append(dict(p=p, rel=rel, title=title, short=short, desc=desc, out=card_path(rel)))
 def tags(c):
     u = SITE + (c["rel"][:-10] if c["rel"].endswith("index.html") else c["rel"]); img = SITE + c["out"]; e = lambda x: html.escape(x, quote=True)

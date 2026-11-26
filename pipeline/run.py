@@ -35,7 +35,6 @@ def main(force_topic=None, offline_news=None):
         log.append("produced %s" % rec["slug"])
         (ROOT / "pipeline" / "review.md").write_text(review, encoding="utf-8")
         subprocess.check_call([sys.executable, str(ROOT / "tools/build_data.py")])
-        subprocess.check_call([sys.executable, str(ROOT / "tools/build_site.py")])
         break
     else:
         log.append("no brief produced")

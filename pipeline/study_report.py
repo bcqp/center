@@ -168,17 +168,17 @@ def build(today=None):
                 "<li>Figures at 300 dpi: <a href=\"%s/fig1_stylised_facts.png\">1</a>, <a href=\"%s/fig2_real_rates.png\">2</a>, <a href=\"%s/fig3_irf_depreciation.png\">3</a>, <a href=\"%s/fig4_irf_lending_rate.png\">4</a>, <a href=\"%s/fig5_variance_decomposition.png\">5</a>; vector versions (SVG) in the same folder.</li></ul>" % ((slug,) * 7)
                 + "<h3>Sources</h3><ul><li>World Bank, World Development Indicators, Bangladesh: <a href=\"https://api.worldbank.org/v2/country/BGD\">api.worldbank.org</a>, retrieved %s.</li><li>International Monetary Fund, DataMapper: <a href=\"https://www.imf.org/external/datamapper/api/v1/NGDP_RPCH/BGD\">imf.org</a>, retrieved %s.</li><li>Models: Open Econometric Systems, <a href=\"https://github.com/tuhingm/open-econometric-systems\">github.com/tuhingm/open-econometric-systems</a>.</li></ul>" % (today, today))
     page = ('<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
-            '<title>%s | BIQEP Policy Briefs</title><meta name="description" content="%s"><meta name="author" content="Tuhin G. M. Al Mamun">'
+            '<title>%s | BCQP Policy Briefs</title><meta name="description" content="%s"><meta name="author" content="Tuhin G. M. Al Mamun">'
             '<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"><meta name="theme-color" content="#00205b">'
-            '<meta property="og:title" content="%s"><meta property="og:type" content="article"><meta property="og:image" content="https://biqep.github.io/institute/briefs/%s/fig3_irf_depreciation.png"><meta name="twitter:card" content="summary_large_image">'
-            '<link rel="canonical" href="https://biqep.github.io/institute/briefs/%s.html"><script type="application/ld+json">%s</script>%s<link rel="stylesheet" href="../assets/style.css"></head>\n'
+            '<meta property="og:title" content="%s"><meta property="og:type" content="article"><meta property="og:image" content="https://bcqp.github.io/center/briefs/%s/fig3_irf_depreciation.png"><meta name="twitter:card" content="summary_large_image">'
+            '<link rel="canonical" href="https://bcqp.github.io/center/briefs/%s.html"><script type="application/ld+json">%s</script>%s<link rel="stylesheet" href="../assets/style.css"></head>\n'
             '<body><div id="hdr"></div>\n<main id="main">\n<section class="pagehead"><div class="wrap"><div class="crumbs"><a href="../index.html">Home</a><i>/</i><a href="index.html">Policy briefs</a><i>/</i>Statistical report</div><div class="eyebrow">Statistical report</div><h1>%s</h1><p class="lede">%s</p></div></section>\n'
             '<section class="sec"><div class="wrap"><div class="content" style="max-width:900px">%s</div></div></section>\n</main>\n<div id="ftr"></div>\n'
             '<script src="../assets/data.js"></script><script src="../assets/pages.js"></script><script src="../assets/site.js" data-root="../"></script></body></html>\n') % (
             esc(title), esc(summary), esc(title), slug, slug,
             json.dumps({"@context": "https://schema.org", "@type": "ScholarlyArticle", "headline": title, "description": summary, "datePublished": today,
-                        "author": [{"@type": "Person", "name": "Tuhin G. M. Al Mamun", "url": "https://biqep.github.io/institute/tuhin-al-mamun/"}, {"@type": "Person", "name": "Dr Rahim Md Abdur"}],
-                        "publisher": {"@type": "Organization", "name": "BIQEP Policy Briefs"}}, ensure_ascii=False),
+                        "author": [{"@type": "Person", "name": "Tuhin G. M. Al Mamun", "url": "https://bcqp.github.io/center/tuhin-al-mamun/"}, {"@type": "Person", "name": "Dr Rahim Md Abdur"}],
+                        "publisher": {"@type": "Organization", "name": "BCQP Policy Briefs"}}, ensure_ascii=False),
             '<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">',
             esc(title), esc(summary), "\n".join(body))
     (ROOT / "briefs" / (slug + ".html")).write_text(page, encoding="utf-8")

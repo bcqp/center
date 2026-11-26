@@ -65,13 +65,13 @@ def build(topic, series_meta, data, res, years, csv_text, today=None):
     body.append('</ul><h2>Replication</h2><p><a href="%s.csv">Dataset (CSV)</a> · <a href="%s.json">Specification and results (JSON)</a></p>' % (slug, slug))
     body.append('</div></div></section>')
     ld = json.dumps({"@context": "https://schema.org", "@type": "Article", "headline": title, "description": summary, "datePublished": today,
-                     "author": {"@type": "Person", "name": "Tuhin G. M. Al Mamun", "url": "https://biqep.github.io/institute/people/"},
-                     "publisher": {"@type": "Organization", "name": "BIQEP Policy Briefs", "url": "https://biqep.github.io/institute/"}}, ensure_ascii=False)
+                     "author": {"@type": "Person", "name": "Tuhin G. M. Al Mamun", "url": "https://bcqp.github.io/center/people/"},
+                     "publisher": {"@type": "Organization", "name": "BCQP Policy Briefs", "url": "https://bcqp.github.io/center/"}}, ensure_ascii=False)
     page = ('<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
-            '<title>%s | BIQEP Policy Briefs</title><meta name="description" content="%s"><meta name="theme-color" content="#00205b">'
+            '<title>%s | BCQP Policy Briefs</title><meta name="description" content="%s"><meta name="theme-color" content="#00205b">'
             '<meta name="author" content="Tuhin G. M. Al Mamun"><meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">'
-            '<meta property="og:title" content="%s"><meta property="og:type" content="article"><meta property="og:image" content="https://biqep.github.io/institute/assets/og-image.png"><meta name="twitter:card" content="summary_large_image">'
-            '<link rel="canonical" href="https://biqep.github.io/institute/briefs/%s.html"><script type="application/ld+json">%s</script>%s<link rel="stylesheet" href="../assets/style.css"></head>\n'
+            '<meta property="og:title" content="%s"><meta property="og:type" content="article"><meta property="og:image" content="https://bcqp.github.io/center/assets/og-image.png"><meta name="twitter:card" content="summary_large_image">'
+            '<link rel="canonical" href="https://bcqp.github.io/center/briefs/%s.html"><script type="application/ld+json">%s</script>%s<link rel="stylesheet" href="../assets/style.css"></head>\n'
             '<body><div id="hdr"></div>\n<main id="main">\n%s\n</main>\n<div id="ftr"></div>\n'
             '<script src="../assets/data.js"></script><script src="../assets/pages.js"></script><script src="../assets/site.js" data-root="../"></script></body></html>\n') % (
             esc(title), esc(summary), esc(title), slug, ld, FONTS, "\n".join(body))

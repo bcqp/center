@@ -1,4 +1,4 @@
-/* BIQEP Policy Briefs — shares the design system of the Tuhin Al Mamun website and OES
+/* BCQP Policy Briefs — shares the design system of the Tuhin Al Mamun website and OES
    Fonts: DM Sans (text), Manrope (headings and labels). Palette: navy, blue and sky on cool paper */
 :root{
   --navy:#00205b;--blue:#0033A0;--teal:#0b4fb3;--gold:#6EC1E4;
@@ -330,7 +330,7 @@ html,body{overflow-x:hidden}
 .publication-slide.is-active{opacity:1;transform:translateY(0)}
 
 
-/* Personal website-style inline text links, applied consistently across BIQEP pages */
+/* Personal website-style inline text links, applied consistently across BCQP pages */
 main p a,main li a,main .content a,main .lede a,main .small a,main .muted a,main .publication a,main article.brief a,main .byline a{
  color:#0033A0;font-weight:600;text-decoration:underline;text-decoration-color:#b9c9e6;text-decoration-thickness:1px;text-underline-offset:2px
 }

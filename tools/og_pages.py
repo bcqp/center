@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Give every BIQEP page one clean set of link-preview tags and a 1200x630 card in the shared main-site style.
+"""Give every BCQP page one clean set of link-preview tags and a 1200x630 card in the shared main-site style.
 Usage: CHROME=/usr/bin/google-chrome [OG_FONT_CSS=fonts.css] python3 tools/og_pages.py   (idempotent)
 Cards: assets/og/<page path>.jpg ; report pages keep briefs/<slug>/og.jpg."""
 import asyncio, html, json, os, pathlib, re
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-SITE = "https://biqep.github.io/institute/"
+SITE = "https://bcqp.github.io/center/"
 SKIP = {"404.html", "google93d17a5aad1078de.html"}
 def card_path(rel):
     if rel.startswith("briefs/") and re.search(r"-\d{4}-\d{2}-\d{2}\.html$", rel):
@@ -13,7 +13,7 @@ def card_path(rel):
 def kicker(rel):
     top = rel.split("/")[0]
     return {"briefs": "Statistical reports · Bangladesh", "research": "Research areas", "methodology": "Methodology", "policies": "Policies",
-            "data": "Data and sources", "about": "About BIQEP", "news": "News and events", "journal": "Journal"}.get(top, "Bangladesh Institute of Quantitative Economics and Public Policy")
+            "data": "Data and sources", "about": "About BCQP", "news": "News and events", "journal": "Journal"}.get(top, "Bangladesh Center for Quantitative Policy")
 pages = []
 for p in sorted(ROOT.rglob("*.html")):
     rel = p.relative_to(ROOT).as_posix()
@@ -23,12 +23,12 @@ for p in sorted(ROOT.rglob("*.html")):
     d = re.search(r'<meta name="description" content="(.*?)">', s)
     if not t or not d: continue
     title = html.unescape(t.group(1)); desc = html.unescape(d.group(1))
-    short = re.sub(r"\s*\|\s*BIQEP.*$", "", title)
+    short = re.sub(r"\s*\|\s*BCQP.*$", "", title)
     if rel == "index.html": short = "Statistical reports on the Bangladesh economy"
     pages.append(dict(p=p, rel=rel, title=title, short=short, desc=desc, out=card_path(rel)))
 def tags(c):
     u = SITE + (c["rel"][:-10] if c["rel"].endswith("index.html") else c["rel"]); img = SITE + c["out"]; e = lambda x: html.escape(x, quote=True)
-    alt = e("BIQEP: " + c["short"])
+    alt = e("BCQP: " + c["short"])
     return ('<meta property="og:image" content="%s"><meta property="og:image:secure_url" content="%s"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">'
             '<meta property="og:image:type" content="image/jpeg"><meta property="og:image:alt" content="%s">'
             '<meta name="twitter:image" content="%s"><meta name="twitter:image:alt" content="%s">') % (img, img, alt, img, alt)
@@ -52,7 +52,7 @@ h1{font:800 60px/1.08 Manrope,sans-serif;letter-spacing:-.035em;margin:16px 0;ma
 p{font-size:24px;line-height:1.35;color:#d9e5f7;margin:0;max-width:620px}
 .who{margin-top:24px;font-size:18px;font-weight:700;color:#c9d8ef;padding:8px 18px;border:1px solid #ffffff40;border-radius:40px;background:#ffffff12}
 </style></head><body><div class="ring r1"></div><div class="ring r2"></div>
-<div class="col"><div class="brand">BIQEP <span>POLICY BRIEFS</span></div><div class="eye" id="k"></div><h1 id="t"></h1><p id="s"></p><div class="who">Tuhin G. M. Al Mamun</div></div></body></html>"""
+<div class="col"><div class="brand">BCQP <span>POLICY BRIEFS</span></div><div class="eye" id="k"></div><h1 id="t"></h1><p id="s"></p><div class="who">Tuhin G. M. Al Mamun</div></div></body></html>"""
 async def render():
     from playwright.async_api import async_playwright
     F = os.environ.get("OG_FONT_CSS")

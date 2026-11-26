@@ -9,26 +9,26 @@ def rootof(path):
     d = path.count("/")
     return "../" * d if d else "./"
 
-SITE = "https://biqep.github.io/institute/"
+SITE = "https://bcqp.github.io/center/"
 PERSON = {"@type": "Person", "@id": SITE + "tuhin-al-mamun/#tuhin", "name": "Tuhin G. M. Al Mamun", "honorificPrefix": "Dr.",
           "alternateName": ["Tuhin Al Mamun", "Tuhin GM Al Mamun", "Tuhin G. Al Mamun", "T. G. M. Al Mamun"],
-          "jobTitle": "Economist; Founder and Executive Director, BIQEP", "url": SITE + "tuhin-al-mamun/", "mainEntityOfPage": SITE + "tuhin-al-mamun/",
+          "jobTitle": "Economist; Founder and Executive Director, BCQP", "url": SITE + "tuhin-al-mamun/", "mainEntityOfPage": SITE + "tuhin-al-mamun/",
           "nationality": {"@type": "Country", "name": "Bangladesh"},
           "knowsAbout": ["Monetary policy transmission", "Bayesian econometrics", "Time-series econometrics", "DSGE and heterogeneous-agent models", "Bangladesh economy"],
           "image": SITE + "assets/og-image.png", "description": "Tuhin Al Mamun (Tuhin G. M. Al Mamun) is a Bangladeshi economist with a PhD in economics, working on monetary policy transmission, Bayesian and time-series econometrics and structural macroeconomic models.",
           "sameAs": ["https://tuhingm.github.io/almamun/", "https://github.com/tuhingm", "https://tuhingm.github.io/almamun/oes/"]}
-ORG = {"@type": "Organization", "@id": SITE + "#org", "name": "Bangladesh Institute of Quantitative Economics and Public Policy",
-       "alternateName": ["BIQEP", "BIQEP Policy Briefs"], "url": SITE, "logo": SITE + "assets/og-image.png",
+ORG = {"@type": "Organization", "@id": SITE + "#org", "name": "Bangladesh Center for Quantitative Policy",
+       "alternateName": ["BCQP", "BCQP Policy Briefs"], "url": SITE, "logo": SITE + "assets/og-image.png",
        "founder": {"@id": SITE + "tuhin-al-mamun/#tuhin"}, "sameAs": ["https://tuhingm.github.io/almamun/oes/"]}
-SITE_LD = {"@type": "WebSite", "@id": SITE + "#website", "url": SITE, "name": "BIQEP Policy Briefs", "inLanguage": "en",
+SITE_LD = {"@type": "WebSite", "@id": SITE + "#website", "url": SITE, "name": "BCQP Policy Briefs", "inLanguage": "en",
            "publisher": {"@id": SITE + "#org"}, "author": {"@id": SITE + "tuhin-al-mamun/#tuhin"}}
 
 def page(path, title, desc, body, section="Site", search=True):
     root = rootof(path)
     canon = path.replace("index.html", "")
     url = SITE + canon
-    full_title = ("BIQEP Policy Briefs: Bangladesh Economy | Tuhin G. M. Al Mamun" if path == "index.html"
-                  else f"{title} | BIQEP Policy Briefs")
+    full_title = ("BCQP Policy Briefs: Bangladesh Economy | Tuhin G. M. Al Mamun" if path == "index.html"
+                  else f"{title} | BCQP Policy Briefs")
     graph = [ORG, SITE_LD, PERSON]
     parts = path.split("/")
     if len(parts) >= 2 and path != "404.html":
@@ -48,10 +48,10 @@ def page(path, title, desc, body, section="Site", search=True):
 <meta name="author" content="Tuhin G. M. Al Mamun">
 <meta name="robots" content="{robots}">
 <meta name="theme-color" content="#00205b">
-<meta property="og:site_name" content="BIQEP Policy Briefs"><meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="BCQP Policy Briefs"><meta property="og:locale" content="en_US">
 <meta property="og:title" content="{full_title}"><meta property="og:description" content="{desc}"><meta property="og:type" content="website">
-<meta property="og:url" content="{url}"><meta property="og:image" content="{SITE}assets/og-image.png?v=2"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:type" content="image/png"><meta property="og:image:alt" content="BIQEP Policy Briefs: statistical reports on the Bangladesh economy by Tuhin G. M. Al Mamun">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{full_title}"><meta name="twitter:description" content="{desc}"><meta name="twitter:image" content="{SITE}assets/og-image.png?v=2"><meta name="twitter:image:alt" content="BIQEP Policy Briefs: statistical reports on the Bangladesh economy by Tuhin G. M. Al Mamun">
+<meta property="og:url" content="{url}"><meta property="og:image" content="{SITE}assets/og-image.png?v=2"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:type" content="image/png"><meta property="og:image:alt" content="BCQP Policy Briefs: statistical reports on the Bangladesh economy by Tuhin G. M. Al Mamun">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{full_title}"><meta name="twitter:description" content="{desc}"><meta name="twitter:image" content="{SITE}assets/og-image.png?v=2"><meta name="twitter:image:alt" content="BCQP Policy Briefs: statistical reports on the Bangladesh economy by Tuhin G. M. Al Mamun">
 <link rel="canonical" href="{url}">
 <link rel="icon" href="{root}assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="{root}assets/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="{root}assets/apple-touch-icon.png">
 <script type="application/ld+json">{ld}</script>
@@ -114,7 +114,7 @@ home = '''
 <section class="hero"><div class="wrap">
 <div class="eyebrow">A quantitative economics institution · Policy briefs</div>
 <h1>Evidence-based policy analysis for Bangladesh.</h1>
-<p>BIQEP Policy Briefs turns official data into short, rigorous analysis of inflation, monetary policy, public finance, labor and trade. Every figure is validated against its source and every estimate can be replicated.</p>
+<p>BCQP Policy Briefs turns official data into short, rigorous analysis of inflation, monetary policy, public finance, labor and trade. Every figure is validated against its source and every estimate can be replicated.</p>
 <p class="byline">By <a href="tuhin-al-mamun/index.html">Dr. Tuhin G. M. Al Mamun</a>, Founder and Executive Director</p>
 <div class="btns"><a class="btn" href="briefs/index.html">Read the policy briefs</a><a class="btn ghost" href="data/index.html">Explore the data hub</a><a class="btn ghost" href="methodology/index.html">How we validate</a></div>
 </div></section>
@@ -183,9 +183,9 @@ home = '''
 
 <section class="sec"><div class="wrap cols2">
 <div><div class="eyebrow">People</div><h2>Research with a long view.</h2>
-<p class="lede">Dr. Tuhin G. M. Al Mamun, Founder and Executive Director of BIQEP, researches monetary policy transmission, Bayesian and computational methods, and structural macroeconomic modeling.</p>
+<p class="lede">Dr. Tuhin G. M. Al Mamun, Founder and Executive Director of BCQP, researches monetary policy transmission, Bayesian and computational methods, and structural macroeconomic modeling.</p>
 <p><a class="link-arrow" href="people/index.html">People</a> &nbsp; <a class="link-arrow" href="about/leadership/index.html">Leadership</a> &nbsp; <a class="link-arrow" href="about/governance/index.html">Governance</a></p></div>
-<div class="note"><b>Independent initiative.</b> BIQEP is not a government body and is not affiliated with Bangladesh Bank, the Bangladesh Bureau of Statistics or the Government of Bangladesh.</div>
+<div class="note"><b>Independent initiative.</b> BCQP is not a government body and is not affiliated with Bangladesh Bank, the Bangladesh Bureau of Statistics or the Government of Bangladesh.</div>
 </div></section>
 
 <section class="sec mist"><div class="wrap">
@@ -197,7 +197,7 @@ home = '''
 </div></div></section>
 
 <section class="sec navy"><div class="wrap">
-<div class="eyebrow">Work with BIQEP</div><h2>Found a figure that does not match its source?</h2>
+<div class="eyebrow">Work with BCQP</div><h2>Found a figure that does not match its source?</h2>
 <p class="lede">Corrections, data questions and collaboration are welcome. We check every report against the original release.</p>
 <div class="btns"><a class="btn" href="contact/index.html">Contact</a><a class="btn ghost" href="policies/corrections/index.html">Corrections policy</a></div>
 </div></section>
@@ -205,13 +205,13 @@ home = '''
 page("index.html", "Quantitative evidence for Bangladesh", "Evidence-based policy briefs on Bangladesh’s economy, built on official data and open, reproducible econometric methods.", home, "Home")
 
 # =============================================================== ABOUT
-std("about/index.html","About","about/index.html","The series","About","BIQEP Policy Briefs is the public-policy series of the Bangladesh Institute of Quantitative Economics and Public Policy.",
+std("about/index.html","About","about/index.html","The series","About","BCQP Policy Briefs is the public-policy series of the Bangladesh Center for Quantitative Policy.",
  '''<h2>What this series is</h2>
-<p>The Bangladesh Institute of Quantitative Economics and Public Policy (BIQEP) advances economic research through mathematics, statistics and econometrics. BIQEP Policy Briefs is its public-policy series on Bangladesh.</p>
+<p>The Bangladesh Center for Quantitative Policy (BCQP) advances economic research through mathematics, statistics and econometrics. BCQP Policy Briefs is its public-policy series on Bangladesh.</p>
 <p>The aim is plain: give readers short analysis they can check. Each brief names its data, its method and its limits, and the settings behind it are open.</p>
 <blockquote class="quote" style="margin:26px 0">A quantitative result is only as useful as the assumptions it makes visible.</blockquote>
 <h2>What it is not</h2>
-<p>BIQEP is an independent research initiative. It is not a government body and is not affiliated with Bangladesh Bank, the Bangladesh Bureau of Statistics or the Government of Bangladesh. Views are the author’s own.</p>
+<p>BCQP is an independent research initiative. It is not a government body and is not affiliated with Bangladesh Bank, the Bangladesh Bureau of Statistics or the Government of Bangladesh. Views are the author’s own.</p>
 <h2>How the series is organised</h2>
 <div class="two">
 <div><h3>Research areas</h3><p>Nine areas set the agenda, from inflation and monetary policy to growth, human development, and climate and energy.</p><a class="link-arrow" href="../research/index.html">Research agenda</a></div>
@@ -219,7 +219,7 @@ std("about/index.html","About","about/index.html","The series","About","BIQEP Po
 <div><h3>Data and methods</h3><p>The Data hub lists every series and its source. The methodology explains validation and the models used.</p><a class="link-arrow" href="../data/index.html">Data hub</a></div>
 <div><h3>Standards</h3><p>Seven policies state the standards each brief is held to, from publication to corrections.</p><a class="link-arrow" href="../policies/index.html">Policies</a></div>
 </div>''',
- "About the Bangladesh Institute of Quantitative Economics and Public Policy and its policy briefs series.")
+ "About the Bangladesh Center for Quantitative Policy and its policy briefs series.")
 
 std("about/mission-vision/index.html","About","about/index.html","Mission and vision","About","What the series is for, and the standard it holds itself to.",
  '''<h2>Mission</h2>
@@ -231,7 +231,7 @@ std("about/mission-vision/index.html","About","about/index.html","Mission and vi
   "<b>Open methods.</b> The estimation engine is open source, and each brief states the settings needed to repeat its results.",
   "<b>Clear limits.</b> Each brief states its data limits and what its results cannot show.",
   "<b>Public corrections.</b> Errors are corrected on the page, with the date and what changed."]),
- "Mission, vision and commitments of the BIQEP Policy Briefs series.")
+ "Mission, vision and commitments of the BCQP Policy Briefs series.")
 
 std("about/research-philosophy/index.html","About","about/index.html","Research philosophy","About","How we think about evidence, models and uncertainty.",
  '''<h2>Measurement first</h2>
@@ -244,7 +244,7 @@ std("about/research-philosophy/index.html","About","about/index.html","Research 
 <p>A finding that disappears when the sample, lag length or specification changes is reported as fragile. Alternative specifications are published with the main one.</p>
 <h2>Replicable by design</h2>
 <p>The estimation engine is open, the data are versioned with a retrieval date, and the settings are listed, so a reader can repeat the work.</p>''',
- "The research philosophy behind BIQEP Policy Briefs: measurement, method choice, uncertainty and replication.")
+ "The research philosophy behind BCQP Policy Briefs: measurement, method choice, uncertainty and replication.")
 
 std("about/leadership/index.html","About","about/index.html","Leadership","About","The person responsible for the series.",
  '''<div class="person"><div class="avatar">TA</div><div>
@@ -252,15 +252,15 @@ std("about/leadership/index.html","About","about/index.html","Leadership","About
 <p>Dr. Al Mamun holds a PhD in Economics. His research covers monetary policy transmission, heterogeneous-agent and structural macroeconomic models, Bayesian and time-series econometrics, and applied machine-learning methods.</p>
 <p>He is responsible for the topics chosen, the data validated, the models run and every brief published in the series.</p>
 <p><a class="link-arrow" href="https://tuhingm.github.io/almamun/" rel="noopener">Academic website</a></p></div></div>''',
- "Leadership of BIQEP Policy Briefs: Dr. Tuhin G. M. Al Mamun, Founder and Executive Director.")
+ "Leadership of BCQP Policy Briefs: Dr. Tuhin G. M. Al Mamun, Founder and Executive Director.")
 
 std("about/governance/index.html","About","about/index.html","Governance","About","Responsibility for the series, and its independence.",
  '''<h2>Responsibility</h2>
 <p>The Founder and Executive Director is responsible for the series, including the topics chosen, the data used and the briefs published. He is accountable for corrections.</p>
 <h2>Independence</h2>
-<p>BIQEP is an independent research initiative. It is not a government body and is not affiliated with Bangladesh Bank, the Bangladesh Bureau of Statistics or the Government of Bangladesh.</p>
+<p>BCQP is an independent research initiative. It is not a government body and is not affiliated with Bangladesh Bank, the Bangladesh Bureau of Statistics or the Government of Bangladesh.</p>
 <h2>Related policies</h2>''' + ul(['<a href="../../policies/publication/index.html">Publication policy</a>','<a href="../../policies/corrections/index.html">Corrections policy</a>','<a href="../../policies/conflict-of-interest/index.html">Conflict-of-interest policy</a>']),
- "Governance of BIQEP Policy Briefs: responsibility, independence and corrections.")
+ "Governance of BCQP Policy Briefs: responsibility, independence and corrections.")
 
 # =============================================================== RESEARCH
 AREAS = [
@@ -320,7 +320,7 @@ std("research/index.html","Research","research/index.html","Research agenda","Re
   "Models run in the open-source Open Econometric Systems engine, so results can be replicated.",
   "Each brief states what the design cannot show.",
   'See the <a href="../methodology/index.html">methodology</a> and the <a href="../policies/index.html">policies</a>.']),
- "The BIQEP Policy Briefs research agenda: nine areas covering inflation, monetary policy, public finance, labor, the external sector, credit, energy, growth and human development.")
+ "The BCQP Policy Briefs research agenda: nine areas covering inflation, monetary policy, public finance, labor, the external sector, credit, energy, growth and human development.")
 
 for (name, slug, short, why, qs, srcs, meths) in AREAS:
     content = f'''<h2>Why it matters</h2><p>{why}</p>
@@ -332,7 +332,7 @@ for (name, slug, short, why, qs, srcs, meths) in AREAS:
 <h2>Records in this area</h2>
 <div data-render="collection" data-topic="{name}" data-empty-title="No records yet" data-empty="No publications in this area yet."></div>'''
     std(f"research/{slug}/index.html","Research","research/index.html",name,"Research area",short,content,
-        f"BIQEP research area: {name}. Key questions, official sources and methods.")
+        f"BCQP research area: {name}. Key questions, official sources and methods.")
 
 std("research/collaboration/index.html","Research","research/index.html","Research collaboration","Research","How to work with the series on data, methods and questions.",
  '''<h2>What we welcome</h2>''' + ul([
@@ -344,7 +344,7 @@ std("research/collaboration/index.html","Research","research/index.html","Resear
   "We do not publish figures supplied without an official source.",
   "We do not accept requests to change a finding.",
   "We do not take paid or sponsored briefs."]) + '<p>See the <a href="../../contact/index.html">contact page</a>.</p>',
- "How to collaborate with BIQEP Policy Briefs: data, corrections, topics and methods.")
+ "How to collaborate with BCQP Policy Briefs: data, corrections, topics and methods.")
 
 # =============================================================== BRIEFS INDEX + COLLECTIONS
 c = '''<div class="eyebrow">Repository</div><h2>Browse the records.</h2><p class="muted" style="max-width:660px">Search by title or summary, or filter by topic.</p><div data-render="briefs-page"></div>'''
@@ -363,7 +363,7 @@ for slug, name, typ, lede, what, et, e in COLL:
 <h2>Records</h2>
 <div data-render="collection" data-type="{typ}" data-empty-title="{et}" data-empty="{e}"></div>
 <p class="small muted" style="margin-top:20px">Collections keep different kinds of record apart. See <a href="../index.html">all records</a>.</p>'''
-    std(f"briefs/{slug}/index.html","Policy briefs","briefs/index.html",name,"Collection",lede,c,f"BIQEP collection: {name}.")
+    std(f"briefs/{slug}/index.html","Policy briefs","briefs/index.html",name,"Collection",lede,c,f"BCQP collection: {name}.")
 
 # =============================================================== DATA HUB
 std("data/index.html","Data hub","data/index.html","Series register","Data hub","Every series used in a brief, with its official source and retrieval date.",
@@ -386,7 +386,7 @@ std("data/sources/index.html","Data hub","data/index.html","Official sources","D
   "The address of the release page and the retrieval date are recorded.",
   "If Bangladesh Bank republishes a BBS figure, we say so, as in “BBS, published by Bangladesh Bank”.",
   "Where sources differ, the original release is followed."]),
- "Official sources used by BIQEP Policy Briefs and how they are cited.")
+ "Official sources used by BCQP Policy Briefs and how they are cited.")
 
 std("data/validation/index.html","Data hub","data/index.html","Validation log","Data hub","How each series was checked against its official release.",
  '''<p>Each row is a series in the register, checked against its official release on the date shown.</p>
@@ -396,7 +396,7 @@ std("data/validation/index.html","Data hub","data/index.html","Validation log","
   "Read the value for the stated period and note the retrieval date.",
   "Compare it with the figure used. They must match exactly.",
   "Record the result. If they do not match, the figure is not used until the difference is explained."]),
- "Validation log for BIQEP series: how each was checked against its official release.")
+ "Validation log for BCQP series: how each was checked against its official release.")
 
 # =============================================================== METHODOLOGY
 std("methodology/index.html","Methodology","methodology/index.html","How a brief is made","Methodology","From official data to estimates: how series are sourced, checked and modelled.",
@@ -411,7 +411,7 @@ std("methodology/index.html","Methodology","methodology/index.html","How a brief
   "the sample period and any break in the series, such as the 2023 change of CPI base;",
   "the model, the identifying assumptions and the main robustness checks;",
   "what the results cannot show, including causal claims the design does not support."]),
- "How BIQEP policy briefs are produced: official data, validation, open estimation and author review.")
+ "How BCQP policy briefs are produced: official data, validation, open estimation and author review.")
 
 std("methodology/models/index.html","Methodology","methodology/index.html","Models and tools","Methodology","The open-source engine behind the estimates, and the families of model it offers.",
  '''<h2>Open Econometric Systems</h2>
@@ -429,7 +429,7 @@ std("methodology/models/index.html","Methodology","methodology/index.html","Mode
 <p class="small muted">Model groups as listed in the OES repository. DSGE models are not part of OES and are solved elsewhere.</p>
 <h2>Which model for which question</h2>
 <p>The method for each brief is chosen for its question and stated in the brief. See the <a href="../../research/index.html">research areas</a> for the methods that suit each topic.</p>''',
- "Open Econometric Systems (OES): the open-source engine and model families used by BIQEP Policy Briefs.")
+ "Open Econometric Systems (OES): the open-source engine and model families used by BCQP Policy Briefs.")
 
 std("methodology/data-standards/index.html","Methodology","methodology/index.html","Data standards","Methodology","How series are recorded, versioned and described.",
  '''<h2>Every series carries</h2>''' + ul([
@@ -443,7 +443,7 @@ std("methodology/data-standards/index.html","Methodology","methodology/index.htm
   "<b>Seasonality.</b> A brief states whether series are seasonally adjusted. We do not adjust a series without saying so.",
   "<b>Transformations.</b> Logs, differences and growth rates are listed with the specification."]) +
  '''<h2>What is left out</h2><p>A series that cannot be traced to an official release, or whose definition cannot be established, is not used.</p>''',
- "Data standards for BIQEP Policy Briefs: source records, breaks, revisions and transformations.")
+ "Data standards for BCQP Policy Briefs: source records, breaks, revisions and transformations.")
 
 std("methodology/replication/index.html","Methodology","methodology/index.html","Replication","Methodology","What is published with a brief so that a reader can repeat it.",
  '''<h2>A replication package contains</h2>''' + ul([
@@ -457,7 +457,7 @@ std("methodology/replication/index.html","Methodology","methodology/index.html",
   ("Load the data","Load the dataset from the package."),
   ("Apply the specification","Choose the model and enter the listed settings."),
   ("Compare","The output should match the tables in the brief.")]),
- "How BIQEP briefs are made replicable: packages, specification and how to repeat a result.")
+ "How BCQP briefs are made replicable: packages, specification and how to repeat a result.")
 
 # =============================================================== POLICIES
 PCY = [
@@ -485,22 +485,22 @@ PCY = [
    "Report an error through the contact page, naming the brief, the figure and the release."]),
  ("copyright","Copyright and reuse","Who owns what, and how to reuse it.",
   ["Official data belong to their publishers. Reuse of a figure follows the publisher’s terms.",
-   "When you cite a brief, cite BIQEP and the original source of the data.",
-   "Charts and tables made by BIQEP should be credited to BIQEP Policy Briefs."]),
+   "When you cite a brief, cite BCQP and the original source of the data.",
+   "Charts and tables made by BCQP should be credited to BCQP Policy Briefs."]),
  ("conflict-of-interest","Conflict-of-interest policy","Disclosure and independence.",
   ["The author discloses any interest that bears on a brief’s topic.",
-   "BIQEP does not take paid or sponsored briefs.",
-   "BIQEP is not affiliated with Bangladesh Bank, the Bangladesh Bureau of Statistics or the Government of Bangladesh.",
+   "BCQP does not take paid or sponsored briefs.",
+   "BCQP is not affiliated with Bangladesh Bank, the Bangladesh Bureau of Statistics or the Government of Bangladesh.",
    "Views are the author’s own."]),
 ]
 std("policies/index.html","Policies","policies/index.html","Series policies","Policies","The standards each brief is held to: publication, sources, validation, replication, corrections, reuse and independence.",
  '''<p>These policies describe how the series works.</p><div class="cards" style="margin-top:20px">''' +
  "".join(f'<a class="link-card" href="{s}/index.html"><h3>{t}</h3><p>{d}</p></a>' for s,t,d,_ in PCY) + "</div>",
- "Publication, source, validation, replication, corrections and other policies for BIQEP Policy Briefs.", siblings=False)
+ "Publication, source, validation, replication, corrections and other policies for BCQP Policy Briefs.", siblings=False)
 for s,t,d,items in PCY:
     std(f"policies/{s}/index.html","Policies","policies/index.html",t,"Policy",d,
         "<h2>The policy</h2>" + ul(items) + '<p class="small muted" style="margin-top:20px">Related: <a href="../../methodology/index.html">methodology</a>, <a href="../../about/governance/index.html">governance</a>.</p>',
-        f"BIQEP policy: {t}.")
+        f"BCQP policy: {t}.")
 
 # =============================================================== PEOPLE / NEWS / EVENTS / CONTACT / SEARCH
 std("people/index.html","People","people/index.html","People","People","Who is responsible for the series.",
@@ -508,33 +508,33 @@ std("people/index.html","People","people/index.html","People","People","Who is r
 <h2 style="margin-bottom:.2em">Dr. Tuhin G. M. Al Mamun</h2><p class="muted" style="margin-bottom:.8em">Founder and Executive Director</p>
 <p>PhD in Economics. Research on monetary policy transmission, structural and heterogeneous-agent macroeconomic models, Bayesian and time-series econometrics, and applied machine-learning methods.</p>
 <p><a class="link-arrow" href="../tuhin-al-mamun/index.html">Full profile</a> &nbsp; <a class="link-arrow" href="../about/leadership/index.html">Leadership</a> &nbsp; <a class="link-arrow" href="https://tuhingm.github.io/almamun/" rel="noopener">Academic website</a></p></div></div>''',
- "People behind BIQEP Policy Briefs.", siblings=False)
+ "People behind BCQP Policy Briefs.", siblings=False)
 
 # ---- personal profile page (name search)
 prof = head("tuhin-al-mamun/index.html", [("Tuhin Al Mamun", None)], "Economist", "Dr. Tuhin G. M. Al Mamun",
-  "Tuhin Al Mamun is a Bangladeshi economist and the founder of BIQEP Policy Briefs. His work is on monetary policy transmission, econometrics and macroeconomic modeling.") + \
+  "Tuhin Al Mamun is a Bangladeshi economist and the founder of BCQP Policy Briefs. His work is on monetary policy transmission, econometrics and macroeconomic modeling.") + \
  '''<section class="sec"><div class="wrap narrow-w">
 <h2>About Tuhin Al Mamun</h2>
 <p>Dr. Tuhin G. M. Al Mamun (also written Tuhin Al Mamun) is an economist from Bangladesh. He holds a PhD in Economics, with a dissertation on monetary policy transmission in Bangladesh.</p>
-<p>He is the founder and executive director of the Bangladesh Institute of Quantitative Economics and Public Policy (BIQEP) and the author of BIQEP Policy Briefs, a series of data-based briefs on the Bangladesh economy that use official statistics and reproducible methods.</p>
+<p>He is the founder and executive director of the Bangladesh Center for Quantitative Policy (BCQP) and the author of BCQP Policy Briefs, a series of data-based briefs on the Bangladesh economy that use official statistics and reproducible methods.</p>
 <h2>Research interests</h2>
 <ul><li>Monetary, fiscal and environmental policy</li><li>Dynamic stochastic general equilibrium and heterogeneous-agent macroeconomic models</li><li>Bayesian estimation, time-series and regime-switching econometrics</li><li>Applied machine learning for economics: double machine learning, LASSO, random forests and gradient boosting</li></ul>
 <h2>Open Econometric Systems</h2>
-<p>Tuhin Al Mamun develops Open Econometric Systems (OES), an open library of 69 econometric models that the BIQEP briefs use for their estimates. See the <a href="https://tuhingm.github.io/almamun/oes/" rel="noopener">OES page</a> and the <a href="https://github.com/tuhingm/open-econometric-systems" rel="noopener">source code on GitHub</a>.</p>
+<p>Tuhin Al Mamun develops Open Econometric Systems (OES), an open library of 69 econometric models that the BCQP briefs use for their estimates. See the <a href="https://tuhingm.github.io/almamun/oes/" rel="noopener">OES page</a> and the <a href="https://github.com/tuhingm/open-econometric-systems" rel="noopener">source code on GitHub</a>.</p>
 <h2>Elsewhere</h2>
-<ul><li><a href="https://tuhingm.github.io/almamun/" rel="noopener">Academic website of Tuhin Al Mamun</a></li><li><a href="https://github.com/tuhingm" rel="noopener">GitHub: tuhingm</a></li><li><a href="../index.html">BIQEP Policy Briefs</a>, <a href="../people/index.html">People</a></li></ul>
+<ul><li><a href="https://tuhingm.github.io/almamun/" rel="noopener">Academic website of Tuhin Al Mamun</a></li><li><a href="https://github.com/tuhingm" rel="noopener">GitHub: tuhingm</a></li><li><a href="../index.html">BCQP Policy Briefs</a>, <a href="../people/index.html">People</a></li></ul>
 </div></section>'''
-page("tuhin-al-mamun/index.html", "Tuhin Al Mamun: Economist and Founder of BIQEP",
- "Tuhin Al Mamun (Tuhin G. M. Al Mamun) is a Bangladeshi economist with a PhD in economics, researching monetary policy transmission and econometrics, and founder of BIQEP Policy Briefs.", prof, "People")
+page("tuhin-al-mamun/index.html", "Tuhin Al Mamun: Economist and Founder of BCQP",
+ "Tuhin Al Mamun (Tuhin G. M. Al Mamun) is a Bangladeshi economist with a PhD in economics, researching monetary policy transmission and econometrics, and founder of BCQP Policy Briefs.", prof, "People")
 
 std("news/index.html","News","news/index.html","News","News","Release notes and corrections.",
  '''<div class="empty"><h3>No news published yet</h3><p>Release notes, new series and corrections are listed here with their dates.</p></div>
 ''',
- "News and release notes from BIQEP Policy Briefs.")
+ "News and release notes from BCQP Policy Briefs.")
 
 std("news/events/index.html","News","news/index.html","Events","News","Seminars and talks.",
  '''<div class="empty"><h3>No events listed</h3><p>No events are listed at present.</p></div>''',
- "Events of BIQEP Policy Briefs.")
+ "Events of BCQP Policy Briefs.")
 
 std("contact/index.html","Contact","contact/index.html","Contact","Contact","Research collaboration, data corrections and policy questions.",
  '''<p>Contact details will be listed here.</p>
@@ -543,18 +543,18 @@ std("contact/index.html","Contact","contact/index.html","Contact","Contact","Res
 <h2>Collaboration and questions</h2>
 <p>We welcome conversation on research collaboration, methods and the data used in the briefs. Please name the brief or series you are writing about. See <a href="../research/collaboration/index.html">research collaboration</a>.</p>
 <h2>What to include</h2>''' + ul(["the brief or series you mean;","the figure or claim in question;","the official release you are comparing it with, if any."]),
- "How to reach BIQEP Policy Briefs about corrections, collaboration and questions.", siblings=False)
+ "How to reach BCQP Policy Briefs about corrections, collaboration and questions.", siblings=False)
 
 body = head("search/index.html", [("Search", None)], "Search", "Search the site", "Find pages, research areas, series and policies.") + \
   '<section class="sec"><div class="wrap narrow-w"><div data-render="site-search"></div></div></section>'
-page("search/index.html","Search","Search BIQEP Policy Briefs.",body,"Search",search=False)
+page("search/index.html","Search","Search BCQP Policy Briefs.",body,"Search",search=False)
 
 # =============================================================== 404
-r = "/institute/"
+r = "/center/"
 nf = f'''<section class="pagehead"><div class="wrap"><div class="eyebrow">404</div><h1>Page not found</h1><p class="lede">That page does not exist. Try the briefs, the data hub or the home page.</p></div></section>
 <section class="sec"><div class="wrap"><div class="btns" style="margin-top:0"><a class="btn" href="{r}index.html">Home</a><a class="btn line" href="{r}briefs/index.html">Policy briefs</a><a class="btn line" href="{r}data/index.html">Data hub</a><a class="btn line" href="{r}search/index.html">Search</a></div></div></section>'''
 html404 = f'''<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Page not found | BIQEP Policy Briefs</title><meta name="robots" content="noindex">{FONTS}<link rel="stylesheet" href="{r}assets/style.css"></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Page not found | BCQP Policy Briefs</title><meta name="robots" content="noindex">{FONTS}<link rel="stylesheet" href="{r}assets/style.css"></head>
 <body><div id="hdr"></div><main id="main">{nf}</main><div id="ftr"></div><script src="{r}assets/data.js"></script><script src="{r}assets/pages.js"></script><script src="{r}assets/site.js" data-root="{r}"></script></body></html>
 '''
 open(R+"/404.html","w",encoding="utf-8").write(html404)
@@ -571,9 +571,9 @@ for b in json.load(open(R+"/content/briefs.json", encoding="utf-8")):
     URLS.append("briefs/%s.html" % b["slug"])
     BRIEF_DATES["briefs/%s.html" % b["slug"]] = b["slug"][-10:]
 
-open(R+"/assets/pages.js","w",encoding="utf-8").write("window.BIQEP_PAGES = " + json.dumps(PAGES, ensure_ascii=False, indent=0) + ";\n")
-open(R+"/robots.txt","w").write("User-agent: *\nAllow: /\nSitemap: https://biqep.github.io/institute/sitemap.xml\n")
+open(R+"/assets/pages.js","w",encoding="utf-8").write("window.BCQP_PAGES = " + json.dumps(PAGES, ensure_ascii=False, indent=0) + ";\n")
+open(R+"/robots.txt","w").write("User-agent: *\nAllow: /\nSitemap: https://bcqp.github.io/center/sitemap.xml\n")
 _latest = max(BRIEF_DATES.values()) if BRIEF_DATES else json.load(open(R+"/latest.json", encoding="utf-8")).get("updated", "")[:10]
-open(R+"/sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"<url><loc>https://biqep.github.io/institute/{u}</loc><lastmod>{BRIEF_DATES.get(u, _latest)}</lastmod></url>\n" for u in sorted(set(URLS))) + "</urlset>\n")
+open(R+"/sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"<url><loc>https://bcqp.github.io/center/{u}</loc><lastmod>{BRIEF_DATES.get(u, _latest)}</lastmod></url>\n" for u in sorted(set(URLS))) + "</urlset>\n")
 
 print(len(PAGES), "pages")
